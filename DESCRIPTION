@@ -10,4 +10,4 @@ License: GPL-3
 Depends:
     R (>= 3.0)
 Imports:
-    rmarkdown(>= 0.3.2)
+    rmarkdown(>= 0.3.3)
