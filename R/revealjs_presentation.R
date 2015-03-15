@@ -182,22 +182,25 @@ revealjs_themes <- function() {
     "beige",
     "serif",
     "solarized",
-    "dark",
     "blood",
     "moon",
-    "night")
+    "night",
+    "black",
+    "league",
+    "white")
 }
 
 
 revealjs_transitions <- function() {
-  c("default",
-    "cube",
-    "page",
-    "concave",
-    "zoom",
-    "linear",
+  c(
+    "default",
+    "none",
     "fade",
-    "none")
+    "slide",
+    "convex",
+    "concave",
+    "zoom"
+    )
 }
 
 
