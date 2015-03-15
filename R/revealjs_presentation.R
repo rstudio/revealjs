@@ -80,6 +80,7 @@ revealjs_presentation <- function(incremental = FALSE,
                                   self_contained = TRUE,
                                   theme = "default",
                                   transition = "default",
+                                  background_transition = "default",
                                   highlight = "default",
                                   mathjax = "default",
                                   template = "default",
@@ -127,6 +128,10 @@ revealjs_presentation <- function(incremental = FALSE,
   # transition
   transition <- match.arg(transition, revealjs_transitions())
   args <- c(args, "--variable", paste("transition=", transition, sep=""))
+  
+  # background_transition
+  background_transition <- match.arg(background_transition, revealjs_transitions())
+  args <- c(args, "--variable", paste("background_transition=", background_transition, sep=""))
   
   # content includes
   args <- c(args, includes_to_pandoc_args(includes))
@@ -182,22 +187,25 @@ revealjs_themes <- function() {
     "beige",
     "serif",
     "solarized",
-    "dark",
     "blood",
     "moon",
-    "night")
+    "night",
+    "black",
+    "league",
+    "white")
 }
 
 
 revealjs_transitions <- function() {
-  c("default",
-    "cube",
-    "page",
-    "concave",
-    "zoom",
-    "linear",
+  c(
+    "default",
+    "none",
     "fade",
-    "none")
+    "slide",
+    "convex",
+    "concave",
+    "zoom"
+    )
 }
 
 
