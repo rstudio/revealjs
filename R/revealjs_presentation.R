@@ -7,10 +7,12 @@
 #' @inheritParams rmarkdown::html_document
 #'
 #' @param center \code{TRUE} to vertically center content on slides
-#' @param theme Visual theme ("default", "simple", sky", "beige", "serif", or
-#'   "solarized").
-#' @param transition Slide transition ("default", "cube", "page", "concave",
-#'   "zoom", "linear", "fade", or "none")
+#' @param theme Visual theme ("default", "simple", "sky", "beige", "serif", 
+#'   "solarized", "blood", "moon", "night", "black", "league" or "white").
+#' @param transition Slide transition ("default", "none", "fade", "slide", 
+#'   "convex", "concave" or "zoom")
+#' @param background_transition Slide background-transition ("default", "none", "fade", "slide", 
+#'   "convex", "concave" or "zoom")
 #' @param template Pandoc template to use for rendering. Pass "default"
 #'   to use the rmarkdown package default template; pass \code{NULL}
 #'   to use pandoc's built-in template; pass a path to use a custom template
