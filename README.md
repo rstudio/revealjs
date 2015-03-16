@@ -74,9 +74,11 @@ others you can use this syntax:
 
 There are several options that control the appearance of revealjs presentations:
 
-* `theme` specifies the theme to use for the presentation (available themes are "default", "simple", "sky", "beige", "serif", "dark", or "solarized").
+* `theme` specifies the theme to use for the presentation (available themes are "default", "simple", "sky", "beige", "serif", "solarized", "blood", "moon", "night", "black", "league" or  "white").
 
-* `transition` specifies the visual effect when moving between slides. Available transitions are "default", "cube", "page", "concave", "zoom", "linear", "fade", or "none".
+* `transition` specifies the visual effect when moving between slides. Available transitions are "default", "fade", "slide", "convex", "concave", "zoom" or "none".
+
+* `background_transition` specifies the background transition effect when moving between full page slides. Available transitions are "default", "fade", "slide", "convex", "concave", "zoom" or "none".
 
 * `highlight` specifies the syntax highlighting style. Supported styles include "default", "tango", "pygments", "kate", "monochrome", "espresso", "zenburn", and "haddock". Pass null to prevent syntax highlighting.
 
