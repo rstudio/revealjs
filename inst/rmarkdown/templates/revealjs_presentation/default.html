@@ -15,6 +15,31 @@ $endif$
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="$revealjs-url$/css/reveal.min.css"/>
 
+$if(highlightjs)$
+<link rel="stylesheet"
+      href="$highlightjs$/$if(highlightjs-theme)$$highlightjs-theme$$else$default$endif$.css"
+      $if(html5)$$else$type="text/css" $endif$/>
+<script src="$highlightjs$/highlight.js"></script>
+$endif$
+
+$if(highlighting-css)$
+<style type="text/css">
+$highlighting-css$
+</style>
+$endif$
+
+$if(theme)$
+<link rel="stylesheet" href="$revealjs-url$/css/theme/$theme$.css" id="theme">
+$endif$
+
+$if(theme-dark)$
+<style type="text/css">
+.reveal section img {
+  background: rgba(255, 255, 255, 0.85);
+}
+</style>
+$endif$
+
   <!-- some tweaks to reveal css -->
   <style type="text/css">
     .reveal h1 { font-size: 2.0em; }
@@ -65,31 +90,6 @@ $endif$
   </style>
 
     <style type="text/css">code{white-space: pre;}</style>
-
-$if(highlightjs)$
-<link rel="stylesheet"
-      href="$highlightjs$/$if(highlightjs-theme)$$highlightjs-theme$$else$default$endif$.css"
-      $if(html5)$$else$type="text/css" $endif$/>
-<script src="$highlightjs$/highlight.js"></script>
-$endif$
-
-$if(highlighting-css)$
-<style type="text/css">
-$highlighting-css$
-</style>
-$endif$
-
-$if(theme)$
-<link rel="stylesheet" href="$revealjs-url$/css/theme/$theme$.css" id="theme">
-$endif$
-
-$if(theme-dark)$
-<style type="text/css">
-.reveal section img {
-  background: rgba(255, 255, 255, 0.85);
-}
-</style>
-$endif$
 
 $if(css)$
 $for(css)$
