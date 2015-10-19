@@ -86,6 +86,7 @@ revealjs_presentation <- function(incremental = FALSE,
                                   highlight = "default",
                                   mathjax = "default",
                                   template = "default",
+                                  css = NULL,
                                   includes = NULL,
                                   keep_md = FALSE,
                                   lib_dir = NULL,
@@ -137,6 +138,10 @@ revealjs_presentation <- function(incremental = FALSE,
   
   # content includes
   args <- c(args, includes_to_pandoc_args(includes))
+  
+  # additional css
+  for (css_file in css)
+    args <- c(args, "--css", pandoc_path_arg(css_file))
   
   # pre-processor for arguments that may depend on the name of the
   # the input file (e.g. ones that need to copy supporting files)
