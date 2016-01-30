@@ -13,3 +13,4 @@ Imports:
     rmarkdown(>= 0.3.3)
 Suggests:
     testthat
+RoxygenNote: 5.0.1
