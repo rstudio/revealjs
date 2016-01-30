@@ -95,7 +95,7 @@ revealjs_presentation <- function(incremental = FALSE,
   
   # function to lookup reveal resource
   reveal_resources <- function() {
-    system.file("rmarkdown/templates/revealjs_presentation",
+    system.file("rmarkdown/templates/revealjs_presentation/resources",
                 package = "revealjs")
   }
   
@@ -156,7 +156,7 @@ revealjs_presentation <- function(incremental = FALSE,
     args <- c()
     
     # reveal.js
-    revealjs_path <- reveal_resources()
+    revealjs_path <- file.path(reveal_resources(), "reveal-3.0.0")
     if (!self_contained || identical(.Platform$OS.type, "windows"))
       revealjs_path <- relative_to(
         output_dir, render_supporting_files(revealjs_path, lib_dir))
