@@ -14,6 +14,8 @@
 #' @param background_transition Slide background-transition ("default", "none", "fade", "slide", 
 #'   "convex", "concave" or "zoom")
 #' @param history \code{TRUE} to push each slide change to the browser history.
+#' @param reveal_options Additional options to specify for reveal.js (see
+#'   \href{https://github.com/hakimel/reveal.js#configuration}{https://github.com/hakimel/reveal.js#configuration} for details). 
 #' @param template Pandoc template to use for rendering. Pass "default"
 #'   to use the rmarkdown package default template; pass \code{NULL}
 #'   to use pandoc's built-in template; pass a path to use a custom template
@@ -86,6 +88,7 @@ revealjs_presentation <- function(incremental = FALSE,
                                   transition = "default",
                                   background_transition = "default",
                                   history = TRUE,
+                                  reveal_options = NULL,
                                   highlight = "default",
                                   mathjax = "default",
                                   template = "default",
@@ -145,6 +148,16 @@ revealjs_presentation <- function(incremental = FALSE,
   
   # history
   args <- c(args, pandoc_variable_arg("history", jsbool(history)))
+  
+  # additional reveal options
+  if (is.list(reveal_options)) {
+    for (option in names(reveal_options)) {
+      value <- reveal_options[[option]]
+      if (is.logical(value))
+        value <- jsbool(value)
+      args <- c(args, pandoc_variable_arg(option, value))
+    }
+  }
   
   # content includes
   args <- c(args, includes_to_pandoc_args(includes))

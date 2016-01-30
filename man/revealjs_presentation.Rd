@@ -8,9 +8,10 @@ revealjs_presentation(incremental = FALSE, center = FALSE, fig_width = 8,
   fig_height = 6, fig_retina = if (!fig_caption) 2, fig_caption = FALSE,
   smart = TRUE, self_contained = TRUE, theme = "simple",
   transition = "default", background_transition = "default",
-  highlight = "default", mathjax = "default", template = "default",
-  css = NULL, includes = NULL, keep_md = FALSE, lib_dir = NULL,
-  pandoc_args = NULL, ...)
+  history = TRUE, reveal_options = NULL, highlight = "default",
+  mathjax = "default", template = "default", css = NULL,
+  includes = NULL, keep_md = FALSE, lib_dir = NULL, pandoc_args = NULL,
+  ...)
 }
 \arguments{
 \item{incremental}{\code{TRUE} to render slide bullets incrementally. Note
@@ -51,6 +52,11 @@ it's size).}
 
 \item{background_transition}{Slide background-transition ("default", "none", "fade", "slide", 
 "convex", "concave" or "zoom")}
+
+\item{history}{\code{TRUE} to push each slide change to the browser history.}
+
+\item{reveal_options}{Additional options to specify for reveal.js (see
+\href{https://github.com/hakimel/reveal.js#configuration}{https://github.com/hakimel/reveal.js#configuration} for details).}
 
 \item{highlight}{Syntax highlighting style. Supported styles include
 "default", "tango", "pygments", "kate", "monochrome", "espresso",
