@@ -84,6 +84,7 @@ revealjs_presentation <- function(incremental = FALSE,
                                   theme = "simple",
                                   transition = "default",
                                   background_transition = "default",
+                                  history = TRUE,
                                   highlight = "default",
                                   mathjax = "default",
                                   template = "default",
@@ -119,8 +120,8 @@ revealjs_presentation <- function(incremental = FALSE,
     args <- c(args, "--incremental")
   
   # centering
-  if (center)
-    args <- c(args, "--variable", "center")
+  jsbool <- function(value) ifelse(value, "true", "false")
+  args <- c(args, pandoc_variable_arg("center", jsbool(center)))
   
   # theme
   theme <- match.arg(theme, revealjs_themes())
@@ -139,7 +140,10 @@ revealjs_presentation <- function(incremental = FALSE,
   
   # background_transition
   background_transition <- match.arg(background_transition, revealjs_transitions())
-  args <- c(args, "--variable", paste("background_transition=", background_transition, sep=""))
+  args <- c(args, "--variable", paste("backgroundTransition=", background_transition, sep=""))
+  
+  # history
+  args <- c(args, pandoc_variable_arg("history", jsbool(history)))
   
   # content includes
   args <- c(args, includes_to_pandoc_args(includes))
