@@ -7,7 +7,7 @@
 #' @inheritParams rmarkdown::html_document
 #'
 #' @param center \code{TRUE} to vertically center content on slides
-#' @param theme Visual theme ("default", "simple", "sky", "beige", "serif", 
+#' @param theme Visual theme ("simple", "sky", "beige", "serif", 
 #'   "solarized", "blood", "moon", "night", "black", "league" or "white").
 #' @param transition Slide transition ("default", "none", "fade", "slide", 
 #'   "convex", "concave" or "zoom")
@@ -80,7 +80,7 @@ revealjs_presentation <- function(incremental = FALSE,
                                   fig_caption = FALSE,
                                   smart = TRUE,
                                   self_contained = TRUE,
-                                  theme = "default",
+                                  theme = "simple",
                                   transition = "default",
                                   background_transition = "default",
                                   highlight = "default",
@@ -122,8 +122,8 @@ revealjs_presentation <- function(incremental = FALSE,
   if (identical(theme, "default"))
     theme <- "simple"
   else if (identical(theme, "dark"))
-    theme <- "default"
-  if (theme %in% c("default", "blood", "moon", "night"))
+    theme <- "black"
+  if (theme %in% c("blood", "moon", "night", "black"))
     args <- c(args, "--variable", "theme-dark")
   args <- c(args, "--variable", paste("theme=", theme, sep=""))
   
@@ -156,7 +156,7 @@ revealjs_presentation <- function(incremental = FALSE,
     args <- c()
     
     # reveal.js
-    revealjs_path <- file.path(reveal_resources(), "reveal-3.0.0")
+    revealjs_path <- file.path(reveal_resources(), "reveal.js-3.2.0")
     if (!self_contained || identical(.Platform$OS.type, "windows"))
       revealjs_path <- relative_to(
         output_dir, render_supporting_files(revealjs_path, lib_dir))
@@ -189,6 +189,7 @@ revealjs_presentation <- function(incremental = FALSE,
 
 revealjs_themes <- function() {
   c("default",
+    "dark",
     "simple",
     "sky",
     "beige",

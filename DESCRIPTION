@@ -11,3 +11,5 @@ Depends:
     R (>= 3.0)
 Imports:
     rmarkdown(>= 0.3.3)
+Suggests:
+    testthat

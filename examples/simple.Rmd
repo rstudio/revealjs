@@ -2,7 +2,7 @@
 title: "Untitled"
 output: 
   revealjs::revealjs_presentation:
-    self_contained: false
+    self_contained: true
 ---
 
 ```{r setup, include=FALSE}
