@@ -19,6 +19,7 @@
 #'   that you've created. Note that if you don't use the "default" template
 #'   then some features of \code{revealjs_presentation} won't be available
 #'   (see the Templates section below for more details).
+#' @param ... Ignored
 #'
 #' @return R Markdown output format to pass to \code{\link{render}}
 #'

@@ -80,6 +80,8 @@ bootstrap, etc.) into. By default this will be the name of the document
 with \code{_files} appended to it.}
 
 \item{pandoc_args}{Additional command line options to pass to pandoc}
+
+\item{...}{Ignored}
 }
 \value{
 R Markdown output format to pass to \code{\link{render}}
