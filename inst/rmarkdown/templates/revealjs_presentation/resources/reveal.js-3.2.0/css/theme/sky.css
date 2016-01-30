@@ -3,8 +3,44 @@
  *
  * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
  */
-@import url(https://fonts.googleapis.com/css?family=Quicksand:400,700,400italic,700italic);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
+
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/Quicksand.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
+  src: url(fonts/QuicksandBold.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/OpenSans.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url(fonts/OpenSansBold.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: url(fonts/OpenSansItalic.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 700;
+  src: url(fonts/OpenSansBoldItalic.ttf) format('truetype');
+}
+
 .reveal a {
   line-height: 1.3em; }
 

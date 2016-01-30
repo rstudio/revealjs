@@ -3,7 +3,33 @@
  * Author: Achim Staebler
  */
 @import url(../../lib/font/league-gothic/league-gothic.css);
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/Lato.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: url(fonts/LatoBold.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+  src: url(fonts/LatoItalic.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 700;
+  src: url(fonts/LatoBoldItalic.ttf) format('truetype');
+}
+
+
 /**
  * Solarized colors by Ethan Schoonover
  */
