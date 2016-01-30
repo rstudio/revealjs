@@ -103,11 +103,15 @@ revealjs_presentation <- function(incremental = FALSE,
   args <- c()
   
   # template path and assets
-  if (identical(template, "default"))
-    args <- c(args, "--template",
-              pandoc_path_arg(file.path(reveal_resources(), "default.html")))
-  else if (!is.null(template))
+  if (identical(template, "default")) {
+    default_template <- system.file(
+      "rmarkdown/templates/revealjs_presentation/resources/default.html",
+      package = "revealjs"
+    )
+    args <- c(args, "--template", pandoc_path_arg(default_template))
+  } else if (!is.null(template)) {
     args <- c(args, "--template", pandoc_path_arg(template))
+  }
   
   # incremental
   if (incremental)
@@ -156,7 +160,7 @@ revealjs_presentation <- function(incremental = FALSE,
     args <- c()
     
     # reveal.js
-    revealjs_path <- file.path(reveal_resources(), "reveal.js-3.2.0")
+    revealjs_path <- system.file("reveal.js-3.2.0", package = "revealjs")
     if (!self_contained || identical(.Platform$OS.type, "windows"))
       revealjs_path <- relative_to(
         output_dir, render_supporting_files(revealjs_path, lib_dir))
