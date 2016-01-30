@@ -84,7 +84,6 @@ revealjs_presentation <- function(incremental = FALSE,
                                   theme = "simple",
                                   transition = "default",
                                   background_transition = "default",
-                                  history = TRUE,
                                   highlight = "default",
                                   mathjax = "default",
                                   template = "default",
@@ -142,8 +141,6 @@ revealjs_presentation <- function(incremental = FALSE,
   background_transition <- match.arg(background_transition, revealjs_transitions())
   args <- c(args, "--variable", paste("backgroundTransition=", background_transition, sep=""))
   
-  # history
-  args <- c(args, pandoc_variable_arg("history", jsbool(history)))
   
   # content includes
   args <- c(args, includes_to_pandoc_args(includes))
