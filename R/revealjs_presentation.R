@@ -167,6 +167,12 @@ revealjs_presentation <- function(incremental = FALSE,
   pre_processor <- function(metadata, input_file, runtime, knit_meta, files_dir,
                             output_dir) {
     
+    # we don't work with runtime shiny
+    if (identical(runtime, "shiny")) {
+      stop("revealjs_presentation is not compatible with runtime 'shiny'", 
+           call. = FALSE)
+    }
+    
     # use files_dir as lib_dir if not explicitly specified
     if (is.null(lib_dir))
       lib_dir <- files_dir
