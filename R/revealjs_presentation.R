@@ -13,6 +13,7 @@
 #'   "convex", "concave" or "zoom")
 #' @param background_transition Slide background-transition ("default", "none", "fade", "slide", 
 #'   "convex", "concave" or "zoom")
+#' @param history \code{TRUE} to push each slide change to the browser history.
 #' @param template Pandoc template to use for rendering. Pass "default"
 #'   to use the rmarkdown package default template; pass \code{NULL}
 #'   to use pandoc's built-in template; pass a path to use a custom template
