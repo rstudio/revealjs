@@ -13,7 +13,6 @@
 #'   "convex", "concave" or "zoom")
 #' @param background_transition Slide background-transition ("default", "none", "fade", "slide", 
 #'   "convex", "concave" or "zoom")
-#' @param history \code{TRUE} to push each slide change to the browser history.
 #' @param reveal_options Additional options to specify for reveal.js (see
 #'   \href{https://github.com/hakimel/reveal.js#configuration}{https://github.com/hakimel/reveal.js#configuration} for details). 
 #' @param template Pandoc template to use for rendering. Pass "default"

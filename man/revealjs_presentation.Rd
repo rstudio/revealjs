@@ -85,8 +85,6 @@ with \code{_files} appended to it.}
 \item{pandoc_args}{Additional command line options to pass to pandoc}
 
 \item{...}{Ignored}
-
-\item{history}{\code{TRUE} to push each slide change to the browser history.}
 }
 \value{
 R Markdown output format to pass to \code{\link{render}}
