@@ -1,12 +1,17 @@
 Package: revealjs
 Type: Package
-Title: R Markdown format for revealjs presentations
+Title: R Markdown format for 'reveal.js' presentations
 Version: 0.5
-Date: 2014-09-15
-Author: JJ Allaire
-Maintainer: JJ Allaire <jj@rstudio.com>
-Description: More about what it does (maybe more than one line)
-License: GPL-3
+Date: 2015-01-30
+Authors@R: c(
+    person("Hakim", "El Hattab", role = c("aut", "cph"),
+       comment = "reveal.js-3.2.0, https://github.com/hakimel/reveal.js"),
+    person("JJ", "Allaire", role = c("aut", "cre"), email = "jj@rstudio.com"),
+    person(family = "RStudio", role = "cph")
+  )
+Description: R Markdown format for 'reveal.js' presentations, a framework 
+  for easily creating beautiful presentations using HTML.
+License: MIT + file LICENSE
 Depends:
     R (>= 3.0)
 Imports:
