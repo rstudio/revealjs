@@ -12,8 +12,6 @@ R Markdown Format for reveal.js Presentations
 -   [MathJax Equations](#mathjax-equations)
 -   [Document Dependencies](#document-dependencies)
 -   [Advanced Customization](#advanced-customization)
-    -   [Includes](#includes)
-    -   [Pandoc Arguments](#pandoc-arguments)
 -   [Shared Options](#shared-options)
 
 Overview

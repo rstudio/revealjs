@@ -3,7 +3,7 @@ title: "R Markdown Format for reveal.js Presentations"
 output: 
   github_document:
     toc: true
-    toc_depth: 3
+    toc_depth: 2
 ---
 
 ## Overview
