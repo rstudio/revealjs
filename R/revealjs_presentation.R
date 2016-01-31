@@ -40,25 +40,6 @@
 #' 
 #' For additional documentation on using revealjs presentations see
 #' \href{https://github.com/rstudio/revealjs}{https://github.com/rstudio/revealjs}.
-#' 
-#' @section Templates:
-#'   
-#'   You can provide a custom HTML template to be used for rendering. The syntax
-#'   for templates is described in the documentation on 
-#'   \href{http://johnmacfarlane.net/pandoc/demo/example9/templates.html}{pandoc
-#'   templates}. You can also use the basic pandoc template by passing 
-#'   \code{template = NULL}.
-#'   
-#'   Note however that if you choose not to use the "default" reveal.js template
-#'   then several aspects of reveal.js presentation rendering will behave 
-#'   differently:
-#'   
-#'   \itemize{ \item{The \code{center} parameter does not work (you'd need to 
-#'   set this directly in the template). } \item{The built-in template includes
-#'   some additional tweaks to styles to optimize for output from R, these won't
-#'   be present. } \item{MathJax will not work if \code{self_contained} is
-#'   \code{TRUE} (these two options can't be used together in normal pandoc
-#'   templates). } }
 #'   
 #' @examples
 #' \dontrun{
