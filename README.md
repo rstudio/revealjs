@@ -7,6 +7,7 @@ R Markdown Format for reveal.js Presentations
 -   [Appearance and Style](#appearance-and-style)
 -   [Slide Transitions](#slide-transitions)
 -   [Slide Backgrounds](#slide-backgrounds)
+-   [2-D Presenations](#d-presenations)
 -   [Reveal.js Options](#reveal.js-options)
 -   [Figure Options](#figure-options)
 -   [MathJax Equations](#mathjax-equations)
@@ -151,6 +152,21 @@ Slides are contained within a limited portion of the screen by default to allow 
     ## Embed a web page as a background {data-background-iframe="https://example.com"}
 
 Backgrounds transition using a fade animation by default. This can be changed to a linear sliding transition by specifying the `background-transition: slide`. Alternatively you can set data-background-transition on any slide with a background to override that specific transition.
+
+2-D Presenations
+----------------
+
+You can use the `slide_level` option to specify which level of heading will be used to denote individual slides. If `slide_level` is 2 (the default), a two-dimensional layout will be produced, with level 1 headers building horizontally and level 2 headers building vertically. For example:
+
+    # Horizontal Slide 1
+
+    ## Vertical Slide 1
+
+    ## Vertical Slide 2
+
+    # Horizontal Slide 2
+
+With this layout horizontal navigation will proceed directly from "Horizontal Slide 1" to "Horizontal Slide 2", with vertical navigation to "Vertical Slide 1", etc. presented as an option on "Horizontal Slide 1".
 
 Reveal.js Options
 -----------------
