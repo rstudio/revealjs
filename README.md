@@ -5,6 +5,7 @@ R Markdown Format for reveal.js Presentations
 -   [Display Modes](#display-modes)
 -   [Incremental Bullets](#incremental-bullets)
 -   [Appearance and Style](#appearance-and-style)
+-   [Slide Transitions](#slide-transitions)
 -   [Slide Backgrounds](#slide-backgrounds)
 -   [Reveal.js Options](#reveal.js-options)
 -   [Figure Options](#figure-options)
@@ -93,10 +94,6 @@ There are several options that control the appearance of revealjs presentations:
 
 -   `theme` specifies the theme to use for the presentation (available themes are "default", "simple", "sky", "beige", "serif", "solarized", "blood", "moon", "night", "black", "league" or "white").
 
--   `transition` specifies the visual effect when moving between slides. Available transitions are "default", "fade", "slide", "convex", "concave", "zoom" or "none".
-
--   `background_transition` specifies the background transition effect when moving between full page slides. Available transitions are "default", "fade", "slide", "convex", "concave", "zoom" or "none".
-
 -   `highlight` specifies the syntax highlighting style. Supported styles include "default", "tango", "pygments", "kate", "monochrome", "espresso", "zenburn", and "haddock". Pass null to prevent syntax highlighting.
 
 -   `center` specifies whether you want to vertically center content on slides (this defaults to false).
@@ -109,10 +106,38 @@ For example:
     output:
       revealjs::revealjs_presentation:
         theme: sky
-        transition: fade
         highlight: pygments
         center: true
     ---
+
+Slide Transitions
+-----------------
+
+You can use the `transition` and `background_transition` optoins to specify the global default slide transition style:
+
+-   `transition` specifies the visual effect when moving between slides. Available transitions are "default", "fade", "slide", "convex", "concave", "zoom" or "none".
+
+-   `background_transition` specifies the background transition effect when moving between full page slides. Available transitions are "default", "fade", "slide", "convex", "concave", "zoom" or "none".
+
+For example:
+
+    ---
+    output:
+      revealjs::revealjs_presentation:
+        transition: fade
+    ---
+
+You can override the global transition for a specific slide by using the data-transition attribute, for example:
+
+    ## Use a zoom transition {data-transition="zoom"}
+
+    ## Use a faster speed {data-transition-speed="fast"}
+
+You can also use different in and out transitions for the same slide, for example:
+
+    ## Fade in, Slide out {data-transition="slide-in fade-out"}
+
+    ## Slide in, Fade out {data-transition="fade-in slide-out"}
 
 Slide Backgrounds
 -----------------
