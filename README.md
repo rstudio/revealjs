@@ -23,7 +23,7 @@ This repository provides an [R Markdown](http://rmarkdown.rstudio.com) custom fo
 You can use this format in R Markdown documents by installing this package as follows:
 
 ``` r
-devtools::install_github("jjallaire/revealjs")
+install.packages("revealjs", type = "source")
 ```
 
 To create a [reveal.js](http://lab.hakim.se/reveal-js/#/) presentation from R Markdown you specify the `revealjs_presentation` output format in the front-matter of your document. You can create a slide show broken up into sections by using the `#` and `##` heading tags (you can also create a new slide without a header using a horizontal rule (`----`). For example here's a simple slide show:

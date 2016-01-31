@@ -13,7 +13,7 @@ This repository provides an [R Markdown](http://rmarkdown.rstudio.com) custom fo
 You can use this format in R Markdown documents by installing this package as follows:
 
 ```r
-devtools::install_github("jjallaire/revealjs")
+install.packages("revealjs", type = "source")
 ```
 
 
