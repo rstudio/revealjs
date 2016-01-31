@@ -1,80 +1,83 @@
 #' Convert to a reveal.js presentation
-#'
+#' 
 #' Format for converting from R Markdown to a reveal.js presentation.
-#'
+#' 
 #' @inheritParams rmarkdown::beamer_presentation
 #' @inheritParams rmarkdown::pdf_document
 #' @inheritParams rmarkdown::html_document
-#'
+#'   
 #' @param center \code{TRUE} to vertically center content on slides
-#' @param theme Visual theme ("simple", "sky", "beige", "serif", 
-#'   "solarized", "blood", "moon", "night", "black", "league" or "white").
+#' @param slide_level Level of heading to denote individual slides. If
+#'   \code{slide_level} is 2 (the default), a two-dimensional layout will be
+#'   produced, with level 1 headers building horizontally and level 2 headers
+#'   building vertically. It is not recommended that you use deeper nesting of
+#'   section levels with reveal.js.
+#' @param theme Visual theme ("simple", "sky", "beige", "serif", "solarized",
+#'   "blood", "moon", "night", "black", "league" or "white").
 #' @param transition Slide transition ("default", "none", "fade", "slide", 
 #'   "convex", "concave" or "zoom")
-#' @param background_transition Slide background-transition ("default", "none", "fade", "slide", 
-#'   "convex", "concave" or "zoom")
-#' @param reveal_options Additional options to specify for reveal.js (see
-#'   \href{https://github.com/hakimel/reveal.js#configuration}{https://github.com/hakimel/reveal.js#configuration} for details). 
-#' @param template Pandoc template to use for rendering. Pass "default"
-#'   to use the rmarkdown package default template; pass \code{NULL}
-#'   to use pandoc's built-in template; pass a path to use a custom template
-#'   that you've created. Note that if you don't use the "default" template
-#'   then some features of \code{revealjs_presentation} won't be available
-#'   (see the Templates section below for more details).
+#' @param background_transition Slide background-transition ("default", "none",
+#'   "fade", "slide", "convex", "concave" or "zoom")
+#' @param reveal_options Additional options to specify for reveal.js (see 
+#'   \href{https://github.com/hakimel/reveal.js#configuration}{https://github.com/hakimel/reveal.js#configuration}
+#'   for details).
+#' @param template Pandoc template to use for rendering. Pass "default" to use
+#'   the rmarkdown package default template; pass \code{NULL} to use pandoc's
+#'   built-in template; pass a path to use a custom template that you've
+#'   created. Note that if you don't use the "default" template then some
+#'   features of \code{revealjs_presentation} won't be available (see the
+#'   Templates section below for more details).
 #' @param ... Ignored
-#'
+#'   
 #' @return R Markdown output format to pass to \code{\link{render}}
-#'
+#'   
 #' @details
-#'
-#' In reveal.js presentations you can use level 1 or level 2 headers for
-#' slides. If you use a mix of level 1 and level 2 headers then a
-#' two-dimensional layout will be produced, with level 1 headers building
-#' horizontally and level 2 headers building vertically.
 #' 
-#' For additional documentation on using revealjs presentations see \href{https://github.com/rstudio/revealjs}{https://github.com/rstudio/revealjs}.
+#' In reveal.js presentations you can use level 1 or level 2 headers for slides.
+#' If you use a mix of level 1 and level 2 headers then a two-dimensional layout
+#' will be produced, with level 1 headers building horizontally and level 2
+#' headers building vertically.
+#' 
+#' For additional documentation on using revealjs presentations see
+#' \href{https://github.com/rstudio/revealjs}{https://github.com/rstudio/revealjs}.
 #' 
 #' @section Templates:
-#'
-#' You can provide a custom HTML template to be used for rendering. The syntax
-#' for templates is described in the documentation on
-#' \href{http://johnmacfarlane.net/pandoc/demo/example9/templates.html}{pandoc
-#' templates}. You can also use the basic pandoc template by passing
-#' \code{template = NULL}.
-#'
-#' Note however that if you choose not to use the "default" reveal.js template
-#' then several aspects of reveal.js presentation rendering will behave
-#' differently:
-#'
-#' \itemize{
-#'   \item{The \code{center} parameter does not work (you'd need to
-#'      set this directly in the template).
-#'   }
-#'   \item{The built-in template includes some additional tweaks to styles
-#'      to optimize for output from R, these won't be present.
-#'   }
-#'   \item{MathJax will not work if \code{self_contained} is \code{TRUE}
-#'      (these two options can't be used together in normal pandoc templates).
-#'   }
-#' }
-#'
+#'   
+#'   You can provide a custom HTML template to be used for rendering. The syntax
+#'   for templates is described in the documentation on 
+#'   \href{http://johnmacfarlane.net/pandoc/demo/example9/templates.html}{pandoc
+#'   templates}. You can also use the basic pandoc template by passing 
+#'   \code{template = NULL}.
+#'   
+#'   Note however that if you choose not to use the "default" reveal.js template
+#'   then several aspects of reveal.js presentation rendering will behave 
+#'   differently:
+#'   
+#'   \itemize{ \item{The \code{center} parameter does not work (you'd need to 
+#'   set this directly in the template). } \item{The built-in template includes
+#'   some additional tweaks to styles to optimize for output from R, these won't
+#'   be present. } \item{MathJax will not work if \code{self_contained} is
+#'   \code{TRUE} (these two options can't be used together in normal pandoc
+#'   templates). } }
+#'   
 #' @examples
 #' \dontrun{
-#'
+#' 
 #' library(rmarkdown)
 #' library(revealjs)
-#'
+#' 
 #' # simple invocation
 #' render("pres.Rmd", revealjs_presentation())
-#'
+#' 
 #' # specify an option for incremental rendering
 #' render("pres.Rmd", revealjs_presentation(incremental = TRUE))
 #' }
-#'
-#'
+#' 
+#' 
 #' @export
 revealjs_presentation <- function(incremental = FALSE,
                                   center = FALSE,
+                                  slide_level = 2,
                                   fig_width = 8,
                                   fig_height = 6,
                                   fig_retina = if (!fig_caption) 2,
@@ -122,6 +125,9 @@ revealjs_presentation <- function(incremental = FALSE,
   # centering
   jsbool <- function(value) ifelse(value, "true", "false")
   args <- c(args, pandoc_variable_arg("center", jsbool(center)))
+  
+  # slide level
+  args <- c(args, "--slide-level", "2")
   
   # theme
   theme <- match.arg(theme, revealjs_themes())
