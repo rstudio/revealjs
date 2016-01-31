@@ -12,6 +12,8 @@ Authors@R: c(
 Description: R Markdown format for 'reveal.js' presentations, a framework 
   for easily creating beautiful presentations using HTML.
 License: MIT + file LICENSE
+URL: https://github.com/rstudio/revealjs
+BugReports: https://github.com/rstudio/revealjs/issues
 Depends:
     R (>= 3.0)
 Imports:

@@ -98,9 +98,7 @@ slides. If you use a mix of level 1 and level 2 headers then a
 two-dimensional layout will be produced, with level 1 headers building
 horizontally and level 2 headers building vertically.
 
-For more information on markdown syntax for presentations see
-\href{http://johnmacfarlane.net/pandoc/demo/example9/producing-slide-shows-with-pandoc.html}{producing
-slide shows with pandoc}.
+For additional documentation on using revealjs presentations see \href{https://github.com/rstudio/revealjs}{https://github.com/rstudio/revealjs}.
 }
 \section{Templates}{
 
