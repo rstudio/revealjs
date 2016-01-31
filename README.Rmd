@@ -104,6 +104,20 @@ For example:
         center: true
     ---
 
+## Slide Backgrounds
+
+Slides are contained within a limited portion of the screen by default to allow them to fit any display and scale uniformly. You can apply full page backgrounds outside of the slide area by adding a data-background attribute to your slide header element. Four different types of backgrounds are supported: color, image, video and iframe. Below are a few examples.
+
+    ## CSS color background {data-background=#ff0000}
+    
+    ## Full size image background {data-background="background.jpeg"}
+    
+    ## Video background {data-background-video="background.mp4"}
+    
+    ## Embed a web page as a background {data-background-iframe="https://example.com"}
+    
+Backgrounds transition using a fade animation by default. This can be changed to a linear sliding transition by specifying the `background-transition: slide`. Alternatively you can set data-background-transition on any slide with a background to override that specific transition.
+
 ## Reveal.js Options
 
 Reveal.js has many additional options to conigure it's behavior. You can specify any of these options using `reveal_options`, for example:
