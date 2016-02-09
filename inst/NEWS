@@ -1,0 +1,12 @@
+
+Version 0.6 (unreleased)
+-----------------------------------------------------------------------
+
+- Fix issue with missing embedded fonts for beige, league, and 
+  solarized themes.
+
+
+Version 0.5
+-----------------------------------------------------------------------
+
+- Initial relase to CRAN

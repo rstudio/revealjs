@@ -26,7 +26,9 @@ test_theme <- function(theme) {
     capture.output({
       output_file <- tempfile(fileext = ".html")
       output_format <- revealjs_presentation(theme = theme)
-      rmarkdown::render(testdoc, output_file = output_file)
+      rmarkdown::render(testdoc, 
+                        output_format = output_format,
+                        output_file = output_file)
       expect_true(file.exists(output_file))
     })
   })
