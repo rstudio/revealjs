@@ -16,7 +16,7 @@ revealjs_presentation(incremental = FALSE, center = FALSE,
 \arguments{
 \item{incremental}{\code{TRUE} to render slide bullets incrementally. Note
 that if you want to reverse the default incremental behavior for an
-individual bullet you can preceded it with \code{>}. For example:
+individual bullet you can precede it with \code{>}. For example:
 \emph{\code{> - Bullet Text}}}
 
 \item{center}{\code{TRUE} to vertically center content on slides}
