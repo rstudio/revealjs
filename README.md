@@ -63,7 +63,7 @@ To create a [reveal.js](http://lab.hakim.se/reveal-js/#/) presentation from R Ma
 Rendering
 ---------
 
-Depening on your use case, there are 3 ways you can render the presentation.
+Depending on your use case, there are 3 ways you can render the presentation.
 
 1.  RStudio
 2.  R console
@@ -73,11 +73,11 @@ Depening on your use case, there are 3 ways you can render the presentation.
 
 When creating the presentation in RStudio, there will be a `Knit` button right below the source tabs. By default, it will render the current document and place the rendered `HTML` file in the same directory as the source file, with the same name.
 
-Note: Unlike the the other slideshow outputs, the slideshow viewer popup from rstudio will be blank, to view the slide show click the `open in browser` button, and the slide show will render in your default web browser.
+Note: Unlike the the other slideshow outputs, the slideshow viewer popup from RStudio will be blank, to view the slide show click the `open in browser` button, and the slide show will render in your default web browser.
 
 ### R Console
 
-The `Knit` button is actually calling the `rmarkdown::render()` function. So, to render the doucment within the R console:
+The `Knit` button is actually calling the `rmarkdown::render()` function. So, to render the document within the R console:
 
 ``` r
 rmarkdown::render('my_reveal_presentation.Rmd')
