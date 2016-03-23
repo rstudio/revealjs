@@ -18,7 +18,6 @@
 #'   "convex", "concave" or "zoom")
 #' @param background_transition Slide background-transition ("default", "none",
 #'   "fade", "slide", "convex", "concave" or "zoom")
-#' @param history \code{TRUE} to push each slide change to the browser history.
 #' @param reveal_options Additional options to specify for reveal.js (see 
 #'   \href{https://github.com/hakimel/reveal.js#configuration}{https://github.com/hakimel/reveal.js#configuration}
 #'   for details).
@@ -69,7 +68,6 @@ revealjs_presentation <- function(incremental = FALSE,
                                   theme = "simple",
                                   transition = "default",
                                   background_transition = "default",
-                                  history = TRUE,
                                   reveal_options = NULL,
                                   highlight = "default",
                                   mathjax = "default",
@@ -131,8 +129,8 @@ revealjs_presentation <- function(incremental = FALSE,
   background_transition <- match.arg(background_transition, revealjs_transitions())
   args <- c(args, "--variable", paste("backgroundTransition=", background_transition, sep=""))
   
-  # history
-  args <- c(args, pandoc_variable_arg("history", jsbool(history)))
+  # use history
+  args <- c(args, pandoc_variable_arg("history", "true"))
   
   # additional reveal options
   if (is.list(reveal_options)) {
