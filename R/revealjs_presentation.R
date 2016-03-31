@@ -108,8 +108,7 @@ revealjs_presentation <- function(incremental = FALSE,
   args <- c(args, pandoc_variable_arg("center", jsbool(center)))
   
   # slide level
-  if (!is.null(slide_level))
-    args <- c(args, "--slide-level", as.character(slide_level))
+  args <- c(args, "--slide-level", as.character(slide_level))
   
   # theme
   theme <- match.arg(theme, revealjs_themes())

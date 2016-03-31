@@ -3,6 +3,8 @@ Version 0.7 (unreleased)
 
 - Push slide changes to browser history
 
+- Respect slide_level option
+
 
 Version 0.6
 -----------------------------------------------------------------------
