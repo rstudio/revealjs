@@ -13,6 +13,7 @@ R Markdown Format for reveal.js Presentations
 -   [Figure Options](#figure-options)
 -   [MathJax Equations](#mathjax-equations)
 -   [Document Dependencies](#document-dependencies)
+-   [Reveal.js Plugins](#reveal.js-plugins)
 -   [Advanced Customization](#advanced-customization)
 -   [Shared Options](#shared-options)
 
@@ -304,6 +305,48 @@ One common reason keep dependencies external is for serving R Markdown documents
       revealjs::revealjs_presentation:
         self_contained: false
         lib_dir: libs
+    ---
+
+Reveal.js Plugins
+-----------------
+
+You can enable various reveal.js plugins using the `reveal_plugins` option. Plugins currently supported include:
+
+<table>
+<colgroup>
+<col width="38%" />
+<col width="61%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Plugin</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://github.com/hakimel/reveal.js/#speaker-notes">notes</a></td>
+<td>Present per-slide notes in a separate browser window.</td>
+</tr>
+<tr class="even">
+<td><a href="http://lab.hakim.se/zoom-js/">zoom</a></td>
+<td>Zoom in and out of selected content with Alt+Click</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/hakimel/reveal.js/blob/master/plugin/search/search.js">search</a></td>
+<td>Find a text string anywhere in the slides and show the next occurrence to the user.</td>
+</tr>
+</tbody>
+</table>
+
+Note that the use of plugins requires that the `self_contained` option be set to false. For example, this presentation includes both the "notes" and "search" plugins:
+
+    ---
+    title: "Habits"
+    output:
+      revealjs::revealjs_presentation:
+        self_contained: false
+        reveal_plugins: ["notes", "search"]
     ---
 
 Advanced Customization

@@ -2,7 +2,8 @@
 title: "Untitled"
 output: 
   revealjs::revealjs_presentation:
-    self_contained: true
+    self_contained: false
+    reveal_plugins: ["search", "zoom", "notes"]
 ---
 
 ```{r setup, include=FALSE}
@@ -20,6 +21,10 @@ When you click the **Knit** button a document will be generated that includes bo
 - Bullet 1
 - Bullet 2
 - Bullet 3
+
+<aside class="notes">
+Here are some notes.
+</aside>
 
 ## Slide with R Output
 

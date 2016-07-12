@@ -284,7 +284,17 @@ $if(maxScale)$
 $endif$
 
         // Optional reveal.js plugins
-        dependencies: []
+        dependencies: [
+$if(plugin-notes)$
+          { src: '$revealjs-url$/plugin/notes/notes.js', async: true },
+$endif$
+$if(plugin-search)$
+          { src: '$revealjs-url$/plugin/search/search.js', async: true },
+$endif$
+$if(plugin-zoom)$
+          { src: '$revealjs-url$/plugin/zoom-js/zoom.js', async: true },
+$endif$
+        ]
       });
     </script>
 $if(mathjax-url)$

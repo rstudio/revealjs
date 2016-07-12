@@ -5,6 +5,8 @@ Version 0.7 (unreleased)
 
 - Respect slide_level option
 
+- Support for zoom, search, and notes reveal.js plugins
+
 
 Version 0.6
 -----------------------------------------------------------------------
