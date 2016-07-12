@@ -197,7 +197,7 @@ With this layout horizontal navigation will proceed directly from "Horizontal Sl
 
 
 
-## Reveal.js Options
+## Reveal Options
 
 Reveal.js has many additional options to conigure it's behavior. You can specify any of these options using `reveal_options`, for example:
 
@@ -299,7 +299,7 @@ One common reason keep dependencies external is for serving R Markdown documents
         lib_dir: libs
     ---
 
-## Reveal.js Plugins
+## Reveal Plugins
 
 You can enable various reveal.js plugins using the `reveal_plugins` option. Plugins currently supported include:
 

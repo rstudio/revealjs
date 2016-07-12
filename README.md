@@ -9,11 +9,11 @@ R Markdown Format for reveal.js Presentations
 -   [Slide Transitions](#slide-transitions)
 -   [Slide Backgrounds](#slide-backgrounds)
 -   [2-D Presenations](#d-presenations)
--   [Reveal.js Options](#reveal.js-options)
+-   [Reveal Options](#reveal-options)
 -   [Figure Options](#figure-options)
 -   [MathJax Equations](#mathjax-equations)
 -   [Document Dependencies](#document-dependencies)
--   [Reveal.js Plugins](#reveal.js-plugins)
+-   [Reveal Plugins](#reveal-plugins)
 -   [Advanced Customization](#advanced-customization)
 -   [Shared Options](#shared-options)
 
@@ -203,8 +203,8 @@ You can use the `slide_level` option to specify which level of heading will be u
 
 With this layout horizontal navigation will proceed directly from "Horizontal Slide 1" to "Horizontal Slide 2", with vertical navigation to "Vertical Slide 1", etc. presented as an option on "Horizontal Slide 1".
 
-Reveal.js Options
------------------
+Reveal Options
+--------------
 
 Reveal.js has many additional options to conigure it's behavior. You can specify any of these options using `reveal_options`, for example:
 
@@ -307,8 +307,8 @@ One common reason keep dependencies external is for serving R Markdown documents
         lib_dir: libs
     ---
 
-Reveal.js Plugins
------------------
+Reveal Plugins
+--------------
 
 You can enable various reveal.js plugins using the `reveal_plugins` option. Plugins currently supported include:
 
@@ -330,7 +330,7 @@ You can enable various reveal.js plugins using the `reveal_plugins` option. Plug
 </tr>
 <tr class="even">
 <td><a href="http://lab.hakim.se/zoom-js/">zoom</a></td>
-<td>Zoom in and out of selected content with Alt+Click</td>
+<td>Zoom in and out of selected content with Alt+Click.</td>
 </tr>
 <tr class="odd">
 <td><a href="https://github.com/hakimel/reveal.js/blob/master/plugin/search/search.js">search</a></td>
