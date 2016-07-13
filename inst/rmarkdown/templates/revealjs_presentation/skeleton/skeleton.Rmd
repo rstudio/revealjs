@@ -1,6 +1,7 @@
+---
 title: "Untitled"
 author: "RStudio"
-date: `r Sys.Date()`
+date: "`r Sys.Date()`"
 output: 
   revealjs::revealjs_presentation:
     center: true
