@@ -7,6 +7,10 @@ Version 0.7 (unreleased)
 
 - Support for zoom, search, and notes reveal.js plugins
 
+- Windows support(fix revealjs-url bug)
+
+- Now use reveal.js-3.3.0
+
 
 Version 0.6
 -----------------------------------------------------------------------
