@@ -1,6 +1,8 @@
 Version 0.7 (unreleased)
 -----------------------------------------------------------------------
 
+- Update to reveal.js 3.3
+
 - Push slide changes to browser history
 
 - Respect slide_level option
