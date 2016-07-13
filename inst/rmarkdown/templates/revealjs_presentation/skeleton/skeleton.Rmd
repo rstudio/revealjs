@@ -1,7 +1,18 @@
----
 title: "Untitled"
-output: revealjs::revealjs_presentation
+author: "RStudio"
+date: `r Sys.Date()`
+output: 
+  revealjs::revealjs_presentation:
+    center: true
+    theme: black
+    self_contained: false
+    lib_dir: libs
+    reveal_plugins: ["zoom", "notes"]
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
 
 ## R Markdown
 
@@ -15,15 +26,18 @@ When you click the **Knit** button a document will be generated that includes bo
 - Bullet 2
 - Bullet 3
 
-## Slide with R Code and Output
+<aside class="notes">
+Here are some notes.They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+</aside>
 
-```{r}
+## Slide with R Output
+
+```{r cars, echo = TRUE}
 summary(cars)
 ```
 
 ## Slide with Plot
 
-```{r, echo=FALSE}
-plot(cars)
+```{r pressure}
+plot(pressure)
 ```
-
