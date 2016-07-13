@@ -196,8 +196,7 @@ revealjs_presentation <- function(incremental = FALSE,
     if (!self_contained || identical(.Platform$OS.type, "windows"))
       revealjs_path <- relative_to(
         output_dir, render_supporting_files(revealjs_path, lib_dir))
-    args <- c(args, "--variable", paste("revealjs-url=",
-                                        pandoc_path_arg(revealjs_path), sep=""))
+    args <- c(args, "--variable", paste0("revealjs-url=", revealjs_path))
     
     # highlight
     args <- c(args, pandoc_highlight_args(highlight, default = "pygments"))
