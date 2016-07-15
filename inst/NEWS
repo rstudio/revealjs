@@ -9,6 +9,8 @@ Version 0.7 (unreleased)
 
 - Support for zoom, search, and notes reveal.js plugins
 
+- Ability to specify slideNumber reveal_option as either string or boolean
+
 
 Version 0.6
 -----------------------------------------------------------------------

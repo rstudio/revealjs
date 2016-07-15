@@ -142,6 +142,8 @@ revealjs_presentation <- function(incremental = FALSE,
       value <- reveal_options[[option]]
       if (is.logical(value))
         value <- jsbool(value)
+      else if (is.character(value))
+        value <- paste0("'", value, "'")
       args <- c(args, pandoc_variable_arg(option, value))
     }
   }
