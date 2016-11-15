@@ -11,7 +11,7 @@ revealjs_presentation(incremental = FALSE, center = FALSE,
   background_transition = "default", reveal_options = NULL,
   reveal_plugins = NULL, highlight = "default", mathjax = "default",
   template = "default", css = NULL, includes = NULL, keep_md = FALSE,
-  lib_dir = NULL, pandoc_args = NULL, ...)
+  lib_dir = NULL, pandoc_args = NULL, extra_dependencies = NULL, ...)
 }
 \arguments{
 \item{incremental}{\code{TRUE} to render slide bullets incrementally. Note
@@ -94,6 +94,9 @@ bootstrap, etc.) into. By default this will be the name of the document with
 \code{_files} appended to it.}
 
 \item{pandoc_args}{Additional command line options to pass to pandoc}
+
+\item{extra_dependencies}{Add \code{latex_dependency()} dependencies. It can
+can be used to add custom LaTeX packages to the .tex header.}
 
 \item{...}{Ignored}
 }

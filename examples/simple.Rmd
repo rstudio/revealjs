@@ -3,7 +3,11 @@ title: "Untitled"
 output: 
   revealjs::revealjs_presentation:
     self_contained: false
-    reveal_plugins: ["search", "zoom", "notes"]
+    reveal_plugins: ["search", "zoom", "notes", "chalkboard"]
+    reveal_options:
+      chalkboard: 
+        theme: chalkboard
+        toggleNotesButton: false
 ---
 
 ```{r setup, include=FALSE}

@@ -283,6 +283,47 @@ $if(maxScale)$
         maxScale: $maxScale$,
 $endif$
 
+$if(plugin-chalkboard)$
+
+        chalkboard: {
+$if(chalkboard-src)$
+          src: $chalkboard-src$,
+$endif$
+$if(chalkboard-readOnly)$
+          readOnly: $chalkboard-readOnly$,
+$endif$
+$if(chalkboard-toggleNotesButton)$
+          toggleNotesButton: $chalkboard-toggleNotesButton$,
+$endif$
+$if(chalkboard-toggleChalkboardButton)$
+          toggleChalkboardButton: $chalkboard-toggleChalkboardButton$,
+$endif$
+$if(chalkboard-transition)$
+          transition: $chalkboard-transition$,
+$endif$
+$if(chalkboard-theme)$
+          theme: $chalkboard-theme$,
+$endif$
+$if(chalkboard-color)$
+          color: $chalkboard-color$,
+$endif$
+$if(chalkboard-background)$
+          background: $chalkboard-background$,
+$endif$
+$if(chalkboard-pen)$
+          pen: $chalkboard-pen$,
+$endif$
+        },
+
+        keyboard: {
+          67: function() { RevealChalkboard.toggleNotesCanvas() },    // toggle notes canvas when 'c' is pressed
+          66: function() { RevealChalkboard.toggleChalkboard() }, // toggle chalkboard when 'b' is pressed
+          46: function() { RevealChalkboard.clear() },    // clear chalkboard when 'DEL' is pressed
+           8: function() { RevealChalkboard.reset() },    // reset chalkboard data on current slide when 'BACKSPACE' is pressed
+          68: function() { RevealChalkboard.download() }, // downlad recorded chalkboard drawing when 'd' is pressed
+        },
+$endif$
+
         // Optional reveal.js plugins
         dependencies: [
 $if(plugin-notes)$
@@ -293,6 +334,9 @@ $if(plugin-search)$
 $endif$
 $if(plugin-zoom)$
           { src: '$revealjs-url$/plugin/zoom-js/zoom.js', async: true },
+$endif$
+$if(plugin-chalkboard)$
+          { src: '$revealjs-url$/plugin/chalkboard/chalkboard.js', async: true },
 $endif$
         ]
       });

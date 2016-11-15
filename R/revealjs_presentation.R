@@ -81,6 +81,7 @@ revealjs_presentation <- function(incremental = FALSE,
                                   keep_md = FALSE,
                                   lib_dir = NULL,
                                   pandoc_args = NULL,
+                                  extra_dependencies = NULL,
                                   ...) {
   
   # function to lookup reveal resource
@@ -138,13 +139,28 @@ revealjs_presentation <- function(incremental = FALSE,
   
   # additional reveal options
   if (is.list(reveal_options)) {
-    for (option in names(reveal_options)) {
-      value <- reveal_options[[option]]
+    
+    add_reveal_option <- function(option, value) {
       if (is.logical(value))
         value <- jsbool(value)
       else if (is.character(value))
         value <- paste0("'", value, "'")
-      args <- c(args, pandoc_variable_arg(option, value))
+      args <<- c(args, pandoc_variable_arg(option, value))
+    }
+    
+    for (option in names(reveal_options)) {
+      # special handling for nested chalkboard options
+      if (identical(option, "chalkboard")) {
+        chalkboard_options <- reveal_options[[option]]
+        for (chalkboard_option in names(chalkboard_options)) {
+          add_reveal_option(paste0("chalkboard-", chalkboard_option),
+                            chalkboard_options[[chalkboard_option]])
+        }
+      }
+      # standard top-level options
+      else {
+        add_reveal_option(option, reveal_options[[option]])
+      }
     }
   }
   
@@ -156,7 +172,7 @@ revealjs_presentation <- function(incremental = FALSE,
       stop("Using reveal_plugins requires self_contained: false")
     
     # validate specified plugins are supported
-    supported_plugins <- c("notes", "search", "zoom")
+    supported_plugins <- c("notes", "search", "zoom", "chalkboard")
     invalid_plugins <- setdiff(reveal_plugins, supported_plugins)
     if (length(invalid_plugins) > 0)
       stop("The following plugin(s) are not supported: ",
@@ -165,6 +181,11 @@ revealjs_presentation <- function(incremental = FALSE,
     # add plugins
     sapply(reveal_plugins, function(plugin) {
       args <<- c(args, pandoc_variable_arg(paste0("plugin-", plugin), "1"))
+      if (identical(plugin, "chalkboard")) {
+        extra_dependencies <<- append(extra_dependencies,
+                                     list(rmarkdown::html_dependency_font_awesome()))
+          
+      }
     })    
   }
   
@@ -223,7 +244,9 @@ revealjs_presentation <- function(incremental = FALSE,
     base_format = html_document_base(smart = smart, lib_dir = lib_dir,
                                      self_contained = self_contained,
                                      mathjax = mathjax,
-                                     pandoc_args = pandoc_args, ...))
+                                     pandoc_args = pandoc_args, 
+                                     extra_dependencies = extra_dependencies,
+                                     ...))
 }
 
 revealjs_themes <- function() {

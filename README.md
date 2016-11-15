@@ -336,6 +336,10 @@ You can enable various reveal.js plugins using the `reveal_plugins` option. Plug
 <td><a href="https://github.com/hakimel/reveal.js/blob/master/plugin/search/search.js">search</a></td>
 <td>Find a text string anywhere in the slides and show the next occurrence to the user.</td>
 </tr>
+<tr class="even">
+<td><a href="https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard">chalkboard</a></td>
+<td>Include handwritten notes within a presentation.</td>
+</tr>
 </tbody>
 </table>
 
@@ -347,6 +351,20 @@ Note that the use of plugins requires that the `self_contained` option be set to
       revealjs::revealjs_presentation:
         self_contained: false
         reveal_plugins: ["notes", "search"]
+    ---
+
+You can specify additional options for the `chalkboard` plugin using `reveal_options`, for example:
+
+    ---
+    title: "Habits"
+    output:
+      revealjs::revealjs_presentation:
+        self_contained: false
+        reveal_plugins: ["chalkboard"]
+        reveal_options:
+          chalkboard:
+            theme: whiteboard
+            toggleNotesButton: false
     ---
 
 Advanced Customization
