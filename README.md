@@ -206,7 +206,7 @@ With this layout horizontal navigation will proceed directly from "Horizontal Sl
 Reveal Options
 --------------
 
-Reveal.js has many additional options to conigure it's behavior. You can specify any of these options using `reveal_options`, for example:
+Reveal.js has many additional options to conifgure it's behavior. You can specify any of these options using `reveal_options`, for example:
 
     ---
     title: "Habits"

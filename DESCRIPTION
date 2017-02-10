@@ -8,6 +8,8 @@ Authors@R: c(
        comment = "reveal.js-3.2.0, https://github.com/hakimel/reveal.js"),
     person("Asvin", "Goel", role = c("ctb", "cph"), email = "goel@telematique.eu",
        comment = "chalkboard plugin"),
+    person("Greg", "Denehy", role = c("ctb", "cph"),
+       comment = "menu plugin"),
     person("JJ", "Allaire", role = c("aut", "cre"), email = "jj@rstudio.com"),
     person(family = "RStudio", role = "cph")
   )

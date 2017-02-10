@@ -22,7 +22,7 @@
 #'   \href{https://github.com/hakimel/reveal.js#configuration}{https://github.com/hakimel/reveal.js#configuration}
 #'    for details).
 #' @param reveal_plugins Reveal plugins to include. Available plugins include
-#'   "notes", "search", "zoom", and "chalkboard". Note that
+#'   "notes", "search", "zoom", "chalkboard", and "menu". Note that
 #'   \code{self_contained} must be set to \code{FALSE} in order to use Reveal
 #'   plugins.
 #' @param template Pandoc template to use for rendering. Pass "default" to use 
@@ -152,12 +152,12 @@ revealjs_presentation <- function(incremental = FALSE,
     }
     
     for (option in names(reveal_options)) {
-      # special handling for nested chalkboard options
-      if (identical(option, "chalkboard")) {
-        chalkboard_options <- reveal_options[[option]]
-        for (chalkboard_option in names(chalkboard_options)) {
-          add_reveal_option(paste0("chalkboard-", chalkboard_option),
-                            chalkboard_options[[chalkboard_option]])
+      # special handling for nested options
+      if (option %in% c("chalkboard", "menu")) {
+        nested_options <- reveal_options[[option]]
+        for (nested_option in names(nested_options)) {
+          add_reveal_option(paste0(option, "-", nested_option),
+                            nested_options[[nested_option]])
         }
       }
       # standard top-level options
@@ -175,7 +175,7 @@ revealjs_presentation <- function(incremental = FALSE,
       stop("Using reveal_plugins requires self_contained: false")
     
     # validate specified plugins are supported
-    supported_plugins <- c("notes", "search", "zoom", "chalkboard")
+    supported_plugins <- c("notes", "search", "zoom", "chalkboard", "menu")
     invalid_plugins <- setdiff(reveal_plugins, supported_plugins)
     if (length(invalid_plugins) > 0)
       stop("The following plugin(s) are not supported: ",
@@ -184,7 +184,7 @@ revealjs_presentation <- function(incremental = FALSE,
     # add plugins
     sapply(reveal_plugins, function(plugin) {
       args <<- c(args, pandoc_variable_arg(paste0("plugin-", plugin), "1"))
-      if (identical(plugin, "chalkboard")) {
+      if (plugin %in% c("chalkboard", "menu")) {
         extra_dependencies <<- append(extra_dependencies,
                                      list(rmarkdown::html_dependency_font_awesome()))
           

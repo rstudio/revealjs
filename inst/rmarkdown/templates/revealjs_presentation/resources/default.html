@@ -90,6 +90,14 @@ $endif$
       border-color: gray;
     }
 
+$if(plugin-menu)$
+$if(plugin-chalkboard)$
+    .reveal .slide-menu-button {
+      left: 105px !important;
+    }
+$endif$
+$endif$
+
   </style>
 
     <style type="text/css">code{white-space: pre;}</style>
@@ -654,6 +662,39 @@ $if(maxScale)$
         maxScale: $maxScale$,
 $endif$
 
+$if(plugin-menu)$
+        menu: {
+$if(menu-side)$
+          side: $menu-side$,
+$endif$   
+$if(menu-numbers)$
+          numbers: $menu-numbers$,
+$endif$    
+$if(menu-titleSelector)$
+          titleSelector: $menu-titleSelector$,
+$endif$    
+$if(menu-hideMissingTitles)$
+          hideMissingTitles: $menu-hideMissingTitles$,
+$endif$    
+$if(menu-markers)$
+          markers: $menu-markers$,
+$endif$    
+$if(menu-openButton)$
+          openButton: $menu-openButton$,
+$endif$    
+$if(menu-openSlideNumber)$
+          openSlideNumber: $menu-openSlideNumber$,
+$endif$    
+$if(menu-keyboard)$
+          keyboard: $menu-keyboard$,
+$endif$ 
+          custom: false,
+          themes: false,
+          transitions: false
+        },
+
+$endif$
+
 $if(plugin-chalkboard)$
 
         chalkboard: {
@@ -708,6 +749,9 @@ $if(plugin-zoom)$
 $endif$
 $if(plugin-chalkboard)$
           { src: '$revealjs-url$/plugin/chalkboard/chalkboard.js', async: true },
+$endif$
+$if(plugin-menu)$
+          { src: '$revealjs-url$/plugin/menu/menu.js', async: true },
 $endif$
         ]
       });

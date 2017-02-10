@@ -1,6 +1,8 @@
 Version 0.9 (Unreleased)
 -----------------------------------------------------------------------
 
+- Add support for the menu plugin
+
 - Correct handling of pdf css for self_contained document
 
 - Remove html5shiv.js from template

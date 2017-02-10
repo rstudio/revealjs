@@ -199,7 +199,7 @@ With this layout horizontal navigation will proceed directly from "Horizontal Sl
 
 ## Reveal Options
 
-Reveal.js has many additional options to conigure it's behavior. You can specify any of these options using `reveal_options`, for example:
+Reveal.js has many additional options to configure it's behavior. You can specify any of these options using `reveal_options`, for example:
 
     ---
     title: "Habits"
@@ -309,6 +309,7 @@ You can enable various reveal.js plugins using the `reveal_plugins` option. Plug
 | [zoom](http://lab.hakim.se/zoom-js/) | Zoom in and out of selected content with Alt+Click. |
 | [search](https://github.com/hakimel/reveal.js/blob/master/plugin/search/search.js) | Find a text string anywhere in the slides and show the next occurrence to the user. |
 | [chalkboard](https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard) | Include handwritten notes within a presentation. |
+| [menu](https://github.com/denehyg/reveal.js-menu) | Include a navigation menu within a presentation. |
 
 Note that the use of plugins requires that the `self_contained` option be set to false. For example, this presentation includes both the "notes" and "search" plugins:
 
@@ -320,18 +321,20 @@ Note that the use of plugins requires that the `self_contained` option be set to
         reveal_plugins: ["notes", "search"]
     ---
 
-You can specify additional options for the `chalkboard` plugin using `reveal_options`, for example:
+You can specify additional options for the `chalkboard` and `menu` plugins using `reveal_options`, for example:
 
     ---
     title: "Habits"
     output:
       revealjs::revealjs_presentation:
         self_contained: false
-        reveal_plugins: ["chalkboard"]
+        reveal_plugins: ["chalkboard", "menu"]
         reveal_options:
           chalkboard:
             theme: whiteboard
             toggleNotesButton: false
+          menu:
+            side: right
     ---
 
 
