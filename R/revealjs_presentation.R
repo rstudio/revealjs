@@ -7,29 +7,32 @@
 #' @inheritParams rmarkdown::html_document
 #'   
 #' @param center \code{TRUE} to vertically center content on slides
-#' @param slide_level Level of heading to denote individual slides. If
-#'   \code{slide_level} is 2 (the default), a two-dimensional layout will be
-#'   produced, with level 1 headers building horizontally and level 2 headers
-#'   building vertically. It is not recommended that you use deeper nesting of
+#' @param slide_level Level of heading to denote individual slides. If 
+#'   \code{slide_level} is 2 (the default), a two-dimensional layout will be 
+#'   produced, with level 1 headers building horizontally and level 2 headers 
+#'   building vertically. It is not recommended that you use deeper nesting of 
 #'   section levels with reveal.js.
-#' @param theme Visual theme ("simple", "sky", "beige", "serif", "solarized",
+#' @param theme Visual theme ("simple", "sky", "beige", "serif", "solarized", 
 #'   "blood", "moon", "night", "black", "league" or "white").
 #' @param transition Slide transition ("default", "none", "fade", "slide", 
 #'   "convex", "concave" or "zoom")
-#' @param background_transition Slide background-transition ("default", "none",
+#' @param background_transition Slide background-transition ("default", "none", 
 #'   "fade", "slide", "convex", "concave" or "zoom")
 #' @param reveal_options Additional options to specify for reveal.js (see 
 #'   \href{https://github.com/hakimel/reveal.js#configuration}{https://github.com/hakimel/reveal.js#configuration}
-#'   for details).
-#' @param reveal_plugins Reveal plugins to include. Available plugins include "notes", 
-#'   "search", and "zoom". Note that \code{self_contained} must be set to 
-#'   \code{FALSE} in order to use Reveal plugins.
-#' @param template Pandoc template to use for rendering. Pass "default" to use
-#'   the rmarkdown package default template; pass \code{NULL} to use pandoc's
-#'   built-in template; pass a path to use a custom template that you've
-#'   created. Note that if you don't use the "default" template then some
-#'   features of \code{revealjs_presentation} won't be available (see the
+#'    for details).
+#' @param reveal_plugins Reveal plugins to include. Available plugins include
+#'   "notes", "search", "zoom", and "chalkboard". Note that
+#'   \code{self_contained} must be set to \code{FALSE} in order to use Reveal
+#'   plugins.
+#' @param template Pandoc template to use for rendering. Pass "default" to use 
+#'   the rmarkdown package default template; pass \code{NULL} to use pandoc's 
+#'   built-in template; pass a path to use a custom template that you've 
+#'   created. Note that if you don't use the "default" template then some 
+#'   features of \code{revealjs_presentation} won't be available (see the 
 #'   Templates section below for more details).
+#' @param extra_dependencies Additional function arguments to pass to the base R
+#'   Markdown HTML output formatter [rmarkdown::html_document_base()].
 #' @param ... Ignored
 #'   
 #' @return R Markdown output format to pass to \code{\link{render}}
@@ -38,12 +41,12 @@
 #' 
 #' In reveal.js presentations you can use level 1 or level 2 headers for slides.
 #' If you use a mix of level 1 and level 2 headers then a two-dimensional layout
-#' will be produced, with level 1 headers building horizontally and level 2
+#' will be produced, with level 1 headers building horizontally and level 2 
 #' headers building vertically.
 #' 
-#' For additional documentation on using revealjs presentations see
+#' For additional documentation on using revealjs presentations see 
 #' \href{https://github.com/rstudio/revealjs}{https://github.com/rstudio/revealjs}.
-#'   
+#' 
 #' @examples
 #' \dontrun{
 #' 

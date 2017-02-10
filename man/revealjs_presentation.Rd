@@ -52,19 +52,20 @@ it's size).}
 \item{theme}{Visual theme ("simple", "sky", "beige", "serif", "solarized",
 "blood", "moon", "night", "black", "league" or "white").}
 
-\item{transition}{Slide transition ("default", "none", "fade", "slide", 
+\item{transition}{Slide transition ("default", "none", "fade", "slide",
 "convex", "concave" or "zoom")}
 
 \item{background_transition}{Slide background-transition ("default", "none",
 "fade", "slide", "convex", "concave" or "zoom")}
 
-\item{reveal_options}{Additional options to specify for reveal.js (see 
+\item{reveal_options}{Additional options to specify for reveal.js (see
 \href{https://github.com/hakimel/reveal.js#configuration}{https://github.com/hakimel/reveal.js#configuration}
 for details).}
 
-\item{reveal_plugins}{Reveal plugins to include. Available plugins include "notes", 
-"search", and "zoom". Note that \code{self_contained} must be set to 
-\code{FALSE} in order to use Reveal plugins.}
+\item{reveal_plugins}{Reveal plugins to include. Available plugins include
+"notes", "search", "zoom", and "chalkboard". Note that
+\code{self_contained} must be set to \code{FALSE} in order to use Reveal
+plugins.}
 
 \item{highlight}{Syntax highlighting style. Supported styles include
 "default", "tango", "pygments", "kate", "monochrome", "espresso",
@@ -95,8 +96,8 @@ bootstrap, etc.) into. By default this will be the name of the document with
 
 \item{pandoc_args}{Additional command line options to pass to pandoc}
 
-\item{extra_dependencies}{Add \code{latex_dependency()} dependencies. It can
-can be used to add custom LaTeX packages to the .tex header.}
+\item{extra_dependencies}{Additional function arguments to pass to the base R
+Markdown HTML output formatter \code{\link[rmarkdown:html_document_base]{rmarkdown::html_document_base()}}.}
 
 \item{...}{Ignored}
 }
@@ -130,4 +131,3 @@ render("pres.Rmd", revealjs_presentation(incremental = TRUE))
 
 
 }
-
