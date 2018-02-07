@@ -1,0 +1,286 @@
+@font-face {
+    font-family: 'Lato';
+    font-style: italic;
+    font-weight: 400;
+
+    src: local('☺'),
+
+        url(Lato_400_italic.woff) format('woff'), /* http://fonts.gstatic.com/s/lato/v14/oUan5VrEkpzIazlUe5ieaA.woff */
+        url(Lato_400_italic.ttf) format('truetype'), /* http://fonts.gstatic.com/s/lato/v14/61V2bQZoWB5DkWAUJStypevvDin1pK8aKteLpeZ5c0A.ttf */
+
+}
+@font-face {
+    font-family: 'Lato';
+    font-style: italic;
+    font-weight: 700;
+
+    src: local('☺'),
+
+        url(Lato_700_italic.woff) format('woff'), /* http://fonts.gstatic.com/s/lato/v14/HkF_qI1x_noxlxhrhMQYED8E0i7KZn-EPnyo3HZu7kw.woff */
+        url(Lato_700_italic.ttf) format('truetype'), /* http://fonts.gstatic.com/s/lato/v14/HkF_qI1x_noxlxhrhMQYECZ2oysoEQEeKwjgmXLRnTc.ttf */
+
+}
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+
+    src: local('☺'),
+
+        url(Lato_400_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/lato/v14/9k-RPmcnxYEPm8CNFsH2gg.woff */
+        url(Lato_400_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/lato/v14/1EqTbJWOZQBfhZ0e3RL9uvesZW2xOQ-xsNqO47m55DA.ttf */
+
+}
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+
+    src: local('☺'),
+
+        url(Lato_700_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/lato/v14/wkfQbvfT_02e2IWO3yYueQ.woff */
+        url(Lato_700_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/lato/v14/MZ1aViPqjfvZwVD_tzjjkwLUuEpTyoUstqEm5AMlJo4.ttf */
+
+}
+@font-face {
+    font-family: 'Lato';
+    font-style: italic;
+    font-weight: 400;
+
+    src: local('☺'),
+
+        url(Lato_400_italic.woff) format('woff'), /* http://fonts.gstatic.com/s/lato/v14/oUan5VrEkpzIazlUe5ieaA.woff */
+        url(Lato_400_italic.ttf) format('truetype'), /* http://fonts.gstatic.com/s/lato/v14/61V2bQZoWB5DkWAUJStypevvDin1pK8aKteLpeZ5c0A.ttf */
+
+}
+@font-face {
+    font-family: 'Lato';
+    font-style: italic;
+    font-weight: 700;
+
+    src: local('☺'),
+
+        url(Lato_700_italic.woff) format('woff'), /* http://fonts.gstatic.com/s/lato/v14/HkF_qI1x_noxlxhrhMQYED8E0i7KZn-EPnyo3HZu7kw.woff */
+        url(Lato_700_italic.ttf) format('truetype'), /* http://fonts.gstatic.com/s/lato/v14/HkF_qI1x_noxlxhrhMQYECZ2oysoEQEeKwjgmXLRnTc.ttf */
+
+}
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+
+    src: local('☺'),
+
+        url(Lato_400_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/lato/v14/9k-RPmcnxYEPm8CNFsH2gg.woff */
+        url(Lato_400_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/lato/v14/1EqTbJWOZQBfhZ0e3RL9uvesZW2xOQ-xsNqO47m55DA.ttf */
+
+}
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+
+    src: local('☺'),
+
+        url(Lato_700_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/lato/v14/wkfQbvfT_02e2IWO3yYueQ.woff */
+        url(Lato_700_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/lato/v14/MZ1aViPqjfvZwVD_tzjjkwLUuEpTyoUstqEm5AMlJo4.ttf */
+
+}
+@font-face {
+    font-family: 'News Cycle';
+    font-style: normal;
+    font-weight: 400;
+
+    src: local('☺'),
+
+        url(News+Cycle_400_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/newscycle/v14/9Xe8dq6pQDsPyVH2D3tMQhsxEYwM7FgeyaSgU71cLG0.woff */
+        url(News+Cycle_400_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/newscycle/v14/9Xe8dq6pQDsPyVH2D3tMQsDdSZkkecOE1hvV7ZHvhyU.ttf */
+
+}
+@font-face {
+    font-family: 'News Cycle';
+    font-style: normal;
+    font-weight: 700;
+
+    src: local('☺'),
+
+        url(News+Cycle_700_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/newscycle/v14/G28Ny31cr5orMqEQy6ljtwFhaRv2pGgT5Kf0An0s4MM.woff */
+        url(News+Cycle_700_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/newscycle/v14/G28Ny31cr5orMqEQy6ljt8BaWKZ57bY3RXgXH6dOjZ0.ttf */
+
+}
+@font-face {
+    font-family: 'News Cycle';
+    font-style: normal;
+    font-weight: 400;
+
+    src: local('☺'),
+
+        url(News+Cycle_400_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/newscycle/v14/9Xe8dq6pQDsPyVH2D3tMQhsxEYwM7FgeyaSgU71cLG0.woff */
+        url(News+Cycle_400_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/newscycle/v14/9Xe8dq6pQDsPyVH2D3tMQsDdSZkkecOE1hvV7ZHvhyU.ttf */
+
+}
+@font-face {
+    font-family: 'News Cycle';
+    font-style: normal;
+    font-weight: 700;
+
+    src: local('☺'),
+
+        url(News+Cycle_700_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/newscycle/v14/G28Ny31cr5orMqEQy6ljtwFhaRv2pGgT5Kf0An0s4MM.woff */
+        url(News+Cycle_700_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/newscycle/v14/G28Ny31cr5orMqEQy6ljt8BaWKZ57bY3RXgXH6dOjZ0.ttf */
+
+}
+@font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: 400;
+
+    src: local('☺'),
+
+        url(Open+Sans_400_italic.woff) format('woff'), /* http://fonts.gstatic.com/s/opensans/v15/xjAJXh38I15wypJXxuGMBobN6UDyHWBl620a-IRfuBk.woff */
+        url(Open+Sans_400_italic.ttf) format('truetype'), /* http://fonts.gstatic.com/s/opensans/v15/xjAJXh38I15wypJXxuGMBiwlidHJgAgmTjOEEzwu1L8.ttf */
+
+}
+@font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: 700;
+
+    src: local('☺'),
+
+        url(Open+Sans_700_italic.woff) format('woff'), /* http://fonts.gstatic.com/s/opensans/v15/PRmiXeptR36kaC0GEAetxjqR_3kx9_hJXbbyU8S6IN0.woff */
+        url(Open+Sans_700_italic.ttf) format('truetype'), /* http://fonts.gstatic.com/s/opensans/v15/PRmiXeptR36kaC0GEAetxjdGNerWpg2Hn6A-BxWgZ_I.ttf */
+
+}
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+
+    src: local('☺'),
+
+        url(Open+Sans_400_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/opensans/v15/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff */
+        url(Open+Sans_400_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/opensans/v15/cJZKeOuBrn4kERxqtaUH3SZ2oysoEQEeKwjgmXLRnTc.ttf */
+
+}
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+
+    src: local('☺'),
+
+        url(Open+Sans_700_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/opensans/v15/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff */
+        url(Open+Sans_700_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/opensans/v15/k3k702ZOKiLJc3WVjuplzJS3E-kSBmtLoNJPDtbj2Pk.ttf */
+
+}
+@font-face {
+    font-family: 'Ubuntu';
+    font-style: italic;
+    font-weight: 300;
+
+    src: local('☺'),
+
+        url(Ubuntu_300_italic.woff) format('woff'), /* http://fonts.gstatic.com/s/ubuntu/v11/4iCp6KVjbNBYlgoKejZftVyPN4c.woff */
+        url(Ubuntu_300_italic.ttf) format('truetype'), /* http://fonts.gstatic.com/s/ubuntu/v11/4iCp6KVjbNBYlgoKejZftVyPN4RNgYUJ.ttf */
+
+}
+@font-face {
+    font-family: 'Ubuntu';
+    font-style: italic;
+    font-weight: 700;
+
+    src: local('☺'),
+
+        url(Ubuntu_700_italic.woff) format('woff'), /* http://fonts.gstatic.com/s/ubuntu/v11/4iCp6KVjbNBYlgoKejZPslyPN4c.woff */
+        url(Ubuntu_700_italic.ttf) format('truetype'), /* http://fonts.gstatic.com/s/ubuntu/v11/4iCp6KVjbNBYlgoKejZPslyPN4RNgYUJ.ttf */
+
+}
+@font-face {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 300;
+
+    src: local('☺'),
+
+        url(Ubuntu_300_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/ubuntu/v11/4iCv6KVjbNBYlgoC1CzjsGyL.woff */
+        url(Ubuntu_300_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/ubuntu/v11/4iCv6KVjbNBYlgoC1CzjsGyIPYZvgw.ttf */
+
+}
+@font-face {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+
+    src: local('☺'),
+
+        url(Ubuntu_700_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/ubuntu/v11/4iCv6KVjbNBYlgoCxCvjsGyL.woff */
+        url(Ubuntu_700_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/ubuntu/v11/4iCv6KVjbNBYlgoCxCvjsGyIPYZvgw.ttf */
+
+}
+@font-face {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+
+    src: local('☺'),
+
+        url(Ubuntu_400_normal.woff) format('woff'), /* {{woff-gf-url}} */
+        url(Ubuntu_400_normal.ttf) format('truetype'), /* {{truetype-gf-url}} */
+
+}
+@font-face {
+    font-family: 'Ubuntu';
+    font-style: italic;
+    font-weight: 300;
+
+    src: local('☺'),
+
+        url(Ubuntu_300_italic.woff) format('woff'), /* http://fonts.gstatic.com/s/ubuntu/v11/4iCp6KVjbNBYlgoKejZftVyPN4c.woff */
+        url(Ubuntu_300_italic.ttf) format('truetype'), /* http://fonts.gstatic.com/s/ubuntu/v11/4iCp6KVjbNBYlgoKejZftVyPN4RNgYUJ.ttf */
+
+}
+@font-face {
+    font-family: 'Ubuntu';
+    font-style: italic;
+    font-weight: 700;
+
+    src: local('☺'),
+
+        url(Ubuntu_700_italic.woff) format('woff'), /* http://fonts.gstatic.com/s/ubuntu/v11/4iCp6KVjbNBYlgoKejZPslyPN4c.woff */
+        url(Ubuntu_700_italic.ttf) format('truetype'), /* http://fonts.gstatic.com/s/ubuntu/v11/4iCp6KVjbNBYlgoKejZPslyPN4RNgYUJ.ttf */
+
+}
+@font-face {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 300;
+
+    src: local('☺'),
+
+        url(Ubuntu_300_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/ubuntu/v11/4iCv6KVjbNBYlgoC1CzjsGyL.woff */
+        url(Ubuntu_300_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/ubuntu/v11/4iCv6KVjbNBYlgoC1CzjsGyIPYZvgw.ttf */
+
+}
+@font-face {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+
+    src: local('☺'),
+
+        url(Ubuntu_400_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/ubuntu/v11/4iCs6KVjbNBYlgoKfw7w.woff */
+        url(Ubuntu_400_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/ubuntu/v11/4iCs6KVjbNBYlgoKfw7znU6AFw.ttf */
+
+}
+@font-face {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+
+    src: local('☺'),
+
+        url(Ubuntu_700_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/ubuntu/v11/4iCv6KVjbNBYlgoCxCvjsGyL.woff */
+        url(Ubuntu_700_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/ubuntu/v11/4iCv6KVjbNBYlgoCxCvjsGyIPYZvgw.ttf */
+
+}
