@@ -85,6 +85,7 @@ revealjs_presentation <- function(incremental = FALSE,
                                   lib_dir = NULL,
                                   pandoc_args = NULL,
                                   extra_dependencies = NULL,
+                                  md_extensions = NULL,
                                   ...) {
   
   # function to lookup reveal resource
@@ -237,9 +238,10 @@ revealjs_presentation <- function(incremental = FALSE,
   output_format(
     knitr = knitr_options_html(fig_width, fig_height, fig_retina, keep_md),
     pandoc = pandoc_options(to = "revealjs",
-                            from = rmarkdown_format(ifelse(fig_caption, 
-                                                           "", 
-                                                           "-implicit_figures")),
+                            from = rmarkdown_format(paste0(
+                              md_extensions,
+                              ifelse(fig_caption, "", "-implicit_figures")
+                            )),
                             args = args),
     keep_md = keep_md,
     clean_supporting = self_contained,
