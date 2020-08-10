@@ -58,10 +58,6 @@ outputting HTML directly into the markdown document).}
 
 \item{fig_caption}{\code{TRUE} to render figures with captions}
 
-\item{smart}{Produce typographically correct output, converting straight
-quotes to curly quotes, \code{---} to em-dashes, \code{--} to en-dashes, and
-\code{...} to ellipses.}
-
 \item{self_contained}{Whether to generate a full LaTeX document (\code{TRUE})
 or just the body of a LaTeX document (\code{FALSE}). Note the LaTeX
 document is an intermediate file unless \code{keep_tex = TRUE}.}
@@ -76,7 +72,7 @@ document is an intermediate file unless \code{keep_tex = TRUE}.}
 "fade", "slide", "convex", "concave" or "zoom")}
 
 \item{reveal_options}{Additional options to specify for reveal.js (see
-\href{https://github.com/hakimel/reveal.js#configuration}{https://github.com/hakimel/reveal.js#configuration}
+\href{https://revealjs.com/config/}{https://revealjs.com/config/}
 for details).}
 
 \item{reveal_plugins}{Reveal plugins to include. Available plugins include
