@@ -8,7 +8,7 @@ output:
 
 ## Overview
 
-This repository provides an [R Markdown](http://rmarkdown.rstudio.com) custom format for [reveal.js](http://lab.hakim.se/reveal-js/#/) HTML presentations.
+This repository provides an [R Markdown](http://rmarkdown.rstudio.com) custom format for [reveal.js](https://revealjs.com/) HTML presentations.
 
 You can use this format in R Markdown documents by installing this package as follows:
 
@@ -17,7 +17,7 @@ install.packages("revealjs", type = "source")
 ```
 
 
-To create a [reveal.js](http://lab.hakim.se/reveal-js/#/) presentation from R Markdown you specify the `revealjs_presentation` output format in the front-matter of your document. You can create a slide show broken up into sections by using the `#` and `##` heading tags (you can also create a new slide without a header using a horizontal rule (`----`). For example here's a simple slide show:
+To create a [reveal.js](https://revealjs.com/) presentation from R Markdown you specify the `revealjs_presentation` output format in the front-matter of your document. You can create a slide show broken up into sections by using the `#` and `##` heading tags (you can also create a new slide without a header using a horizontal rule (`----`). For example here's a simple slide show:
 
     ---
     title: "Habits"
@@ -305,7 +305,7 @@ You can enable various reveal.js plugins using the `reveal_plugins` option. Plug
 
 | Plugin | Description  |
 |----------------------------|---------------------------------------------|
-| [notes](https://github.com/hakimel/reveal.js/#speaker-notes) | Present per-slide notes in a separate browser window. |
+| [notes](https://revealjs.com/speaker-view/) | Present per-slide notes in a separate browser window. |
 | [zoom](http://lab.hakim.se/zoom-js/) | Zoom in and out of selected content with Alt+Click. |
 | [search](https://github.com/hakimel/reveal.js/blob/master/plugin/search/search.js) | Find a text string anywhere in the slides and show the next occurrence to the user. |
 | [chalkboard](https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard) | Include handwritten notes within a presentation. |
@@ -369,7 +369,7 @@ If there are pandoc features you want to use that lack equivalents in the YAML o
         ]
     ---
 
-Documentation on all available pandoc arguments can be found in the [pandoc user guide](http://johnmacfarlane.net/pandoc/README.html#options).
+Documentation on all available pandoc arguments can be found in the [pandoc user guide](https://pandoc.org/MANUAL.html#options).
 
 ## Shared Options
 

@@ -19,7 +19,7 @@
 #' @param background_transition Slide background-transition ("default", "none", 
 #'   "fade", "slide", "convex", "concave" or "zoom")
 #' @param reveal_options Additional options to specify for reveal.js (see 
-#'   \href{https://github.com/hakimel/reveal.js#configuration}{https://github.com/hakimel/reveal.js#configuration}
+#'   \href{https://revealjs.com/config/}{https://revealjs.com/config/}
 #'    for details).
 #' @param reveal_plugins Reveal plugins to include. Available plugins include
 #'   "notes", "search", "zoom", "chalkboard", and "menu". Note that
