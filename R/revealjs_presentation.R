@@ -148,7 +148,10 @@ revealjs_presentation <- function(incremental = FALSE,
       if (is.logical(value))
         value <- jsbool(value)
       else if (is.character(value))
-        value <- if ((option == "chalkboard-color") || length(value) > 1) {
+        value <- if (
+          grepl("chalkboard-(background|color|draw|pen)", option) ||
+          length(value) > 1
+        ) {
           sprintf('[%s]', paste(paste0("'", value, "'"), collapse = ", "))
         } else {
           paste0("'", value, "'")
