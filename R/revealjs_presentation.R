@@ -149,6 +149,9 @@ revealjs_presentation <- function(incremental = FALSE,
         value <- jsbool(value)
       else if (is.character(value))
         value <- paste0("'", value, "'")
+        if (length(value) > 1L) {
+          value <- sprintf("[%s]", paste(value, collapse = ", "))
+        }
       args <<- c(args, pandoc_variable_arg(option, value))
     }
     
