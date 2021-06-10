@@ -148,7 +148,14 @@ revealjs_presentation <- function(incremental = FALSE,
       if (is.logical(value))
         value <- jsbool(value)
       else if (is.character(value))
-        value <- paste0("'", value, "'")
+        value <- if (
+          grepl("chalkboard-(background|color|draw|pen)", option) ||
+          length(value) > 1
+        ) {
+          sprintf('[%s]', paste(paste0("'", value, "'"), collapse = ", "))
+        } else {
+          paste0("'", value, "'")
+        }
       args <<- c(args, pandoc_variable_arg(option, value))
     }
     
