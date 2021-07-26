@@ -147,8 +147,13 @@ revealjs_presentation <- function(incremental = FALSE,
     add_reveal_option <- function(option, value) {
       if (is.logical(value))
         value <- jsbool(value)
-      else if (is.character(value))
-        value <- paste0("'", value, "'")
+      else if (is.character(value)) {
+        # Add quotes around some config that can be several type
+        # e.g slideNumber = true or slideNumber = 'c/t'
+        if (option %in% c("slideNumber")) {
+          value <- paste0("'", value, "'")
+        }
+      }
       args <<- c(args, pandoc_variable_arg(option, value))
     }
     
