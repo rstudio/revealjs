@@ -1,7 +1,7 @@
 Package: revealjs
 Type: Package
 Title: R Markdown Format for 'reveal.js' Presentations
-Version: 0.9
+Version: 0.9.1
 Date: 2017-03-13
 Authors@R: c(
     person("Hakim", "El Hattab", role = c("aut", "cph"),
