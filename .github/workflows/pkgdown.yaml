@@ -23,7 +23,8 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v1
         with:
-          needs: website
+          extra-packages: r-lib/pkgdown, rstudio/quillt
+          # needs: website
 
       - name: Install package
         run: R CMD INSTALL .
