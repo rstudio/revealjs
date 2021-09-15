@@ -33,7 +33,6 @@ Depends:
 Imports:
     rmarkdown (>= 1.0)
 Suggests:
-    covr,
     testthat
 Config/needs/website: r-lib/pkgdown,rstudio/quillt
 Encoding: UTF-8
