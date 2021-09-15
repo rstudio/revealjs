@@ -4,3 +4,5 @@ README.*
 examples/
 
 
+^codecov\.yml$
+^\.github$

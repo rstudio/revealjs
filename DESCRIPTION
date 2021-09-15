@@ -23,6 +23,7 @@ Depends:
 Imports:
     rmarkdown (>= 1.0)
 Suggests:
+    covr,
     testthat
 RoxygenNote: 7.0.2
 Roxygen: list(markdown = TRUE)
