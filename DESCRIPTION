@@ -1,20 +1,30 @@
-Package: revealjs
 Type: Package
+Package: revealjs
 Title: R Markdown Format for 'reveal.js' Presentations
 Version: 0.9.1
 Date: 2017-03-13
-Authors@R: c(
-    person("Hakim", "El Hattab", role = c("aut", "cph"),
-       comment = "reveal.js-3.2.0, https://github.com/hakimel/reveal.js"),
-    person("Asvin", "Goel", role = c("ctb", "cph"), email = "goel@telematique.eu",
-       comment = "chalkboard plugin"),
-    person("Greg", "Denehy", role = c("ctb", "cph"),
-       comment = "menu plugin"),
-    person("JJ", "Allaire", role = c("aut", "cre"), email = "jj@rstudio.com"),
-    person(family = "RStudio", role = "cph")
-  )
-Description: R Markdown format for 'reveal.js' presentations, a framework 
-  for easily creating beautiful presentations using HTML.
+Authors@R: 
+    c(person(given = "Hakim",
+             family = "El Hattab",
+             role = c("aut", "cph"),
+             comment = "reveal.js-3.2.0, https://github.com/hakimel/reveal.js"),
+      person(given = "Asvin",
+             family = "Goel",
+             role = c("ctb", "cph"),
+             email = "goel@telematique.eu",
+             comment = "chalkboard plugin"),
+      person(given = "Greg",
+             family = "Denehy",
+             role = c("ctb", "cph"),
+             comment = "menu plugin"),
+      person(given = "JJ",
+             family = "Allaire",
+             role = c("aut", "cre"),
+             email = "jj@rstudio.com"),
+      person(family = "RStudio",
+             role = "cph"))
+Description: R Markdown format for 'reveal.js' presentations, a framework
+    for easily creating beautiful presentations using HTML.
 License: MIT + file LICENSE
 URL: https://github.com/rstudio/revealjs
 BugReports: https://github.com/rstudio/revealjs/issues
@@ -25,5 +35,6 @@ Imports:
 Suggests:
     covr,
     testthat
-RoxygenNote: 7.0.2
+Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
