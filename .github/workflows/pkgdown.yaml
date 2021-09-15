@@ -40,7 +40,7 @@ jobs:
         shell: Rscript {0}
 
       - name: Deploy to Netlify
-        if: false() # TODO: setup netlify
+        if: ${{ false }} # TODO: setup netlify
         id: netlify-deploy
         uses: nwtgck/actions-netlify@v1.1
         with:
