@@ -16,25 +16,27 @@ jobs:
   R-CMD-check:
     runs-on: ${{ matrix.config.os }}
 
-    name: ${{ matrix.config.os }} (${{ matrix.config.r }})
+    name: ${{ matrix.config.os }} (${{ matrix.config.r }}) [Pandoc ${{ matrix.config.pandoc }}]
 
     strategy:
       fail-fast: false
       matrix:
         config:
-          - {os: macOS-latest,   r: 'release'}
+          # testing R release with last shipped pandoc version in RStudio IDE and new pandoc
+          - {os: macOS-latest,   pandoc: '2.11.4', r: 'release'}
+          - {os: macOS-latest,   pandoc: '2.14.2', r: 'release'}
 
-          - {os: windows-latest, r: 'release'}
+          # TODO: issue on windows with pandoc 2.11.4 - change when fixed
+          - {os: windows-latest, pandoc: '2.7.3', r: 'release'}
           # Use 3.6 to trigger usage of RTools35
-          - {os: windows-latest, r: '3.6'}
+          - {os: windows-latest, pandoc: '2.7.3', r: '3.6'}
 
           # Use older ubuntu to maximise backward compatibility
-          - {os: ubuntu-18.04,   r: 'devel', http-user-agent: 'release'}
-          - {os: ubuntu-18.04,   r: 'release'}
-          - {os: ubuntu-18.04,   r: 'oldrel-1'}
-          - {os: ubuntu-18.04,   r: 'oldrel-2'}
-          - {os: ubuntu-18.04,   r: 'oldrel-3'}
-          - {os: ubuntu-18.04,   r: 'oldrel-4'}
+          - {os: ubuntu-18.04,   pandoc: '2.11.4', r: 'devel', http-user-agent: 'release'}
+          - {os: ubuntu-18.04,   pandoc: 'devel', r: 'release'}
+          - {os: ubuntu-18.04,   pandoc: '2.14.2', r: 'release'}
+          - {os: ubuntu-18.04,   pandoc: '2.11.4', r: 'release'}
+          - {os: ubuntu-18.04,   pandoc: '2.11.4', r: 'oldrel-1'}
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -44,6 +46,12 @@ jobs:
       - uses: actions/checkout@v2
 
       - uses: r-lib/actions/setup-pandoc@v1
+        if: matrix.config.pandoc != 'devel'
+        with:
+          pandoc-version: ${{ matrix.config.pandoc }}
+      
+      - uses: cderv/actions/setup-pandoc-nightly@nightly-pandoc
+        if: matrix.config.pandoc == 'devel'
 
       - uses: r-lib/actions/setup-r@v1
         with:
@@ -55,7 +63,7 @@ jobs:
         with:
           extra-packages: rcmdcheck
 
-      - uses: r-lib/actions/check-r-package@v1
+      - uses: r-lib/actions/check-r-package@master
 
       - name: Show testthat output
         if: always()
