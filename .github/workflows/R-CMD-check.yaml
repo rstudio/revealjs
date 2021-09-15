@@ -12,7 +12,7 @@ on:
       - '.github/workflows/pkgdown.yaml'
   pull_request:
     branches: [main, master]
-        paths-ignore:
+    paths-ignore:
       - 'pkgdown/**'
       - '.github/workflows/pkgdown.yaml'
 
