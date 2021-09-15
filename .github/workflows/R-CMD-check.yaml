@@ -12,7 +12,7 @@ on:
       - '.github/workflows/pkgdown.yaml'
   pull_request:
     branches: [main, master]
-    paths-ignore:
+        paths-ignore:
       - 'pkgdown/**'
       - '.github/workflows/pkgdown.yaml'
 
@@ -83,3 +83,10 @@ jobs:
         with:
           name: ${{ runner.os }}-r${{ matrix.config.r }}-results
           path: check
+          
+      - name: Test coverage
+        if: success() && runner.os == 'Linux' && matrix.config.r == 'release' && matrix.config.pandoc == '2.11.4'
+        run: |
+          pak::pkg_install('covr')
+          covr::codecov()
+        shell: Rscript {0}
