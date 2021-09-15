@@ -9,4 +9,4 @@ examples/
 ^_pkgdown\.yml$
 ^reference$
 ^pkgdown$
-^vignettes/$
+vignettes/
