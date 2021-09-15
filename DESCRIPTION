@@ -33,6 +33,7 @@ Depends:
 Imports:
     rmarkdown (>= 1.0)
 Suggests:
+    bslib,
     testthat
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
