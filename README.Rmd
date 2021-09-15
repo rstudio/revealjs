@@ -385,3 +385,7 @@ revealjs::revealjs_presentation:
 ```
 
 All documents located in the same directory as `_output.yaml` will inherit it's options. Options defined explicitly within documents will override those specified in the shared options file.
+
+## Code of Conduct
+
+Please note that the revealjs project is released with a [Contributor Code of Conduct](https://pkgs.rstudio.com/revealjs/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.

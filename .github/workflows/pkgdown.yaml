@@ -1,0 +1,60 @@
+on:
+  push:
+    branches: [main, master]
+    tags: ['*']
+  pull_request:
+    branches: [main, master]
+name: pkgdown
+
+jobs:
+  pkgdown:
+    if: ${{ github.event_name == 'push' || startsWith(github.head_ref, 'pkgdown/') }}
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: r-lib/actions/setup-pandoc@v1
+
+      - uses: r-lib/actions/setup-r@v1
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v1
+        with:
+          extra-packages: [pkgdown, quillt]
+          # or use Config/needs/website: in DESCRIPTION
+          # needs: website
+
+      - name: Install package
+        run: R CMD INSTALL .
+
+      - name: Cache some pkgdown assets
+        uses: actions/cache@v2
+        with:
+          path: |
+            vignettes/articles/images/*.png
+          key: 1-${{ hashFiles('vignettes/articles/examples.yml') }}
+
+      - name: Build pkgdown site
+        run: pkgdown::build_site(new_process = FALSE)
+        shell: Rscript {0}
+
+      - name: Deploy to Netlify
+        id: netlify-deploy
+        uses: nwtgck/actions-netlify@v1.1
+        with:
+          publish-dir: 'reference'
+          # change back to master if branch is not correct
+          production-branch: main
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message:
+            'Deploy from GHA: ${{ github.event.head_commit.message }} (${{ github.sha }})'
+          enable-pull-request-comment: false
+          enable-commit-comment: false
+          enable-commit-status: true
+          alias: deploy-preview-${{ github.event.number }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
