@@ -23,9 +23,7 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v1
         with:
-          extra-packages: [pkgdown, quillt]
-          # or use Config/needs/website: in DESCRIPTION
-          # needs: website
+          needs: website
 
       - name: Install package
         run: R CMD INSTALL .
@@ -42,6 +40,7 @@ jobs:
         shell: Rscript {0}
 
       - name: Deploy to Netlify
+        if: false() # TODO: setup netlify
         id: netlify-deploy
         uses: nwtgck/actions-netlify@v1.1
         with:
