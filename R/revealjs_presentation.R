@@ -6,6 +6,9 @@
 #' @inheritParams rmarkdown::pdf_document
 #' @inheritParams rmarkdown::html_document
 #'   
+#' @param smart Produce typographically correct output, converting straight
+#'  quotes to curly quotes, \code{---} to em-dashes, \code{--} to en-dashes, and
+#'  \code{...} to ellipses.
 #' @param center \code{TRUE} to vertically center content on slides
 #' @param slide_level Level of heading to denote individual slides. If 
 #'   \code{slide_level} is 2 (the default), a two-dimensional layout will be 
