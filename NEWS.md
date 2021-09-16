@@ -1,3 +1,9 @@
+# revealjs (development version)
+
+- Fix issue with quoting of options when passed as variables to Pandoc. This was caused by a change in Pandoc 2.14.0.3 which now sets some default value for reveal.js options (thanks, @iain-palmer, #72).
+
+- Add `md_extensions` argument in `revealjs_presentation()` (thanks, @atusy, #75).
+
 # revealjs 0.9
 
 - Add support for the menu plugin

@@ -1,10 +1,13 @@
 ---
 title: "R Markdown Format for reveal.js Presentations"
 output: 
-  github_document:
-    toc: true
-    toc_depth: 2
+  github_document: default
 ---
+
+<!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/revealjs)](https://CRAN.R-project.org/package=revealjs)
+[![R-CMD-check](https://github.com/rstudio/revealjs/workflows/R-CMD-check/badge.svg)](https://github.com/rstudio/revealjs/actions)
+<!-- badges: end -->
 
 ## Overview
 
