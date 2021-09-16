@@ -10,3 +10,4 @@ examples/
 ^reference$
 ^pkgdown$
 vignettes/
+^tests/manual$

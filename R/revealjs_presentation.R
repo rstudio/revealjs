@@ -148,9 +148,14 @@ revealjs_presentation <- function(incremental = FALSE,
   if (is.list(reveal_options)) {
     
     add_reveal_option <- function(option, value) {
-      if (is.logical(value))
+      if (is.logical(value)) {
         value <- jsbool(value)
-      else if (is.character(value)) {
+      } else if (is.character(value)) {
+        # Special handling for some chalkboard plugin options
+        # e.g: color: [ 'rgba(0,0,255,1)', 'rgba(255,255,255,0.5)' ]
+        if (grepl("chalkboard-(background|color|draw|pen)", option)) {
+          value <- sprintf('[%s]', paste(paste0("'", value, "'"), collapse = ", "))
+        }
         # Add quotes around some config that can be several type
         # e.g slideNumber = true or slideNumber = 'c/t'
         if (option %in% c("slideNumber")) {
