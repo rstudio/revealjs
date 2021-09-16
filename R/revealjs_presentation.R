@@ -157,8 +157,10 @@ revealjs_presentation <- function(incremental = FALSE,
           value <- sprintf('[%s]', paste(paste0("'", value, "'"), collapse = ", "))
         }
         # Add quotes around some config that can be several type
-        # e.g slideNumber = true or slideNumber = 'c/t'
-        if (option %in% c("slideNumber")) {
+        # like number or percent unit or slideNumber = true or slideNumber = 'c/t'
+        if (
+          option %in% c("slideNumber") ||
+          (option %in% c("width", "height") && grepl("%$", value))) {
           value <- paste0("'", value, "'")
         }
       }
