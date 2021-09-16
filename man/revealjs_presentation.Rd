@@ -58,6 +58,10 @@ outputting HTML directly into the markdown document).}
 
 \item{fig_caption}{\code{TRUE} to render figures with captions}
 
+\item{smart}{Produce typographically correct output, converting straight
+quotes to curly quotes, \code{---} to em-dashes, \code{--} to en-dashes, and
+\code{...} to ellipses.}
+
 \item{self_contained}{Whether to generate a full LaTeX document (\code{TRUE})
 or just the body of a LaTeX document (\code{FALSE}). Note the LaTeX
 document is an intermediate file unless \code{keep_tex = TRUE}.}
@@ -96,7 +100,10 @@ created. Note that if you don't use the "default" template then some
 features of \code{revealjs_presentation} won't be available (see the
 Templates section below for more details).}
 
-\item{css}{One or more css files to include}
+\item{css}{CSS and/or Sass files to include. Files with an extension of .sass
+or .scss are compiled to CSS via \code{sass::sass()}. Also, if \code{theme} is a
+\code{\link[bslib:bs_theme]{bslib::bs_theme()}} object, Sass code may reference the relevant Bootstrap
+Sass variables, functions, mixins, etc.}
 
 \item{includes}{Named list of additional content to include within the
 document (typically created using the \code{\link[rmarkdown]{includes}} function).}

@@ -4,3 +4,9 @@ README.*
 examples/
 
 
+^codecov\.yml$
+^\.github$
+^_pkgdown\.yml$
+^reference$
+^pkgdown$
+vignettes/
