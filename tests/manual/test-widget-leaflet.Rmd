@@ -1,0 +1,48 @@
+---
+title: "Rmarkdown Presentation including Leaflet"
+output: 
+  revealjs::revealjs_presentation
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_template$set(demo = list(echo = TRUE, eval = FALSE))
+library(leaflet)
+```
+
+
+# Simple map
+
+```{r simple}
+m <- leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lng=174.768, lat=-36.852, popup="The birthplace of R")
+m
+```
+
+## Code
+
+```{r simple, opts.label = "demo"}
+```
+
+# More complex example
+
+```{r popups}
+library(htmltools)
+
+df <- read.csv(textConnection(
+"Name,Lat,Long
+Samurai Noodle,47.597131,-122.327298
+Kukai Ramen,47.6154,-122.327157
+Tsukushinbo,47.59987,-122.326726"
+))
+
+leaflet(df) %>% addTiles() %>%
+  addMarkers(~Long, ~Lat, popup = ~htmlEscape(Name))
+```
+
+## Code
+
+```{r popups, opts.label = "demo"}
+```
+
