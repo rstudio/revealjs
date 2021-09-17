@@ -1,0 +1,108 @@
+---
+title: "Rmarkdown Presentation including Plotly"
+output: 
+  revealjs::revealjs_presentation
+---
+
+# Setup
+
+```{r, message=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_template$set(demo = list(echo = TRUE, eval = FALSE))
+xfun::pkg_attach2("plotly")
+xfun::pkg_load2("ggplot2")
+data(economics, package = "ggplot2")
+```
+
+
+# Simple example
+
+```{r simple}
+set.seed(99)
+plot_ly() %>%
+ add_trace(
+   type = "scatter",
+   mode = "markers+lines+text",
+   x = 4:6, 
+   y = 4:6,
+   text = replicate(3, praise::praise("You are ${adjective}! 🙌")),
+   textposition = "right",
+   hoverinfo = "text",
+   textfont = list(family = "Roboto Condensed", size = 16)
+ ) %>%
+ layout(xaxis = list(range = c(3, 8)))
+```
+
+## Code
+
+```{r simple, opts.label = "demo"}
+```
+
+# Several plots
+
+```{r multiple}
+p1 <- plot_ly(economics, x = ~date, y = ~unemploy) %>% 
+  add_lines(name = "unemploy")
+p2 <- plot_ly(economics, x = ~date, y = ~uempmed) %>% 
+  add_lines(name = "uempmed")
+subplot(p1, p2)
+```
+
+## Code
+
+```{r multiple, opts.label = "demo"}
+```
+
+
+# Events handler
+
+```{r events, message=FALSE}
+xfun::pkg_attach2("htmlwidgets")
+plot_ly(mtcars, x = ~wt, y = ~mpg) %>%
+  onRender("
+    function(el) { 
+      el.on('plotly_hover', function(d) { 
+        console.log('Hover: ', d); 
+      });
+      el.on('plotly_click', function(d) { 
+        console.log('Click: ', d);
+      });
+      el.on('plotly_selected', function(d) { 
+        console.log('Select: ', d); 
+      });
+    }
+  ")
+```
+
+## Code
+
+```{r events, opts.label = "demo"}
+```
+
+# Symbols
+
+```{r symbols}
+vals <- schema(F)$traces$scatter$attributes$marker$symbol$values
+vals <- grep("-", vals, value = T)
+plot_ly() %>%
+  add_markers(
+    x = rep(1:12, each = 11, length.out = length(vals)),
+    y = rep(1:11, times = 12, length.out = length(vals)),
+    text = vals,
+    hoverinfo = "text",
+    marker = list(
+      symbol = vals,
+      size = 30,
+      line = list(
+        color = "black",
+        width = 2
+      )
+    )
+  )
+```
+
+## Code
+
+```{r symbols, opts.label = "demo"}
+```
+
