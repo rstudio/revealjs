@@ -1,0 +1,15 @@
+---
+title: "Incremental locally"
+output: 
+  revealjs::revealjs_presentation:
+    incremental: false
+---
+
+## Incremental list
+
+::: incremental
+
+- Eat spaghetti
+- Drink wine
+
+:::
