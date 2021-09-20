@@ -27,3 +27,23 @@ summary(cars)
 plot(cars)
 ```
 
+## Slide with two columns layout
+
+Main content 
+
+:::: columns
+
+::: column
+
+Showing an [underline text]{.underline} on the left
+
+:::
+
+::: column
+
+and a text in [smallcap]{.smallcaps} on the right
+
+:::
+
+::::
+
