@@ -1,0 +1,18 @@
+---
+title: "chalkboard plugin"
+output: 
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["chalkboard"]
+    reveal_options:
+      chalkboard:
+        theme: whiteboard
+        color: ['rgba(255, 0, 0, 0.3)', 'rgba(255, 0, 0, 0.3)']
+---
+
+# Configurations
+
+We are testing that color can be correctly change. 
+Pen is now red in both mode: Click on the left icons and write in Red. 
+
+Default is blue. 

@@ -6,6 +6,9 @@
 #' @inheritParams rmarkdown::pdf_document
 #' @inheritParams rmarkdown::html_document
 #'   
+#' @param smart Produce typographically correct output, converting straight
+#'  quotes to curly quotes, \code{---} to em-dashes, \code{--} to en-dashes, and
+#'  \code{...} to ellipses.
 #' @param center \code{TRUE} to vertically center content on slides
 #' @param slide_level Level of heading to denote individual slides. If 
 #'   \code{slide_level} is 2 (the default), a two-dimensional layout will be 
@@ -145,10 +148,22 @@ revealjs_presentation <- function(incremental = FALSE,
   if (is.list(reveal_options)) {
     
     add_reveal_option <- function(option, value) {
-      if (is.logical(value))
+      if (is.logical(value)) {
         value <- jsbool(value)
-      else if (is.character(value))
-        value <- paste0("'", value, "'")
+      } else if (is.character(value)) {
+        # Special handling for some chalkboard plugin options
+        # e.g: color: [ 'rgba(0,0,255,1)', 'rgba(255,255,255,0.5)' ]
+        if (grepl("chalkboard-(background|color|draw|pen)", option)) {
+          value <- sprintf('[%s]', paste(paste0("'", value, "'"), collapse = ", "))
+        }
+        # Add quotes around some config that can be several type
+        # like number or percent unit or slideNumber = true or slideNumber = 'c/t'
+        if (
+          option %in% c("slideNumber") ||
+          (option %in% c("width", "height") && grepl("%$", value))) {
+          value <- paste0("'", value, "'")
+        }
+      }
       args <<- c(args, pandoc_variable_arg(option, value))
     }
     

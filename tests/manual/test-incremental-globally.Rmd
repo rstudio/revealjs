@@ -1,0 +1,20 @@
+---
+title: "Incremental globally"
+output: 
+  revealjs::revealjs_presentation:
+    incremental: true
+---
+
+## list 
+
+- item 1
+- item 2
+
+## Non Incremental list
+
+::: nonincremental
+
+- Eat spaghetti
+- Drink wine
+
+:::

@@ -546,7 +546,7 @@ $body$
   <script>
 
       // Full list of configuration options available at:
-      // https://github.com/hakimel/reveal.js#configuration
+      // https://revealjs.com/config/
       Reveal.initialize({
 $if(controls)$
         // Display controls in the bottom right corner
@@ -558,6 +558,14 @@ $if(progress)$
 $endif$
 $if(slideNumber)$
         // Display the page number of the current slide
+        // - true:    Show slide number
+        // - false:   Hide slide number
+        //
+        // Can optionally be set as a string that specifies the number formatting:
+        // - "h.v":   Horizontal . vertical slide number (default)
+        // - "h/v":   Horizontal / vertical slide number
+        // - "c":   Flattened slide number
+        // - "c/t":   Flattened slide number / total slides
         slideNumber: $slideNumber$,
 $endif$
 $if(history)$
@@ -630,7 +638,7 @@ $if(transition)$
 $endif$
 $if(transitionSpeed)$
         // Transition speed
-        transitionSpeed: $transitionSpeed$, // default/fast/slow
+        transitionSpeed: '$transitionSpeed$', // default/fast/slow
 $endif$
 $if(backgroundTransition)$
         // Transition style for full page slide backgrounds
@@ -642,19 +650,19 @@ $if(viewDistance)$
 $endif$
 $if(parallaxBackgroundImage)$
         // Parallax background image
-        parallaxBackgroundImage: $parallaxBackgroundImage$, // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+        parallaxBackgroundImage: '$parallaxBackgroundImage$', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
 $endif$
 $if(parallaxBackgroundSize)$
         // Parallax background size
-        parallaxBackgroundSize: $parallaxBackgroundSize$, // CSS syntax, e.g. "2100px 900px"
+        parallaxBackgroundSize: '$parallaxBackgroundSize$', // CSS syntax, e.g. "2100px 900px"
 $endif$
 $if(parallaxBackgroundHorizontal)$
         // Amount to move parallax background (horizontal and vertical) on slide change
         // Number, e.g. 100
-        parallaxBackgroundHorizontal: $parallaxBackgroundHorizontal$,
+        parallaxBackgroundHorizontal: '$parallaxBackgroundHorizontal$',
 $endif$
 $if(parallaxBackgroundVertical)$
-        parallaxBackgroundVertical: $parallaxBackgroundVertical$,
+        parallaxBackgroundVertical: '$parallaxBackgroundVertical$',
 $endif$
 $if(width)$
         // The "normal" size of the presentation, aspect ratio will be preserved
@@ -729,7 +737,7 @@ $if(chalkboard-transition)$
           transition: $chalkboard-transition$,
 $endif$
 $if(chalkboard-theme)$
-          theme: $chalkboard-theme$,
+          theme: '$chalkboard-theme$',
 $endif$
 $if(chalkboard-color)$
           color: $chalkboard-color$,

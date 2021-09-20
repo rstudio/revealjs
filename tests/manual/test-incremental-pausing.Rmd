@@ -1,0 +1,17 @@
+---
+title: "Incremental by pausing"
+output: revealjs::revealjs_presentation
+---
+
+# Pausing using pandoc syntax
+
+content before the pause
+
+. . .
+
+content after the pause
+
+. . .
+
+Content after another pause
+````

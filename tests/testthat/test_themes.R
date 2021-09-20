@@ -1,10 +1,5 @@
-
-context("Themes")
-
 test_theme <- function(theme) {
-
   test_that(paste(theme, "theme"), {
-
     # don't run on cran because pandoc is required
     skip_on_cran()
 
@@ -28,7 +23,8 @@ test_theme <- function(theme) {
       output_format <- revealjs_presentation(theme = theme)
       rmarkdown::render(testdoc, 
                         output_format = output_format,
-                        output_file = output_file)
+                        output_file = output_file, 
+                        quiet = TRUE)
       expect_true(file.exists(output_file))
     })
   })

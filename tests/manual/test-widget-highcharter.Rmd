@@ -1,0 +1,216 @@
+---
+title: "Rmarkdown Presentation including Plotly"
+output: 
+  revealjs::revealjs_presentation
+---
+
+# Setup
+
+```{r, message=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_template$set(demo = list(echo = TRUE, eval = FALSE))
+xfun::pkg_attach2("highcharter")
+xfun::pkg_load2("palmerpenguins")
+data(penguins, package = "palmerpenguins")
+```
+
+
+# Simple example
+
+```{r simple}
+hchart(penguins, "scatter", hcaes(x = flipper_length_mm, y = bill_length_mm, group = species))
+```
+
+## Code
+
+```{r simple, opts.label = "demo"}
+```
+
+# Simple2 example
+
+```{r simple2}
+x <- c(rnorm(10000), rnorm(1000, 4, 0.5))
+hchart(x, name = "data") 
+```
+
+## Code
+
+```{r simple2, opts.label = "demo"}
+```
+
+# venn
+
+```{r venn}
+highchart() %>% 
+  hc_chart(type = "venn") %>% 
+  hc_add_series(
+    dataLabels = list(style = list(fontSize = "20px")),
+    name = "Venn Diagram",
+    data = list(
+      list(
+        name = "People who are<br>breaking my heart.",
+        sets = list("A"), value = 5
+        ),
+      list(
+        name = "People who are shaking<br> my confidence daily.",
+        sets = list("B"), value = 5
+        ),
+      list(
+        name = "Cecilia", sets = list("B", "A"), value = 1)
+      )
+  )
+```
+
+## Code
+
+```{r venn, opts.label = "demo"}
+```
+
+https://jkunst.com/highcharter/articles/highcharts.html#venn-euler-1
+
+# HIMYM example
+
+```{r himym, message=FALSE}
+data(favorite_bars)
+data(favorite_pies)
+
+highchart() %>% 
+  # Data
+  hc_add_series(
+    favorite_pies, 
+    "column",
+    hcaes(
+      x = pie,
+      y = percent
+      ),
+    name = "Pie"
+    ) %>%
+  hc_add_series(
+    favorite_bars,
+    "pie",
+    hcaes(
+      name = bar,
+      y = percent
+      ),
+    name = "Bars"
+    ) %>%
+  # Options for each type of series
+  hc_plotOptions(
+    series = list(
+      showInLegend = FALSE,
+      pointFormat = "{point.y}%",
+      colorByPoint = TRUE
+      ),
+    pie = list(
+      center = c('30%', '10%'),
+      size = 120,
+      dataLabels = list(enabled = FALSE)
+      )
+    ) %>%
+  # Axis
+  hc_yAxis(
+    title = list(text = "percentage of tastiness"),
+    labels = list(format = "{value}%"), 
+    max = 100
+  ) %>% 
+  hc_xAxis(
+    categories = favorite_pies$pie
+    ) %>%
+  # Titles, subtitle, caption and credits
+  hc_title(
+    text = "How I Met Your Mother: Pie Chart Bar Graph"
+  ) %>% 
+  hc_subtitle(
+    text = "This is a bar graph describing my favorite pies
+    including a pie chart describing my favorite bars"
+  ) %>%
+  hc_caption(
+    text = "The values represented are in percentage of tastiness and awesomeness."
+    ) %>% 
+  hc_credits(
+    enabled = TRUE, text = "Source: HIMYM",
+    href = "https://www.youtube.com/watch?v=f_J8QU1m0Ng",
+    style = list(fontSize = "12px")
+  ) %>% 
+  hc_size(
+    height = 600
+    )
+```
+
+## Code
+
+https://jkunst.com/highcharter/articles/showcase.html#himym-example-1
+
+```{r himym, opts.label = "demo"}
+```
+
+# Stars
+
+```{r stars}
+data(stars)
+
+colors <- c(
+  "#FB1108", "#FD150B", "#FA7806", "#FBE426", "#FCFB8F",
+  "#F3F5E7", "#C7E4EA", "#ABD6E6", "#9AD2E1"
+)
+
+stars$color <- highcharter::colorize(log(stars$temp), colors)
+
+x <- c("Luminosity", "Temperature", "Distance", "Radius")
+y <- sprintf("{point.%s:.2f}", c("lum", "temp", "distance", "radiussun"))
+
+tltip <- tooltip_table(x, y)
+
+hchart(
+  stars,
+  "scatter",
+  hcaes(
+    temp, 
+    lum, 
+    size = radiussun, 
+    color = color
+    ),
+  minSize = 2,
+  maxSize = 20
+  ) %>%
+  hc_chart(
+    # backgroundColor = "black"
+    backgroundColor = hex_to_rgba("black", 0.5),
+    divBackgroundImage = "http://www.wired.com/images_blogs/underwire/2013/02/xwing-bg.gif"
+    ) %>%
+  hc_xAxis(
+    title = list(text = "Temperature"),
+    type = "logarithmic",
+    gridLineWidth = 0,
+    reversed = TRUE
+    ) %>%
+  hc_yAxis(
+    title = list(text = "Luminosity"),
+    type = "logarithmic", 
+    gridLineWidth = 0
+    ) %>%
+  hc_title(
+    style = list(color = hex_to_rgba("white", 0.5)),
+    text = "Our nearest Stars"
+    ) %>%
+  hc_subtitle(
+    style = list(color = hex_to_rgba("white", 0.5)),
+    text = "In a Hertzsprung-Russell diagram"
+    ) %>%
+  hc_tooltip(
+    useHTML = TRUE,
+    headerFormat = "",
+    pointFormat = tltip
+    ) %>%
+  hc_size(
+    height = 700
+    )
+```
+
+## Code
+
+https://jkunst.com/highcharter/articles/showcase.html#himym-example-1
+
+```{r stars, opts.label = "demo"}
+```
+
