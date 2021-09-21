@@ -107,7 +107,6 @@ revealjs_presentation <- function(incremental = FALSE,
     args <- c(args, "--incremental")
   
   # centering
-  jsbool <- function(value) ifelse(value, "true", "false")
   args <- c(args, pandoc_variable_arg("center", jsbool(center)))
   
   # slide level
