@@ -8,7 +8,6 @@ reveal_resources <- function(...) {
 # Convert boolean from R to JS boolean
 jsbool <- function(value) ifelse(value, "true", "false")
 
-
 # transfrom reveal option as pandoc variable
 process_reveal_option <- function(option, value) {
   if (is.logical(value)) {
