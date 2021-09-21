@@ -47,3 +47,14 @@ and a text in [smallcap]{.smallcaps} on the right
 
 ::::
 
+## Insert an image
+
+You can insert images
+
+![revealjs logo](https://revealjs.com/images/logo/reveal-black-text.svg)
+
+## Insert an image on the whole slide
+
+Using the `.strech` class
+
+![revealjs logo](https://revealjs.com/images/logo/reveal-black-text.svg){.stretch}
