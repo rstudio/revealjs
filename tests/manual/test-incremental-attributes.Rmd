@@ -1,0 +1,46 @@
+---
+title: "Incremental using attributes"
+output: 
+  revealjs::revealjs_presentation:
+    incremental: false
+---
+
+# Equivalent to using fenced div
+
+Content before fade
+
+::: fragment
+content after the pause
+:::
+
+::: fragment
+content after the pause
+:::
+
+# attributes can be added on divs
+
+::: fragment
+Fade in
+:::
+
+::: {.fragment .fade-out}
+Fade out
+:::
+
+::: {.fragment .highlight-red}
+Highlight red
+:::
+
+::: {.fragment .current-visible}
+Fade in, then out
+:::
+
+# Working on spans too 
+
+[Fade in]{.fragment}
+
+[Fade out]{.fragment .fade-out}
+
+[Highlight red]{.fragment .highlight-red}
+
+[Fade in, then out]{.fragment .current-visible}
