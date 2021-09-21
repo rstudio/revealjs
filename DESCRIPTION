@@ -31,7 +31,7 @@ BugReports: https://github.com/rstudio/revealjs/issues
 Depends:
     R (>= 3.0)
 Imports:
-    rmarkdown (>= 1.0)
+    rmarkdown (>= 1.7)
 Suggests:
     bslib,
     testthat (>= 3.0.0)

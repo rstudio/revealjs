@@ -118,18 +118,18 @@ revealjs_presentation <- function(incremental = FALSE,
     theme <- "black"
   }
   if (theme %in% c("blood", "moon", "night", "black")) {
-    args <- c(args, "--variable", "theme-dark")
+    args <- c(args, pandoc_variable_arg("theme-dark"))
   }
-  args <- c(args, "--variable", paste("theme=", theme, sep = ""))
+  args <- c(args, pandoc_variable_arg("theme=", theme))
 
 
   # transition
   transition <- match.arg(transition, revealjs_transitions())
-  args <- c(args, "--variable", paste("transition=", transition, sep = ""))
+  args <- c(args, pandoc_variable_arg("transition", transition))
 
   # background_transition
   background_transition <- match.arg(background_transition, revealjs_transitions())
-  args <- c(args, "--variable", paste("backgroundTransition=", background_transition, sep = ""))
+  args <- c(args, pandoc_variable_arg("backgroundTransition", background_transition))
 
   # use history
   args <- c(args, pandoc_variable_arg("history", "true"))
@@ -241,7 +241,7 @@ revealjs_presentation <- function(incremental = FALSE,
     } else {
       revealjs_path <- pandoc_path_arg(revealjs_path)
     }
-    args <- c(args, "--variable", paste0("revealjs-url=", revealjs_path))
+    args <- c(args, pandoc_variable_arg("revealjs-url", revealjs_path))
 
     # highlight
     args <- c(args, pandoc_highlight_args(highlight, default = "pygments"))
