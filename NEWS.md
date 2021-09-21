@@ -1,5 +1,9 @@
 # revealjs (development version)
 
+- Add `title-slide` id on the auto generated title slide to ease the styling using CSS.
+
+- Support `background-image` pandoc's variable as other slide framework to customize the option `parallaxBackgroundImage`. This duplicates the variable `parallaxBackgroundImage` which still get precedence.
+
 - Fix template to add the necessary CSS to format [columns layout](https://pandoc.org/MANUAL.html#columns) and other Pandoc's features (thanks, @atusy, #82).
 
 - Fix an issue with some configurations keys for chalkboard plugin - multiple value are now correctly passed to Pandoc's template (thanks, @grayknight2, @atusy, #62, #88).
