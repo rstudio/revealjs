@@ -91,21 +91,12 @@ revealjs_presentation <- function(incremental = FALSE,
                                   md_extensions = NULL,
                                   ...) {
   
-  # function to lookup reveal resource
-  reveal_resources <- function() {
-    system.file("rmarkdown/templates/revealjs_presentation/resources",
-                package = "revealjs")
-  }
-  
   # base pandoc options for all reveal.js output
   args <- c()
   
   # template path and assets
   if (identical(template, "default")) {
-    default_template <- system.file(
-      "rmarkdown/templates/revealjs_presentation/resources/default.html",
-      package = "revealjs"
-    )
+    default_template <- reveal_resources("default.html")
     args <- c(args, "--template", pandoc_path_arg(default_template))
   } else if (!is.null(template)) {
     args <- c(args, "--template", pandoc_path_arg(template))
