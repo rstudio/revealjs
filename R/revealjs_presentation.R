@@ -120,7 +120,7 @@ revealjs_presentation <- function(incremental = FALSE,
   if (theme %in% c("blood", "moon", "night", "black")) {
     args <- c(args, pandoc_variable_arg("theme-dark"))
   }
-  args <- c(args, pandoc_variable_arg("theme=", theme))
+  args <- c(args, pandoc_variable_arg("theme", theme))
 
 
   # transition
