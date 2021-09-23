@@ -6,7 +6,10 @@
 
 - Add `title-slide` id on the auto generated title slide to ease the styling using CSS.
 
-- Support `background-image` pandoc's variable as other slide framework to customize the option `parallaxBackgroundImage`. This duplicates the variable `parallaxBackgroundImage` which still get precedence.
+- Support more Pandoc's variable in `revealjs_presentation()` as documented in Pandoc for HTML slides:
+* `background-image` to customize the option `parallaxBackgroundImage`. This duplicates the variable `parallaxBackgroundImage` which still get precedence.
+* `institute` to provide another line in title slide between author and date
+* `toc-title` to provide a Title above the toc when `toc = TRUE`
 
 - Fix template to add the necessary CSS to format [columns layout](https://pandoc.org/MANUAL.html#columns) and other Pandoc's features (thanks, @atusy, #82).
 
