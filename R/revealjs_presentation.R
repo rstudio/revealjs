@@ -6,9 +6,9 @@
 #' @inheritParams rmarkdown::pdf_document
 #' @inheritParams rmarkdown::html_document
 #'
-#' @param center \code{TRUE} to vertically center content on slides
+#' @param center `TRUE` to vertically center content on slides
 #' @param slide_level Level of heading to denote individual slides. If
-#'   \code{slide_level} is 2 (the default), a two-dimensional layout will be
+#'   `slide_level` is 2 (the default), a two-dimensional layout will be
 #'   produced, with level 1 headers building horizontally and level 2 headers
 #'   building vertically. It is not recommended that you use deeper nesting of
 #'   section levels with reveal.js.
@@ -19,23 +19,23 @@
 #' @param background_transition Slide background-transition ("default", "none",
 #'   "fade", "slide", "convex", "concave" or "zoom")
 #' @param reveal_options Additional options to specify for reveal.js (see
-#'   \href{https://revealjs.com/config/}{https://revealjs.com/config/}
+#'   <https://revealjs.com/config/>
 #'    for details).
 #' @param reveal_plugins Reveal plugins to include. Available plugins include
 #'   "notes", "search", "zoom", "chalkboard", and "menu". Note that
-#'   \code{self_contained} must be set to \code{FALSE} in order to use Reveal
+#'   `self_contained` must be set to `FALSE` in order to use Reveal
 #'   plugins.
 #' @param template Pandoc template to use for rendering. Pass "default" to use
-#'   the rmarkdown package default template; pass \code{NULL} to use pandoc's
+#'   the rmarkdown package default template; pass `NULL` to use pandoc's
 #'   built-in template; pass a path to use a custom template that you've
 #'   created. Note that if you don't use the "default" template then some
-#'   features of \code{revealjs_presentation} won't be available (see the
+#'   features of `revealjs_presentation` won't be available (see the
 #'   Templates section below for more details).
 #' @param extra_dependencies Additional function arguments to pass to the base R
 #'   Markdown HTML output formatter [rmarkdown::html_document_base()].
 #' @param ... Ignored
 #'
-#' @return R Markdown output format to pass to \code{\link{render}}
+#' @return R Markdown output format to pass to [rmarkdown::render()]
 #'
 #' @details
 #'
@@ -45,7 +45,7 @@
 #' headers building vertically.
 #'
 #' For additional documentation on using revealjs presentations see
-#' \href{https://github.com/rstudio/revealjs}{https://github.com/rstudio/revealjs}.
+#' <https://github.com/rstudio/revealjs>
 #'
 #' @examples
 #' \dontrun{

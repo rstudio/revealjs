@@ -78,7 +78,7 @@ document is an intermediate file unless \code{keep_tex = TRUE}.}
 "fade", "slide", "convex", "concave" or "zoom")}
 
 \item{reveal_options}{Additional options to specify for reveal.js (see
-\href{https://revealjs.com/config/}{https://revealjs.com/config/}
+\url{https://revealjs.com/config/}
 for details).}
 
 \item{reveal_plugins}{Reveal plugins to include. Available plugins include
@@ -128,7 +128,7 @@ additional details.}
 \item{...}{Ignored}
 }
 \value{
-R Markdown output format to pass to \code{\link{render}}
+R Markdown output format to pass to \code{\link[rmarkdown:render]{rmarkdown::render()}}
 }
 \description{
 Format for converting from R Markdown to a reveal.js presentation.
@@ -140,7 +140,7 @@ will be produced, with level 1 headers building horizontally and level 2
 headers building vertically.
 
 For additional documentation on using revealjs presentations see
-\href{https://github.com/rstudio/revealjs}{https://github.com/rstudio/revealjs}.
+\url{https://github.com/rstudio/revealjs}
 }
 \examples{
 \dontrun{
