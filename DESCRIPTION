@@ -33,6 +33,7 @@ Depends:
 Imports:
     rmarkdown (>= 1.7)
 Suggests:
+    xfun,
     xml2,
     bslib,
     testthat (>= 3.0.0)
