@@ -1,5 +1,7 @@
 # revealjs (development version)
 
+- Support TOC page by adding `toc` and `toc_depths` arguments to `revealjs_presentation`, and allowing modify title with the top-level parameter in the YAML frontmatter, `toc-title` (thanks, @cderv, #127). If TOC has too many items, it becomes scrollable (thanks, @atusy, #128).
+
 - `smart` argument has been removed from `revealjs_presentation()` has no more used by **rmarkdown**. `smart = TRUE` is still the default. If you need to deactivate, use `md_extensions = "-smart"`.
 
 - Add `title-slide` id on the auto generated title slide to ease the styling using CSS.
