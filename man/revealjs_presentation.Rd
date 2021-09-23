@@ -12,7 +12,6 @@ revealjs_presentation(
   fig_height = 6,
   fig_retina = if (!fig_caption) 2,
   fig_caption = FALSE,
-  smart = TRUE,
   self_contained = TRUE,
   theme = "simple",
   transition = "default",
@@ -57,10 +56,6 @@ prevent retina scaling. Note that this will always be \code{NULL} when
 outputting HTML directly into the markdown document).}
 
 \item{fig_caption}{\code{TRUE} to render figures with captions}
-
-\item{smart}{Produce typographically correct output, converting straight
-quotes to curly quotes, \code{---} to em-dashes, \code{--} to en-dashes, and
-\code{...} to ellipses.}
 
 \item{self_contained}{Whether to generate a full LaTeX document (\code{TRUE})
 or just the body of a LaTeX document (\code{FALSE}). Note the LaTeX
@@ -152,6 +147,5 @@ render("pres.Rmd", revealjs_presentation())
 # specify an option for incremental rendering
 render("pres.Rmd", revealjs_presentation(incremental = TRUE))
 }
-
 
 }

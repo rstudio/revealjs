@@ -146,11 +146,6 @@ presentations:
 -   `center` specifies whether you want to vertically center content on
     slides (this defaults to false).
 
--   `smart` indicates whether to produce typographically correct output,
-    converting straight quotes to curly quotes, `---` to em-dashes, `--`
-    to en-dashes, and `...` to ellipses. Note that `smart` is enabled by
-    default.
-
 For example:
 
     ---

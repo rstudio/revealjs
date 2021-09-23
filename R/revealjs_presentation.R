@@ -6,9 +6,6 @@
 #' @inheritParams rmarkdown::pdf_document
 #' @inheritParams rmarkdown::html_document
 #'
-#' @param smart Produce typographically correct output, converting straight
-#'  quotes to curly quotes, \code{---} to em-dashes, \code{--} to en-dashes, and
-#'  \code{...} to ellipses.
 #' @param center \code{TRUE} to vertically center content on slides
 #' @param slide_level Level of heading to denote individual slides. If
 #'   \code{slide_level} is 2 (the default), a two-dimensional layout will be
@@ -71,7 +68,6 @@ revealjs_presentation <- function(incremental = FALSE,
                                   fig_height = 6,
                                   fig_retina = if (!fig_caption) 2,
                                   fig_caption = FALSE,
-                                  smart = TRUE,
                                   self_contained = TRUE,
                                   theme = "simple",
                                   transition = "default",
@@ -243,7 +239,7 @@ revealjs_presentation <- function(incremental = FALSE,
     clean_supporting = self_contained,
     pre_processor = pre_processor,
     base_format = html_document_base(
-      smart = smart, lib_dir = lib_dir,
+      lib_dir = lib_dir,
       self_contained = self_contained,
       mathjax = mathjax,
       pandoc_args = pandoc_args,
