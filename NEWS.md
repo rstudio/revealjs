@@ -19,6 +19,8 @@
 
 - Add `md_extensions` argument in `revealjs_presentation()` (thanks, @atusy, #75).
 
+- Update included template with several examples of available feature. 
+
 # revealjs 0.9
 
 - Add support for the menu plugin

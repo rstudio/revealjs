@@ -60,3 +60,17 @@ Using the `.strech` class
 ![revealjs logo](https://revealjs.com/images/logo/reveal-black-text.svg){.stretch}
 
 This will not show any caption even when `fig_caption` is `TRUE`.
+
+## Fragments
+
+Hit the next arrow...
+
+. . .
+
+to step through
+
+[...a]{.fragment} [fragmented]{.fragment} [slide.]{.fragment}
+
+::: fragment
+Also called an incremental reveal.
+:::
