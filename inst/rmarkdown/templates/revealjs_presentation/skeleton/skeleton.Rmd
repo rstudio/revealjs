@@ -58,3 +58,5 @@ You can insert images
 Using the `.strech` class
 
 ![revealjs logo](https://revealjs.com/images/logo/reveal-black-text.svg){.stretch}
+
+This will not show any caption even when `fig_caption` is `TRUE`.
