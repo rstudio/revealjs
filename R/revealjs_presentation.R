@@ -236,10 +236,7 @@ revealjs_presentation <- function(incremental = FALSE,
     knitr = knitr_options_html(fig_width, fig_height, fig_retina, keep_md),
     pandoc = pandoc_options(
       to = "revealjs",
-      from = rmarkdown_format(paste0(
-        md_extensions,
-        ifelse(fig_caption, "", "-implicit_figures")
-      )),
+      from = from_rmarkdown(fig_caption, md_extensions),
       args = args
     ),
     keep_md = keep_md,
