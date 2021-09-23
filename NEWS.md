@@ -1,5 +1,7 @@
 # revealjs (development version)
 
+- Add `toc` and `toc_depth` argument in `revealjs_presentation()` as with `rmarkdown::html_document()`. Set `toc = TRUE` to create a slide after the title slide containing a Table Of Content. `toc_depth = 3` by default (as Pandoc) - its value must be adjusted with `slide_level` is you do not get the desired result, depending if you are using 2D slides or not.
+
 - `smart` argument has been removed from `revealjs_presentation()` has no more used by **rmarkdown**. `smart = TRUE` is still the default. If you need to deactivate, use `md_extensions = "-smart"`.
 
 - Add `title-slide` id on the auto generated title slide to ease the styling using CSS.
