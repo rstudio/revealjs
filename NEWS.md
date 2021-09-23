@@ -1,5 +1,7 @@
 # revealjs (development version)
 
+- `smart` argument has been removed from `revealjs_presentation()` has no more used by **rmarkdown**. `smart = TRUE` is still the default. If you need to deactivate, use `md_extentions = "-smart"`.
+
 - Add `title-slide` id on the auto generated title slide to ease the styling using CSS.
 
 - Support `background-image` pandoc's variable as other slide framework to customize the option `parallaxBackgroundImage`. This duplicates the variable `parallaxBackgroundImage` which still get precedence.
