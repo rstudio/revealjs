@@ -33,10 +33,11 @@ Depends:
 Imports:
     rmarkdown (>= 1.7)
 Suggests:
-    xfun,
+    xfun (>= 0.21),
     xml2,
     bslib,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    withr (>= 2.4.2)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
