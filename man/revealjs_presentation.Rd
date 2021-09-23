@@ -8,6 +8,8 @@ revealjs_presentation(
   incremental = FALSE,
   center = FALSE,
   slide_level = 2,
+  toc = FALSE,
+  toc_depth = 3,
   fig_width = 8,
   fig_height = 6,
   fig_retina = if (!fig_caption) 2,
@@ -44,6 +46,11 @@ individual bullet you can precede it with \code{>}. For example:
 produced, with level 1 headers building horizontally and level 2 headers
 building vertically. It is not recommended that you use deeper nesting of
 section levels with reveal.js.}
+
+\item{toc}{\code{TRUE} to include a table of contents in the output (only
+level 1 headers will be included in the table of contents).}
+
+\item{toc_depth}{Depth of headers to include in table of contents}
 
 \item{fig_width}{Default width (in inches) for figures}
 

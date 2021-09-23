@@ -64,6 +64,8 @@
 revealjs_presentation <- function(incremental = FALSE,
                                   center = FALSE,
                                   slide_level = 2,
+                                  toc = FALSE,
+                                  toc_depth = 3,
                                   fig_width = 8,
                                   fig_height = 6,
                                   fig_retina = if (!fig_caption) 2,
@@ -88,6 +90,9 @@ revealjs_presentation <- function(incremental = FALSE,
 
   # base pandoc options for all reveal.js output
   args <- c()
+  
+  # table of contents
+  args <- c(args, pandoc_toc_args(toc, toc_depth))
 
   # template path and assets
   if (identical(template, "default")) {
