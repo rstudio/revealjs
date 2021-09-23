@@ -1,6 +1,6 @@
 # revealjs (development version)
 
-- `smart` argument has been removed from `revealjs_presentation()` has no more used by **rmarkdown**. `smart = TRUE` is still the default. If you need to deactivate, use `md_extentions = "-smart"`.
+- `smart` argument has been removed from `revealjs_presentation()` has no more used by **rmarkdown**. `smart = TRUE` is still the default. If you need to deactivate, use `md_extensions = "-smart"`.
 
 - Add `title-slide` id on the auto generated title slide to ease the styling using CSS.
 
