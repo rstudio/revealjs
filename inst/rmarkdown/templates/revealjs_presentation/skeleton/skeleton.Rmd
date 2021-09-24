@@ -92,6 +92,12 @@ to step through
 Also called an incremental reveal.
 :::
 
-## Slide transition {data-transition="convex"}
+# Slide transition {data-transition="zoom"}
 
-COntent
+This slide was revealed with another slide transition set using `data-transition` attributes. You can also change this globally for all slides
+
+```yaml
+output:
+  revealjs::revealjs_presentation:
+    transition: zoom
+```
