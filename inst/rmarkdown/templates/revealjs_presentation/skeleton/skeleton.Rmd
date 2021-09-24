@@ -191,3 +191,21 @@ You can then add notes using a div of class `notes`
 # Taking a pause
 
 Press B or . to hide the content of the slide at your convenience.
+
+# Auto slide {data-autoslide=10000}
+
+You can set the configuration `autoSlide` (in millisecond) to automatically switch to next slide after a certain time. 
+
+This can be done on a per slide basis using `data-autoslide` or globally using
+````yaml
+output:
+  revealjs::revealjs_presentation:
+    autoSlide: 10000 #10 sec
+````
+# Auto slide next
+
+It was activated automatically by previous slide. 
+
+* Setting globally `autoSlide` to 0 (the default) deactivate auto progress but allow per slide config using `data-autoslide` attribute.
+* Setting to an integer value in millisecond activates for all slides. A special control should appear on the slide footer. Using `autoSlideStoppable: false` will prevent any action to stop the slide progress. 
+* Setting to `autoSlide: false` will disallow auto progress even with the attributes. 
