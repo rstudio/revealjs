@@ -22,6 +22,14 @@ When you click the **Knit** button a document will be generated that includes bo
 summary(cars)
 ```
 
+# Slide with table
+
+```{r, echo = FALSE}
+knitr::kable(head(cars))
+```
+
+You can use any external R package **gt** or **flextable** to create beautiful tables.
+
 # Slide with Plot
 
 ```{r, echo=FALSE}
