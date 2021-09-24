@@ -187,3 +187,7 @@ On any slide, pressing S key will enter Speaker view in another window with a ti
 ::: notes
 You can then add notes using a div of class `notes`
 :::
+
+# Taking a pause
+
+Press B or . to hide the content of the slide at your convenience.
