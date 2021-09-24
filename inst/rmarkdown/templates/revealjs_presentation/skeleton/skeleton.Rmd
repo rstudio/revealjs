@@ -36,6 +36,12 @@ You can use any external R package **gt** or **flextable** to create beautiful t
 plot(cars)
 ```
 
+# Slide with Quote
+
+You can use usual markdown syntax `>` to add a Quote part on the slide
+
+> This is a nice quote by an awesome person !
+
 # Vertical slides
 
 Slides can be nested inside of each other. 
