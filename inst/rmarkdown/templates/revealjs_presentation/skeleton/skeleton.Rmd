@@ -101,3 +101,22 @@ output:
   revealjs::revealjs_presentation:
     transition: zoom
 ```
+# Slide background {data-background-color="#33ffd8"}
+
+This slide has another background changed using `data-background-color`. 
+
+Next vertical slides show variants
+
+## Using an image 1 {data-background-image="https://cran.r-project.org/Rlogo.svg"}
+
+Which will be used in whole background
+
+## Using an image 2 {data-background-image="https://cran.r-project.org/Rlogo.svg" data-background-repeat="repeat" data-background-size="100px"}
+
+## Using a gif {data-background-image="https://media4.giphy.com/media/vKHKDIdvxvN7vTAEOM/giphy.gif" data-background-size="contain" data-background-repeat="no-repeat"}
+
+## What to customize
+
+Most of configuration there should work 
+
+https://revealjs.com/backgrounds/
