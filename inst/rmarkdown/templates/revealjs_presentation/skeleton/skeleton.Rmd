@@ -144,3 +144,23 @@ output:
   revealjs::revealjs_presentation:
     background_transition: "zoom"
 ```
+
+# Link between slides {#link}
+
+You can easily link between slides using the slide number 
+
+[link to the first slide](#0)
+
+## Or using a specific id
+
+[Link to the slides about links](#link)
+
+## You can also create link for navigation
+
+[Link to previous horizontal slide](){.navigate-prev}
+
+Click following arrow to go to previous slides
+
+![arrow up](https://static.slid.es/reveal/arrow.png "Click me"){.navigate-up style="background: rgba(255,255,255,0.1); transform: rotate(180deg);"}
+
+More on this at https://revealjs.com/links/
