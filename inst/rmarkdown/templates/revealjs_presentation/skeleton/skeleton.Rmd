@@ -58,6 +58,12 @@ That's it, time to go back up.
 
 Keep pressing the Space key to go to next horizontal slide.
 
+# Slides overview
+
+You can press ESC to enter the slide overview layout and quickly see and access any horizontal / vertical slide in the presentation. 
+
+In overview mode, you can navigate using arrow keys and go back to normal mode using ESC again.
+
 # Slide with two columns layout
 
 Main content 
