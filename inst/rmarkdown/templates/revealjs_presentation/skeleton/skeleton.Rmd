@@ -170,3 +170,20 @@ Click following arrow to go to previous slides
 ![arrow up](https://static.slid.es/reveal/arrow.png "Click me"){.navigate-up style="background: rgba(255,255,255,0.1); transform: rotate(180deg);"}
 
 More on this at https://revealjs.com/links/
+
+# Speaker view
+
+A speaker view is available if you activate the `notes` pluggin
+
+````yaml
+output:
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: notes
+````
+
+On any slide, pressing S key will enter Speaker view in another window with a timer, preview of next slides and speaker 
+
+::: notes
+You can then add notes using a div of class `notes`
+:::
