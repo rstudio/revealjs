@@ -1,33 +1,50 @@
 ---
 title: "Untitled"
-output: revealjs::revealjs_presentation
+output: 
+  revealjs::revealjs_presentation: default
 ---
 
-## R Markdown
+# R Markdown
 
 This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
 
-## Slide with Bullets
+# Slide with Bullets
 
 - Bullet 1
 - Bullet 2
 - Bullet 3
 
-## Slide with R Code and Output
+# Slide with R Code and Output
 
 ```{r}
 summary(cars)
 ```
 
-## Slide with Plot
+# Slide with Plot
 
 ```{r, echo=FALSE}
 plot(cars)
 ```
 
-## Slide with two columns layout
+# Vertical slides
+
+Slides can be nested inside of each other. 
+
+Use the Space key to navigate through all slides. Or the arrow key.
+
+## Basement Level 1
+
+Nested slides are useful for adding additional detail underneath a high level horizontal slide.
+
+## Basement Level 2
+
+That's it, time to go back up. 
+
+Keep pressing the Space key to go to next horizontal slide.
+
+# Slide with two columns layout
 
 Main content 
 
@@ -47,13 +64,13 @@ and a text in [smallcap]{.smallcaps} on the right
 
 ::::
 
-## Insert an image
+# Insert an image
 
 You can insert images
 
 ![revealjs logo](https://revealjs.com/images/logo/reveal-black-text.svg)
 
-## Insert an image on the whole slide
+# Insert an image on the whole slide
 
 Using the `.strech` class
 
@@ -61,9 +78,9 @@ Using the `.strech` class
 
 This will not show any caption even when `fig_caption` is `TRUE`.
 
-## Fragments
+# Fragments
 
-Hit the next arrow...
+Hit the next arrow (or space key)...
 
 . . .
 
