@@ -74,3 +74,7 @@ to step through
 ::: fragment
 Also called an incremental reveal.
 :::
+
+## Slide transition {data-transition="convex"}
+
+COntent
