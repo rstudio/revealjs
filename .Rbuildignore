@@ -11,3 +11,4 @@ examples/
 ^pkgdown$
 vignettes/
 ^tests/manual$
+^tools$
