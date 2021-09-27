@@ -7,7 +7,7 @@ Authors@R:
     c(person(given = "Hakim",
              family = "El Hattab",
              role = c("aut", "cph"),
-             comment = "reveal.js-3.2.0, https://github.com/hakimel/reveal.js"),
+             comment = "reveal.js, https://github.com/hakimel/reveal.js"),
       person(given = "Asvin",
              family = "Goel",
              role = c("ctb", "cph"),
