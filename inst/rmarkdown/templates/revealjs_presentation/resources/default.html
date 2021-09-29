@@ -171,7 +171,18 @@ $body$
   </div>
 
   <script src="$revealjs-url$/dist/reveal.js"></script>
-
+  
+  <!-- reveal.js plugins -->
+$if(plugin-notes)$
+  <script src="$revealjs-url$/plugin/notes/notes.js"></script>
+$endif$
+$if(plugin-search)$
+  <script src="$revealjs-url$/plugin/search/search.js"></script>
+$endif$
+$if(plugin-zoom)$
+  <script src="$revealjs-url$/plugin/zoom/zoom.js"></script>
+$endif$
+  
   <script>
 
       // Full list of configuration options available at:
@@ -394,16 +405,19 @@ $endif$
 $endif$
 
         // Optional reveal.js plugins
-        dependencies: [
+        plugins: [
 $if(plugin-notes)$
-          { src: '$revealjs-url$/plugin/notes/notes.js', async: true },
+          RevealNotes,
 $endif$
 $if(plugin-search)$
-          { src: '$revealjs-url$/plugin/search/search.js', async: true },
+          RevealSearch,
 $endif$
 $if(plugin-zoom)$
-          { src: '$revealjs-url$/plugin/zoom-js/zoom.js', async: true },
+          RevealZoom,
 $endif$
+        ], 
+        // V3 plugins
+        dependencies: [
 $if(plugin-chalkboard)$
           { src: '$revealjs-url$/plugin/chalkboard/chalkboard.js', async: true },
 $endif$
@@ -412,6 +426,7 @@ $if(plugin-menu)$
 $endif$
         ]
       });
+
     </script>
 $if(mathjax-url)$
   <!-- dynamically load mathjax for compatibility with self-contained -->
