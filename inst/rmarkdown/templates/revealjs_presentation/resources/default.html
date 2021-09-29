@@ -20,6 +20,7 @@ $endif$
   <link rel="stylesheet" href="$revealjs-url$/dist/reveal.css">
 
   <style type="text/css">
+    /* CSS from pandoc style.html() */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     span.underline{text-decoration: underline;}
@@ -62,19 +63,16 @@ $endif$
   </style>
 
 $if(theme)$
-<link rel="stylesheet" href="$revealjs-url$/dist/theme/$theme$.css" id="theme">
+  <link rel="stylesheet" href="$revealjs-url$/dist/theme/$theme$.css" id="theme">
 $endif$
 
-$if(theme-dark)$
-<style type="text/css">
-.reveal section img {
-  background: rgba(255, 255, 255, 0.85);
-}
-</style>
-$endif$
-
-  <!-- some tweaks to reveal css -->
   <style type="text/css">
+  /* some tweaks to reveal css */
+$if(theme-dark)$
+    .reveal section img {
+      background: rgba(255, 255, 255, 0.85);
+    }
+$endif$
     .reveal h1 { font-size: 2.0em; }
     .reveal h2 { font-size: 1.5em;  }
     .reveal h3 { font-size: 1.25em;	}
@@ -84,16 +82,13 @@ $endif$
     .reveal .slides>section>section {
       padding: 0px 0px;
     }
-
 $if(center)$
-
 $else$
      .reveal .title {
         margin-top: 125px;
         margin-bottom: 50px;
      }
 $endif$
-
     .reveal table {
       border-width: 1px;
       border-spacing: 2px;
@@ -119,7 +114,6 @@ $endif$
       border-style: dotted;
       border-color: gray;
     }
-
 $if(plugin-menu)$
 $if(plugin-chalkboard)$
     .reveal .slide-menu-button {
@@ -127,7 +121,6 @@ $if(plugin-chalkboard)$
     }
 $endif$
 $endif$
-
   </style>
 
 $for(css)$
