@@ -126,7 +126,6 @@ $endif$
 $for(css)$
     <link rel="stylesheet" href="$css$"/>
 $endfor$
-
 $for(header-includes)$
     $header-includes$
 $endfor$
@@ -192,29 +191,59 @@ $if(controls)$
         // Display controls in the bottom right corner
         controls: $controls$,
 $endif$
+$if(controlsTutorial)$
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: $controlsTutorial$,
+$endif$
+$if(controlsLayout)$
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: '$controlsLayout$',
+$endif$
+$if(controlsBackArrows)$
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: '$controlsBackArrows$',
+$endif$
 $if(progress)$
         // Display a presentation progress bar
         progress: $progress$,
 $endif$
 $if(slideNumber)$
         // Display the page number of the current slide
-        // - true:    Show slide number
-        // - false:   Hide slide number
-        //
-        // Can optionally be set as a string that specifies the number formatting:
-        // - "h.v":   Horizontal . vertical slide number (default)
-        // - "h/v":   Horizontal / vertical slide number
-        // - "c":   Flattened slide number
-        // - "c/t":   Flattened slide number / total slides
         slideNumber: $slideNumber$,
+$endif$
+$if(showSlideNumber)$
+        // Can be used to limit the contexts in which the slide number appears
+        showSlideNumber: '$showSlideNumber$',
+$endif$
+$if(hash)$
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: $hash$,
+$endif$
+$if(hashOneBasedIndex)$
+          // Use 1 based indexing for # links to match slide number (default is zero
+        // based)
+        hashOneBasedIndex: $hashOneBasedIndex$,
+$endif$
+$if(respondToHashChanges)$
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: $respondToHashChanges$,
 $endif$
 $if(history)$
         // Push each slide change to the browser history
+        // Implies `hash: true`
         history: $history$,
 $endif$
 $if(keyboard)$
         // Enable keyboard shortcuts for navigation
         keyboard: $keyboard$,
+$endif$
+$if(disableLayout)$
+  // Disables the default reveal.js slide layout (scaling and centering)
+  // so that you can use custom CSS layout
+  disableLayout: $disableLayout$,
 $endif$
 $if(overview)$
         // Enable the slide overview mode
@@ -236,9 +265,22 @@ $if(rtl)$
         // Change the presentation direction to be RTL
         rtl: $rtl$,
 $endif$
+$if(navigationMode)$
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: '$navigationMode$',
+$endif$
+$if(shuffle)$
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: $shuffle$,
+$endif$
 $if(fragments)$
         // Turns fragments on and off globally
         fragments: $fragments$,
+$endif$
+$if(fragmentInURL)$
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: $fragmentInURL$,
 $endif$
 $if(embedded)$
         // Flags if the presentation is running in an embedded mode,
@@ -250,6 +292,51 @@ $if(help)$
         // key is pressed
         help: $help$,
 $endif$
+$if(pause)$
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: $pause$,
+$endif$
+$if(showNotes)$
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: $showNotes$,
+$endif$
+$if(autoPlayMedia)$
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: $autoPlayMedia$,
+$endif$
+$if(preloadIframes)$
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: $preloadIframes$,
+$endif$
+$if(autoAnimate)$
+        // Can be used to globally disable auto-animation
+        autoAnimate: $autoAnimate$,
+$endif$
+$if(autoAnimateMatcher)$
+        // Optionally provide a custom element matcher that will be
+        // used to dictate which elements we can animate between.
+        autoAnimateMatcher: $autoAnimateMatcher$,
+$endif$
+$if(autoAnimateEasing)$
+        // Default settings for our auto-animate transitions, can be
+        // overridden per-slide or per-element via data arguments
+        autoAnimateEasing: '$autoAnimateEasing$',
+$endif$
+$if(autoAnimateDuration)$
+        // Default settings for our auto-animate transitions, can be
+        // overridden per-slide or per-element via data arguments (1.0)
+        autoAnimateDuration: $autoAnimateDuration$,
+$endif$
+$if(autoAnimateUnmatched)$
+        // Default settings for our auto-animate transitions, can be
+        // overridden per-slide or per-element via data arguments (true)
+        autoAnimateUnmatched: $autoAnimateUnmatched$,
+$endif$
+$if(autoAnimateStyles)$
+        // Default settings for our auto-animate transitions, can be
+        // overridden per-slide or per-element via data arguments
+        autoAnimateStyles: $autoAnimateStyles$,
+$endif$
 $if(autoSlide)$
         // Number of milliseconds between automatically proceeding to the
         // next slide, disabled when set to 0, this value can be overwritten
@@ -260,17 +347,36 @@ $if(autoSlideStoppable)$
         // Stop auto-sliding after user input
         autoSlideStoppable: $autoSlideStoppable$,
 $endif$
+$if(autoSlideMethod)$
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: $autoSlideMethod$,
+$endif$
+$if(defaultTiming)$
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: $defaultTiming$,
+
+$endif$
 $if(mouseWheel)$
         // Enable slide navigation via mouse wheel
         mouseWheel: $mouseWheel$,
 $endif$
-$if(hideAddressBar)$
-        // Hides the address bar on mobile devices
-        hideAddressBar: $hideAddressBar$,
-$endif$
 $if(previewLinks)$
         // Opens links in an iframe preview overlay
         previewLinks: $previewLinks$,
+$endif$
+$if(postMessage)$
+        // Exposes the reveal.js API through window.postMessage
+        postMessage: $postMessage$,
+$endif$
+$if(postMessageEvents)$
+        // Dispatches all reveal.js events to the parent window through postMessage
+        postMessageEvents: $postMessageEvents$,
+$endif$
+$if(focusBodyOnPageVisibilityChange)$
+        // Focuses body when page changes visibility to ensure keyboard shortcuts work
+        focusBodyOnPageVisibilityChange: $focusBodyOnPageVisibilityChange$,
 $endif$
 $if(transition)$
         // Transition style
@@ -284,9 +390,40 @@ $if(backgroundTransition)$
         // Transition style for full page slide backgrounds
         backgroundTransition: '$backgroundTransition$', // none/fade/slide/convex/concave/zoom
 $endif$
+$if(pdfMaxPagesPerSlide)$
+        // The maximum number of pages a single slide can expand onto when printing
+        // to PDF, unlimited by default
+        pdfMaxPagesPerSlide: $pdfMaxPagesPerSlide$,
+$endif$
+$if(pdfSeparateFragments)$
+        // Prints each fragment on a separate slide
+        pdfSeparateFragments: $pdfSeparateFragments$,
+$endif$
+$if(pdfPageHeightOffset)$
+      // Offset used to reduce the height of content within exported PDF pages.
+      pdfPageHeightOffset: $pdfPageHeightOffset$,
+$endif$
 $if(viewDistance)$
         // Number of slides away from the current that are visible
         viewDistance: $viewDistance$,
+$endif$
+$if(mobileViewDistance)$
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: $mobileViewDistance$,
+$endif$
+$if(display)$
+        // The display mode that will be used to show slides
+        display: '$display$',
+$endif$
+$if(hideInactiveCursor)$
+        // Hide cursor if inactive
+        hideInactiveCursor: $hideInactiveCursor$,
+$endif$
+$if(hideCursorTime)$
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: $hideCursorTime$,
 $endif$
 $if(parallaxBackgroundImage)$
         // Parallax background image
@@ -304,10 +441,10 @@ $endif$
 $if(parallaxBackgroundHorizontal)$
         // Amount to move parallax background (horizontal and vertical) on slide change
         // Number, e.g. 100
-        parallaxBackgroundHorizontal: '$parallaxBackgroundHorizontal$',
+        parallaxBackgroundHorizontal: $parallaxBackgroundHorizontal$,
 $endif$
 $if(parallaxBackgroundVertical)$
-        parallaxBackgroundVertical: '$parallaxBackgroundVertical$',
+        parallaxBackgroundVertical: $parallaxBackgroundVertical$,
 $endif$
 $if(width)$
         // The "normal" size of the presentation, aspect ratio will be preserved

@@ -13,9 +13,14 @@ process_reveal_option <- function(option, value) {
   if (is.logical(value)) {
     value <- jsbool(value)
   } else if (is.character(value)) {
-    # Special handling for some chalkboard plugin options
-    # e.g: color: [ 'rgba(0,0,255,1)', 'rgba(255,255,255,0.5)' ]
-    if (grepl("chalkboard-(background|color|draw|pen)", option)) {
+    # Special handling for some vector options 
+    if (
+      # chalkboard plugin options
+      # e.g: color: [ 'rgba(0,0,255,1)', 'rgba(255,255,255,0.5)' ]
+      grepl("chalkboard-(background|color|draw|pen)", option)
+      # e.g autoAnimateStyles: ['opacity','color']
+      || grepl("autoAnimateStyles", option)
+    ) {
       value <- sprintf("[%s]", paste(paste0("'", value, "'"), collapse = ", "))
     }
     # Add quotes around some config that can be several type

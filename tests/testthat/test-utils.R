@@ -27,3 +27,8 @@ test_that("reveal options for chalkboard plugins special handling", {
   expect_equal(process_reveal_option("chalkboard-other", "dummy"), pandoc_variable_arg("chalkboard-other", "dummy"))
 })
 
+test_that("reveal options for autoAnimateStyles handling", {
+  expect_equal(process_reveal_option("autoAnimateStyles", "padding"), pandoc_variable_arg("autoAnimateStyles", "['padding']"))
+  expect_equal(process_reveal_option("autoAnimateStyles", c("color", "padding")), pandoc_variable_arg("autoAnimateStyles", "['color', 'padding']"))
+})
+
