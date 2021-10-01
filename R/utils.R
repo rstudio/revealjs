@@ -20,11 +20,13 @@ process_reveal_option <- function(option, value) {
     if (
       # chalkboard plugin options
       # e.g: color: [ 'rgba(0,0,255,1)', 'rgba(255,255,255,0.5)' ]
-      grepl("chalkboard-(background|color|draw|pen)", option)
+      grepl("chalkboard-(background|draw)", option)
       # e.g autoAnimateStyles: ['opacity','color']
       || grepl("autoAnimateStyles", option)
     ) {
-      value <- sprintf("[%s]", paste(paste0("'", value, "'"), collapse = ", "))
+      if (length(value) > 1 || !grepl("^\\[.*\\]$", value)) {
+        value <- sprintf("[%s]", paste(paste0("'", value, "'"), collapse = ", "))
+      }
     }
     # Add quotes around some config that can be several type
     # like number or percent unit or slideNumber = true or slideNumber = 'c/t'

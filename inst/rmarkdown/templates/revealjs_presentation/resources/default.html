@@ -66,6 +66,13 @@ $if(theme)$
   <link rel="stylesheet" href="$revealjs-url$/dist/theme/$theme$.css" id="theme">
 $endif$
 
+$if(plugin-chalkboard)$
+  <link rel="stylesheet" href="$revealjs-url$/plugin/chalkboard/style.css">
+$endif$
+$if(plugin-customcontrols)$
+  <link rel="stylesheet" href="$revealjs-url$/plugin/customcontrols/style.css">
+$endif$
+
   <style type="text/css">
   /* some tweaks to reveal css */
 $if(theme-dark)$
@@ -114,13 +121,6 @@ $endif$
       border-style: dotted;
       border-color: gray;
     }
-$if(plugin-menu)$
-$if(plugin-chalkboard)$
-    .reveal .slide-menu-button {
-      left: 105px !important;
-    }
-$endif$
-$endif$
   </style>
 
 $for(css)$
@@ -183,6 +183,12 @@ $if(plugin-zoom)$
 $endif$
 $if(plugin-menu)$
   <script src="$revealjs-url$/plugin/menu/menu.js"></script>
+$endif$
+$if(plugin-chalkboard)$
+  <script src="$revealjs-url$/plugin/chalkboard/plugin.js"></script>
+$endif$
+$if(plugin-customcontrols)$
+  <script src="$revealjs-url$/plugin/customcontrols/plugin.js"></script>
 $endif$
   
   <script>
@@ -528,17 +534,23 @@ $endif$
 
 $if(plugin-chalkboard)$
         chalkboard: {
+$if(chalkboard-boardmarkerWidth)$
+          boardmarkerWidth: $chalkboard-boardmarkerWidth$,
+$endif$
+$if(chalkboard-chalkWidth)$
+          chalkWidth: $chalkboard-chalkWidth$,
+$endif$
+$if(chalkboard-chalkEffect)$
+          chalkEffect: $chalkboard-chalkEffect$,
+$endif$
+$if(chalkboard-storage)$
+          storage: '$chalkboard-storage$',
+$endif$
 $if(chalkboard-src)$
-          src: $chalkboard-src$,
+          src: '$chalkboard-src$',
 $endif$
 $if(chalkboard-readOnly)$
           readOnly: $chalkboard-readOnly$,
-$endif$
-$if(chalkboard-toggleNotesButton)$
-          toggleNotesButton: $chalkboard-toggleNotesButton$,
-$endif$
-$if(chalkboard-toggleChalkboardButton)$
-          toggleChalkboardButton: $chalkboard-toggleChalkboardButton$,
 $endif$
 $if(chalkboard-transition)$
           transition: $chalkboard-transition$,
@@ -546,23 +558,37 @@ $endif$
 $if(chalkboard-theme)$
           theme: '$chalkboard-theme$',
 $endif$
-$if(chalkboard-color)$
-          color: $chalkboard-color$,
-$endif$
 $if(chalkboard-background)$
           background: $chalkboard-background$,
 $endif$
-$if(chalkboard-pen)$
-          pen: $chalkboard-pen$,
+$if(chalkboard-grid)$
+          grid: $chalkboard-grid$,
+$endif$
+$if(chalkboard-eraser)$
+          eraser: $chalkboard-eraser$,
+$endif$
+$if(chalkboard-boardmarkers)$
+          boardmarkers : $chalkboard-boardmarkers$,
+$endif$
+$if(chalkboard-chalks)$
+          chalks : $chalkboard-chalks$,
 $endif$
         },
-
-        keyboard: {
-          67: function() { RevealChalkboard.toggleNotesCanvas() },    // toggle notes canvas when 'c' is pressed
-          66: function() { RevealChalkboard.toggleChalkboard() }, // toggle chalkboard when 'b' is pressed
-          46: function() { RevealChalkboard.clear() },    // clear chalkboard when 'DEL' is pressed
-           8: function() { RevealChalkboard.reset() },    // reset chalkboard data on current slide when 'BACKSPACE' is pressed
-          68: function() { RevealChalkboard.download() }, // downlad recorded chalkboard drawing when 'd' is pressed
+        customcontrols: {
+            controls: [
+$if(chalkboard-toggleChalkboardButton)$
+            	{ icon: '<i class="fa fa-pen-square"></i>',
+            	  title: 'Toggle chalkboard (B)',
+            	  action: 'RevealChalkboard.toggleChalkboard();'
+            	},
+$endif$
+$if(chalkboard-toggleNotesButton)$
+            	{ icon: '<i class="fa fa-pen"></i>',
+            	  title: 'Toggle notes canvas (C)',
+            	  action: 'RevealChalkboard.toggleNotesCanvas();'
+            	}
+$endif$
+            ]
         },
 $endif$
 
@@ -580,11 +606,11 @@ $endif$
 $if(plugin-menu)$
           RevealMenu,
 $endif$
-        ], 
-        // V3 plugins
-        dependencies: [
 $if(plugin-chalkboard)$
-          { src: '$revealjs-url$/plugin/chalkboard/chalkboard.js', async: true },
+          RevealChalkboard,
+$endif$
+$if(plugin-customcontrols)$
+          RevealCustomControls,
 $endif$
         ]
       });

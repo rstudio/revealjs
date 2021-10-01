@@ -193,9 +193,13 @@ revealjs_presentation <- function(incremental = FALSE,
     }
 
     # add plugins
+    if ("chalkboard" %in% reveal_plugins) {
+      # chalkboard require customcontrols so we add it to activate in the template
+      reveal_plugins <- c(reveal_plugins, "customcontrols")
+    }
     sapply(reveal_plugins, function(plugin) {
-      args <<- c(args, pandoc_variable_arg(paste0("plugin-", plugin), "1"))
-      if (plugin %in% c("chalkboard", "menu")) {
+      args <<- c(args, pandoc_variable_arg(paste0("plugin-", plugin)))
+      if (plugin %in% c("customcontrols", "menu")) {
         extra_dependencies <<- append(
           extra_dependencies,
           list(rmarkdown::html_dependency_font_awesome())

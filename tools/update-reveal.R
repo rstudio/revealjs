@@ -83,3 +83,28 @@ fs::file_copy(fs::path(new_plugin, to_keep), fs::path(plugin_folder, to_keep), o
 writeLines(latest, fs::path(plugin_folder, "VERSION"))
 
 gert::git_add(plugin_folder)
+
+## reveal.js-plugins repo
+## https://github.com/rajgoel/reveal.js-plugins/
+
+dir.create(tmp_dir <- tempfile())
+owd <- setwd(tmp_dir)
+latest <- xfun::github_releases("rajgoel/reveal.js-plugins", pattern = "([0-9.]+)")[1]
+url <- sprintf("https://github.com/rajgoel/reveal.js-plugins/archive/refs/tags/%s.zip", latest)
+xfun::download_file(url)
+fs::dir_ls()
+unzip(basename(url))
+new_plugin <- fs::path_abs(fs::dir_ls(glob = "reveal.js-*"))
+setwd(owd)
+
+### keep only necessary resources
+plugins_to_keep <- c("chalkboard", "customcontrols")
+plugin_folders <- fs::path(revealjs_lib, "plugin", plugins_to_keep)
+fs::dir_delete(plugin_folders[fs::dir_exists(plugin_folders)])
+purrr::walk(plugin_folders, ~ {
+  fs::dir_copy(fs::path(new_plugin, fs::path_file(.x)), .x, overwrite = TRUE)
+  fs::file_copy(fs::path(new_plugin, "LICENSE"), .x, overwrite = TRUE)
+  writeLines(latest, fs::path(.x, "VERSION"))
+})
+
+gert::git_add(plugin_folders)
