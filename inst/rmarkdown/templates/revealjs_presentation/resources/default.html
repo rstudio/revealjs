@@ -181,6 +181,9 @@ $endif$
 $if(plugin-zoom)$
   <script src="$revealjs-url$/plugin/zoom/zoom.js"></script>
 $endif$
+$if(plugin-menu)$
+  <script src="$revealjs-url$/plugin/menu/menu.js"></script>
+$endif$
   
   <script>
 
@@ -469,14 +472,22 @@ $endif$
 
 $if(plugin-menu)$
         menu: {
+          // Configuration from
+          // https://github.com/denehyg/reveal.js-menu#configuration
 $if(menu-side)$
-          side: $menu-side$,
+          side: '$menu-side$',
+$endif$   
+$if(menu-width)$
+          width: '$menu-width$',
 $endif$   
 $if(menu-numbers)$
           numbers: $menu-numbers$,
 $endif$    
 $if(menu-titleSelector)$
-          titleSelector: $menu-titleSelector$,
+          titleSelector: '$menu-titleSelector$',
+$endif$    
+$if(menu-useTextContentForMissingTitles)$
+          useTextContentForMissingTitles: $menu-useTextContentForMissingTitles$,
 $endif$    
 $if(menu-hideMissingTitles)$
           hideMissingTitles: $menu-hideMissingTitles$,
@@ -493,8 +504,23 @@ $endif$
 $if(menu-keyboard)$
           keyboard: $menu-keyboard$,
 $endif$ 
+$if(menu-sticky)$
+          sticky: $menu-sticky$,
+$endif$ 
+$if(menu-autoOpen)$
+          autoOpen: $menu-autoOpen$,
+$endif$ 
+$if(menu-delayInit)$
+          delayInit: $menu-delayInit$,
+$endif$ 
+$if(menu-openOnInit)$
+          openOnInit: $menu-openOnInit$,
+$endif$ 
+          // option not supported for change
+          loadIcons: false, // using rmarkdown provided own.
           custom: false,
           themes: false,
+          // themesPath: 'dist/theme/',
           transitions: false
         },
 
@@ -551,14 +577,14 @@ $endif$
 $if(plugin-zoom)$
           RevealZoom,
 $endif$
+$if(plugin-menu)$
+          RevealMenu,
+$endif$
         ], 
         // V3 plugins
         dependencies: [
 $if(plugin-chalkboard)$
           { src: '$revealjs-url$/plugin/chalkboard/chalkboard.js', async: true },
-$endif$
-$if(plugin-menu)$
-          { src: '$revealjs-url$/plugin/menu/menu.js', async: true },
 $endif$
         ]
       });

@@ -142,6 +142,29 @@ headers building vertically.
 For additional documentation on using revealjs presentations see
 \url{https://github.com/rstudio/revealjs}
 }
+\section{About plugins}{
+\subsection{Menu}{
+
+A slideout menu plugin for Reveal.js to quickly jump to any slide by title.
+
+Version 2.1.0 is
+currently used and documentation for configurations can be found at
+\href{https://github.com/denehyg/reveal.js-menu/blob/2.1.0/README.md}{denehyg/reveal.js-menu}
+\subsection{Known limitation}{
+
+Some configurations cannot be modified in the current template:
+\itemize{
+\item \code{loadIcons: false}  the fontawesome icons are loaded by \pkg{rmarkdown}
+when this plugin is used
+\item \code{custom: false}
+\item \code{themes: false}
+\item \code{transitions: false}
+}
+}
+
+}
+}
+
 \examples{
 \dontrun{
 

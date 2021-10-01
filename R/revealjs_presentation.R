@@ -1,6 +1,34 @@
 #' Convert to a reveal.js presentation
 #'
 #' Format for converting from R Markdown to a reveal.js presentation.
+#' 
+#' In reveal.js presentations you can use level 1 or level 2 headers for slides.
+#' If you use a mix of level 1 and level 2 headers then a two-dimensional layout
+#' will be produced, with level 1 headers building horizontally and level 2
+#' headers building vertically.
+#'
+#' For additional documentation on using revealjs presentations see
+#' <https://github.com/rstudio/revealjs>
+#' 
+#' # About plugins
+#' 
+#' ## Menu 
+#' 
+#' A slideout menu plugin for Reveal.js to quickly jump to any slide by title.
+#' 
+#' Version `r version <- readLines(revealjs_lib_path("plugin", "menu", "VERSION"))` is
+#' currently used and documentation for configurations can be found at
+#' [denehyg/reveal.js-menu](https://github.com/denehyg/reveal.js-menu/blob/`r version`/README.md)
+#' 
+#' ### Known limitation
+#' 
+#' Some configurations cannot be modified in the current template: 
+#' 
+#' * `loadIcons: false`  the fontawesome icons are loaded by \pkg{rmarkdown}
+#' when this plugin is used
+#' * `custom: false`
+#' * `themes: false`
+#' * `transitions: false`
 #'
 #' @inheritParams rmarkdown::beamer_presentation
 #' @inheritParams rmarkdown::pdf_document
@@ -36,16 +64,6 @@
 #' @param ... Ignored
 #'
 #' @return R Markdown output format to pass to [rmarkdown::render()]
-#'
-#' @details
-#'
-#' In reveal.js presentations you can use level 1 or level 2 headers for slides.
-#' If you use a mix of level 1 and level 2 headers then a two-dimensional layout
-#' will be produced, with level 1 headers building horizontally and level 2
-#' headers building vertically.
-#'
-#' For additional documentation on using revealjs presentations see
-#' <https://github.com/rstudio/revealjs>
 #'
 #' @examples
 #' \dontrun{
