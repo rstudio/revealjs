@@ -1,5 +1,15 @@
 # revealjs (development version)
 
+## REVEAL JS LIBRARY UPDATE
+
+- This version of the package comes with reveal.js v4 which is a major update from previous reveal.js v3. Built-in plugins have been update, as well as third party plugin included in this package (`menu` and `chalkboard`). A lot of bugfixes and improvements have been made in the upstream library and now the R package can benefit from it. However, this cause also some breaking changes for **revealjs** R package that we described below.
+
+### Known breaking change
+
+- For `chalkboard` plugin, `pen` and `color` configurations are no more supported. If you were using those, it will have no effect. `chalkboard` now includes several colors by default and this can't be customized easily. See documentation of the plugin for more.
+
+## OTHER CHANGES
+
 - Add `toc` and `toc_depth` argument in `revealjs_presentation()` as with `rmarkdown::html_document()`. Set `toc = TRUE` to create a slide after the title slide containing a Table Of Content. `toc_depth = 3` by default (as Pandoc) - its value must be adjusted with `slide_level` is you do not get the desired result, depending if you are using 2D slides or not.
 
 - `smart` argument has been removed from `revealjs_presentation()` has no more used by **rmarkdown**. `smart = TRUE` is still the default. If you need to deactivate, use `md_extensions = "-smart"`.
