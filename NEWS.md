@@ -2,11 +2,17 @@
 
 ## REVEAL JS LIBRARY UPDATE
 
-- This version of the package comes with reveal.js v4 which is a major update from previous reveal.js v3. Built-in plugins have been update, as well as third party plugin included in this package (`menu` and `chalkboard`). A lot of bugfixes and improvements have been made in the upstream library and now the R package can benefit from it. However, this cause also some breaking changes for **revealjs** R package that we described below.
+This version of the package comes with reveal.js v4 which is a major update from previous reveal.js v3. Built-in plugins (`zoom`, `search` and `notes`) have been updated, as well as third party plugin included in this package (`menu` and `chalkboard`). A lot of bugfixes and improvements have been made in the upstream library and now the R package can benefit from it. However, this cause also some breaking changes for **revealjs** R package that we described below.
 
-### Known breaking change
+You can see _reveal.js_ releases notes since 3.3 (which was the previous version used in this package) inside their repo: https://github.com/hakimel/reveal.js/tags
 
-- For `chalkboard` plugin, `pen` and `color` configurations are no more supported. If you were using those, it will have no effect. `chalkboard` now includes several colors by default and this can't be customized easily. See documentation of the plugin for more.
+### Known breaking / visible changes
+
+- Order of menu icons have been changed.
+
+- When `search: true` is set to activate Search plugin, CTRL+SHIFT+F needs to be press to show the search box. Previously, search box was shown by default on slides.
+
+- For `chalkboard` plugin, `pen` and `color` configurations are no more supported. If you were using those, it will have no effect. `chalkboard` now includes several colors by default and this can't be customized easily. Available colors can be easily selected when Note or Chalboard activated. See documentation of the plugin for more information.
 
 ## OTHER CHANGES
 
@@ -27,9 +33,10 @@
 
 - Fix issues with quoting of options when passed as variables to Pandoc. This was caused by a change in Pandoc 2.14.0.3 which now sets some default value for reveal.js options (thanks, @iain-palmer, #72).
 
+- Update included Document template with several examples of available feature. 
+
 - Add `md_extensions` argument in `revealjs_presentation()` (thanks, @atusy, #75).
 
-- Update included template with several examples of available feature. 
 
 # revealjs 0.9
 
