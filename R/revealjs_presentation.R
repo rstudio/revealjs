@@ -12,6 +12,34 @@
 #' 
 #' # About plugins
 #' 
+#' ## Built-in plugins with reveal.js
+#' 
+#' ### Zoom 
+#' 
+#' When activated, ALT + Click can be used to zoom on a slide.
+#' 
+#' ### Notes 
+#'  
+#' Show a [speaker view](https://revealjs.com/speaker-view/) in a separated
+#' window. This speaker view contains a timer, current slide, next slide, and
+#' speaker notes. It also duplicate the window to have presentation mode
+#' synchronized with main presentation.
+#' 
+#' Use 
+#' ```markdown
+#' ::: notes
+#' Content of speaker notes
+#' :::
+#' ```
+#' to create notes only viewable in presentation mode.
+#' 
+#' ### Search
+#' 
+#' When opt-in, it is possible to show a search box when pressing `CTRL + SHIFT +
+#' F`. It will seach in the whole presentation, and highlight matched words. The
+#' matches will also be highlighted in overview mode (pressing ESC to see all
+#' slides in one scrollable view)
+#' 
 #' ## Menu 
 #' 
 #' A slideout menu plugin for Reveal.js to quickly jump to any slide by title.
@@ -20,7 +48,7 @@
 #' currently used and documentation for configurations can be found at
 #' [denehyg/reveal.js-menu](https://github.com/denehyg/reveal.js-menu/blob/`r version`/README.md)
 #' 
-#' ### Known limitation
+#' ### Known limitations
 #' 
 #' Some configurations cannot be modified in the current template: 
 #' 
@@ -29,7 +57,27 @@
 #' * `custom: false`
 #' * `themes: false`
 #' * `transitions: false`
-#'
+
+#' ## Chalkboard 
+#' 
+#' A plugin adding a chalkboard and slide annotation
+#' 
+#' Version `r version <- readLines(revealjs_lib_path("plugin", "chalkboard", "VERSION"))` is
+#' currently used and documentation for configurations can be found at
+#' [rajgoel/reveal.js-plugins](https://github.com/rajgoel/reveal.js-plugins/tree/`r version`/4.1.5/chalkboard)
+#' 
+#' By default, chalkboard and annotations modes will be accessible using keyboard
+#' shortcuts, respectively, pressing B, or pressing C.  
+#' In addition, buttons on the bottom left can be added by using the following 
+#' 
+#' ```yaml
+#' reveal_plugins: 
+#'   - chalkboard
+#' reveal_options:
+#'   chalkboard:
+#'     toggleNotesButton: true
+#'     toggleChalkboardButton: true
+#' ```
 #' @inheritParams rmarkdown::beamer_presentation
 #' @inheritParams rmarkdown::pdf_document
 #' @inheritParams rmarkdown::html_document
@@ -40,10 +88,10 @@
 #'   produced, with level 1 headers building horizontally and level 2 headers
 #'   building vertically. It is not recommended that you use deeper nesting of
 #'   section levels with reveal.js.
-#' @param theme Visual theme ("simple", "sky", "beige", "serif", "solarized",
-#'   "blood", "moon", "night", "black", "league" or "white").
-#' @param transition Slide transition ("default", "none", "fade", "slide",
-#'   "convex", "concave" or "zoom")
+#' @param theme Visual theme (`r knitr::combine_words(setdiff(revealjs_themes(), "default"), before = '"', and = " or ")`)
+#' @param transition Slide transition (
+#' `r knitr::combine_words(setdiff(revealjs_transitions(), "default"), before = '"', and = " or ")`
+#' )
 #' @param background_transition Slide background-transition ("default", "none",
 #'   "fade", "slide", "convex", "concave" or "zoom")
 #' @param reveal_options Additional options to specify for reveal.js (see
@@ -90,7 +138,7 @@ revealjs_presentation <- function(incremental = FALSE,
                                   fig_caption = FALSE,
                                   self_contained = TRUE,
                                   theme = "simple",
-                                  transition = "default",
+                                  transition = "convex",
                                   background_transition = "default",
                                   reveal_options = NULL,
                                   reveal_plugins = NULL,
@@ -144,6 +192,9 @@ revealjs_presentation <- function(incremental = FALSE,
 
   # transition
   transition <- match.arg(transition, revealjs_transitions())
+  if (identical(transition, "default")) {
+    transition <- "convex"
+  }
   args <- c(args, pandoc_variable_arg("transition", transition))
 
   # background_transition
@@ -278,9 +329,10 @@ revealjs_presentation <- function(incremental = FALSE,
 
 revealjs_themes <- function() {
   c(
-    "default",
-    "dark",
+    "default", # not used by reveal
     "simple",
+    "dark", # our alias for black
+    "black",
     "sky",
     "beige",
     "serif",
@@ -288,7 +340,6 @@ revealjs_themes <- function() {
     "blood",
     "moon",
     "night",
-    "black",
     "league",
     "white"
   )
@@ -297,12 +348,12 @@ revealjs_themes <- function() {
 
 revealjs_transitions <- function() {
   c(
-    "default",
-    "none",
+    "default", # not used by reveal
+    "convex",
     "fade",
     "slide",
-    "convex",
     "concave",
-    "zoom"
+    "zoom",
+    "none"
   )
 }

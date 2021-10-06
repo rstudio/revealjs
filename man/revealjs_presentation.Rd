@@ -16,7 +16,7 @@ revealjs_presentation(
   fig_caption = FALSE,
   self_contained = TRUE,
   theme = "simple",
-  transition = "default",
+  transition = "convex",
   background_transition = "default",
   reveal_options = NULL,
   reveal_plugins = NULL,
@@ -68,11 +68,11 @@ outputting HTML directly into the markdown document).}
 or just the body of a LaTeX document (\code{FALSE}). Note the LaTeX
 document is an intermediate file unless \code{keep_tex = TRUE}.}
 
-\item{theme}{Visual theme ("simple", "sky", "beige", "serif", "solarized",
-"blood", "moon", "night", "black", "league" or "white").}
+\item{theme}{Visual theme ("simple", "dark", "black", "sky", "beige", "serif", "solarized", "blood", "moon", "night", "league", or "white")}
 
-\item{transition}{Slide transition ("default", "none", "fade", "slide",
-"convex", "concave" or "zoom")}
+\item{transition}{Slide transition (
+"convex", "fade", "slide", "concave", "zoom", or "none"
+)}
 
 \item{background_transition}{Slide background-transition ("default", "none",
 "fade", "slide", "convex", "concave" or "zoom")}
