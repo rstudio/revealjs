@@ -143,6 +143,36 @@ For additional documentation on using revealjs presentations see
 \url{https://github.com/rstudio/revealjs}
 }
 \section{About plugins}{
+\subsection{Built-in plugins with reveal.js}{
+\subsection{Zoom}{
+
+When activated, ALT + Click can be used to zoom on a slide.
+}
+
+\subsection{Notes}{
+
+Show a \href{https://revealjs.com/speaker-view/}{speaker view} in a separated
+window. This speaker view contains a timer, current slide, next slide, and
+speaker notes. It also duplicate the window to have presentation mode
+synchronized with main presentation.
+
+Use\if{html}{\out{<div class="sourceCode markdown">}}\preformatted{::: notes
+Content of speaker notes
+:::
+}\if{html}{\out{</div>}}
+
+to create notes only viewable in presentation mode.
+}
+
+\subsection{Search}{
+
+When opt-in, it is possible to show a search box when pressing \code{CTRL + SHIFT + F}. It will seach in the whole presentation, and highlight matched words. The
+matches will also be highlighted in overview mode (pressing ESC to see all
+slides in one scrollable view)
+}
+
+}
+
 \subsection{Menu}{
 
 A slideout menu plugin for Reveal.js to quickly jump to any slide by title.
@@ -150,7 +180,7 @@ A slideout menu plugin for Reveal.js to quickly jump to any slide by title.
 Version 2.1.0 is
 currently used and documentation for configurations can be found at
 \href{https://github.com/denehyg/reveal.js-menu/blob/2.1.0/README.md}{denehyg/reveal.js-menu}
-\subsection{Known limitation}{
+\subsection{Known limitations}{
 
 Some configurations cannot be modified in the current template:
 \itemize{
@@ -162,6 +192,25 @@ when this plugin is used
 }
 }
 
+}
+
+\subsection{Chalkboard}{
+
+A plugin adding a chalkboard and slide annotation
+
+Version 4.1.5 is
+currently used and documentation for configurations can be found at
+\href{https://github.com/rajgoel/reveal.js-plugins/tree/4.1.5/4.1.5/chalkboard}{rajgoel/reveal.js-plugins}
+
+By default, chalkboard and annotations modes will be accessible using keyboard
+shortcuts, respectively, pressing B, or pressing C.
+In addition, buttons on the bottom left can be added by using the following\if{html}{\out{<div class="sourceCode yaml">}}\preformatted{reveal_plugins: 
+  - chalkboard
+reveal_options:
+  chalkboard:
+    toggleNotesButton: true
+    toggleChalkboardButton: true
+}\if{html}{\out{</div>}}
 }
 }
 
