@@ -21,6 +21,10 @@ Authors@R:
              family = "Allaire",
              role = c("aut", "cre"),
              email = "jj@rstudio.com"),
+      person(given = "Christophe",
+             family = "Dervieux",
+             role = c("ctb"),
+             email = "cderv@rstudio.com"),
       person(family = "RStudio",
              role = "cph"))
 Description: R Markdown format for 'reveal.js' presentations, a framework
