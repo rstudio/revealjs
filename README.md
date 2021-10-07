@@ -6,6 +6,7 @@ R Markdown Format for reveal.js Presentations
 [![CRAN
 status](https://www.r-pkg.org/badges/version/revealjs)](https://CRAN.R-project.org/package=revealjs)
 [![R-CMD-check](https://github.com/rstudio/revealjs/workflows/R-CMD-check/badge.svg)](https://github.com/rstudio/revealjs/actions)
+[![revealjs](https://img.shields.io/badge/revealjs-4.1.2-yellow)](https://github.com/rstudio/revealjs/tree/master/inst/reveal.js-4.1.2)
 
 <!-- badges: end -->
 
@@ -13,6 +14,7 @@ status](https://www.r-pkg.org/badges/version/revealjs)](https://CRAN.R-project.o
 
 This repository provides an [R Markdown](http://rmarkdown.rstudio.com)
 custom format for [reveal.js](https://revealjs.com/) HTML presentations.
+The packages includes *reveal.js* library in version 4.1.2
 
 You can use this format in R Markdown documents by installing this
 package as follows:
@@ -186,8 +188,8 @@ There are several options that control the appearance of revealjs
 presentations:
 
 -   `theme` specifies the theme to use for the presentation (available
-    themes are “dark”, “simple”, “sky”, “beige”, “serif”, “solarized”,
-    “blood”, “moon”, “night”, “black”, “league”, or “white”
+    themes are “simple”, “dark”, “black”, “sky”, “beige”, “serif”,
+    “solarized”, “blood”, “moon”, “night”, “league”, or “white”
 
 -   `highlight` specifies the syntax highlighting style. Supported
     styles include “default”, “tango”, “pygments”, “kate”, “monochrome”,
@@ -215,12 +217,12 @@ You can use the `transition` and `background_transition` options to
 specify the global default slide transition style:
 
 -   `transition` specifies the visual effect when moving between slides.
-    Available transitions are “none”, “fade”, “slide”, “convex”,
-    “concave”, or “zoom”.
+    Available transitions are “convex”, “fade”, “slide”, “concave”,
+    “zoom”, or “none”.
 
 -   `background_transition` specifies the background transition effect
     when moving between full page slides. Available transitions are
-    “none”, “fade”, “slide”, “convex”, “concave”, or “zoom”
+    “convex”, “fade”, “slide”, “concave”, “zoom”, or “none”
 
 For example:
 
