@@ -3,7 +3,6 @@
 README.*
 examples/
 
-
 ^codecov\.yml$
 ^\.github$
 ^_pkgdown\.yml$
@@ -12,3 +11,17 @@ examples/
 vignettes/
 ^tests/manual$
 ^tools$
+
+inst/reveal.js-[^/]+/.github
+inst/reveal.js-[^/]+/.gitignore
+inst/reveal.js-[^/]+/.npmignore
+inst/reveal.js-[^/]+/CONTRIBUTING.md
+inst/reveal.js-[^/]+/css
+inst/reveal.js-[^/]+/demo.html
+inst/reveal.js-[^/]+/examples
+inst/reveal.js-[^/]+/gulpfile.js
+inst/reveal.js-[^/]+/index.html
+inst/reveal.js-[^/]+/js
+inst/reveal.js-[^/]+/package-lock.json
+inst/reveal.js-[^/]+/package.json
+inst/reveal.js-[^/]+/test

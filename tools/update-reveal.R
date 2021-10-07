@@ -55,6 +55,14 @@ gert::git_add("inst/")
 
 fs::dir_delete(tmp_dir)
 
+# Update .Rbuildignore
+current <- fs::dir_ls("inst", glob = "*/reveal.js-*")
+buildignore <- xfun::read_utf8(".Rbuildignore")
+i <- grep("inst/reveal", buildignore)
+buildignore <- buildignore[-i]
+ignore <- fs::dir_ls(current, regexp = ".*(dist|plugin|LICENSE|README.md).*", invert = TRUE, all = TRUE)
+ignore_reg <- gsub("reveal\\.js-[^/]*", "reveal\\.js-[^/]+", ignore)
+xfun::write_utf8(c(buildignore, ignore_reg), ".Rbuildignore")
 
 # Make fonts local -------------------------------------------------------
 
