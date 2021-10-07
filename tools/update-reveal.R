@@ -55,6 +55,68 @@ gert::git_add("inst/")
 
 fs::dir_delete(tmp_dir)
 
+
+# Make fonts local -------------------------------------------------------
+
+current <- fs::dir_ls("inst", glob = "*/reveal.js-*")
+themes <- fs::dir_ls(fs::path(current, "dist", "theme"), glob = "*.css")
+themes <- purrr::set_names(themes, nm = fs::path_file(fs::path_ext_remove(themes)))
+url_fonts <- purrr::map(themes, ~ {
+  css_theme <- xfun::read_utf8(.x)
+  fonts <- stringr::str_extract(css_theme, "(?<=@import url\\()https://[^)]+")
+  as.character(na.omit(fonts))
+})
+fonts <- unique(purrr::simplify(url_fonts))
+sort(fonts)
+
+# is there duplicate font ? 
+dup <- duplicated(purrr::map_chr(stringr::str_match_all(fonts, "(?<=family=)([^:]+)"), ~ .x[1,1]))
+fonts[dup]
+
+# if this is ok download theme
+get_fonts <- purrr::map(fonts, ~ {
+    font_url <- .x
+    if (!grepl("https://fonts.googleapis.com", font_url, fixed = TRUE)) stop("Not a good font. Handle manuallly.")
+    # from sass:::font_dep_google_local
+    font_dep_google_local <- function(href) {
+      tmpdir <- tempfile()
+      dir.create(tmpdir, recursive = TRUE)
+      css_file <- file.path(tmpdir, "font.css")
+      css <- sass:::read_gfont_url(href, css_file)
+      urls <- sass:::extract_group(css, "url\\(([^)]+)")
+      basenames <- basename(urls)
+      family <- stringr::str_match_all(href, "(?<=family=)([^:]+)")[[1]][2]
+      Map(function(url, nm) {
+        f <- file.path(tmpdir, nm)
+        if (!grepl("^\\s*http", url)) {
+          return(font_dep_google_local(x))
+        }
+        xfun::download_file(url, f, mode = "wb")
+        css <<- sub(url, nm, css, fixed = TRUE)
+      }, urls, basenames)
+      xfun::write_utf8(css, css_file)
+      list(name = sub("\\s+", "_", sass:::trim_ws(family)), dir = dirname(css_file), css = basename(css_file))
+    }
+    font <- font_dep_google_local(font_url)
+    fs::dir_create(font_folder <- fs::path(current, "dist", "theme", "fonts", font$name))
+    fs::file_copy(fs::dir_ls(font$dir), font_folder, overwrite = TRUE)
+    unlink(font$dir, recursive = TRUE)
+    font
+})
+
+get_fonts <- purrr::set_names(get_fonts, fonts)
+local_fonts <- purrr::map(get_fonts, ~ {
+  font_folder <- fs::path(current, "dist", "theme", "fonts", .x$name)
+  fs::path(".", fs::path_rel(fs::path(font_folder, .x$css), fs::path_dir(themes[1])))
+})
+
+for(theme in themes) {
+  purrr::iwalk(local_fonts, ~ xfun::gsub_file(theme, pattern = .y, replacement = .x, fixed = TRUE))
+}
+
+gert::git_add(fs::path(current, "dist", "theme"))
+
+
 # Update plugins ----------------------------------------------------------
 
 revealjs_lib <- fs::dir_ls("inst", glob = "*/reveal.js-*")
