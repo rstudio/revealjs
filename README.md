@@ -6,6 +6,7 @@ R Markdown Format for reveal.js Presentations
 [![CRAN
 status](https://www.r-pkg.org/badges/version/revealjs)](https://CRAN.R-project.org/package=revealjs)
 [![R-CMD-check](https://github.com/rstudio/revealjs/workflows/R-CMD-check/badge.svg)](https://github.com/rstudio/revealjs/actions)
+
 <!-- badges: end -->
 
 ## Overview
@@ -17,7 +18,7 @@ You can use this format in R Markdown documents by installing this
 package as follows:
 
 ``` r
-install.packages("revealjs", type = "source")
+install.packages("revealjs")
 ```
 
 To create a [reveal.js](https://revealjs.com/) presentation from R
@@ -27,36 +28,38 @@ into sections by using the `#` and `##` heading tags (you can also
 create a new slide without a header using a horizontal rule (`----`).
 For example here’s a simple slide show:
 
-    ---
-    title: "Habits"
-    author: John Doe
-    date: March 22, 2005
-    output: revealjs::revealjs_presentation
-    ---
+``` markdown
+---
+title: "Habits"
+author: John Doe
+date: March 22, 2005
+output: revealjs::revealjs_presentation
+---
 
-    # In the morning
+# In the morning
 
-    ## Getting up
+## Getting up
 
-    - Turn off alarm
-    - Get out of bed
+- Turn off alarm
+- Get out of bed
 
-    ## Breakfast
+## Breakfast
 
-    - Eat eggs
-    - Drink coffee
+- Eat eggs
+- Drink coffee
 
-    # In the evening
+# In the evening
 
-    ## Dinner
+## Dinner
 
-    - Eat spaghetti
-    - Drink wine
+- Eat spaghetti
+- Drink wine
 
-    ## Going to sleep
+## Going to sleep
 
-    - Get in bed
-    - Count sheep
+- Get in bed
+- Count sheep
+```
 
 ## Rendering
 
@@ -74,11 +77,6 @@ right below the source tabs. By default, it will render the current
 document and place the rendered `HTML` file in the same directory as the
 source file, with the same name.
 
-Note: Unlike the the other slideshow outputs, the slideshow viewer popup
-from RStudio will be blank, to view the slide show click the
-`open in browser` button, and the slide show will render in your default
-web browser.
-
 ### R Console
 
 The `Knit` button is actually calling the `rmarkdown::render()`
@@ -90,7 +88,7 @@ rmarkdown::render('my_reveal_presentation.Rmd')
 
 There are many other output tweaks you can use by directly calling
 `render`. You can read up on the
-[documentation](https://cran.r-project.org/web/packages/rmarkdown/rmarkdown.pdf)
+[documentation](https://pkgs.rstudio.com/rmarkdown/reference/render.html)
 for more details.
 
 ### Command Line
@@ -110,23 +108,77 @@ display modes:
 
 -   `'o'` enable overview mode
 
+-   `'b'` enable pause mode with a black screen hiding slide content
+
+-   `'?'` enable help mode to show keyboard shortcut cheatsheet
+
+-   `'s'` enable presentation mode with speaker notes when the Notes
+    plugin is activated
+
+-   `'m'` enable menu mode when the ‘menu’ plugin is activated
+
 Pressing `Esc` exits all of these modes.
 
 ## Incremental Bullets
 
 You can render bullets incrementally by adding the `incremental` option:
 
-    ---
-    output:
-      revealjs::revealjs_presentation:
-        incremental: true
-    ---
+``` yaml
+---
+output:
+  revealjs::revealjs_presentation:
+    incremental: true
+---
+```
 
 If you want to render bullets incrementally for some slides but not
 others you can use this syntax:
 
-    > - Eat eggs
-    > - Drink coffee
+``` markdown
+::: incremental
+
+- Eat spaghetti
+- Drink wine
+
+:::
+```
+
+or
+
+``` markdown
+::: nonincremental
+
+- Eat spaghetti
+- Drink wine
+
+:::
+```
+
+## Incremental Revealing
+
+You can also add pauses between content on a slide using `. . .`
+
+``` markdown
+# Slide header
+
+Content shown first
+
+. . .
+
+Content shown next on the same slide
+```
+
+Using Fragments explicitly is also possible
+
+``` markdown
+# Slide header
+
+Content shown first
+
+::: fragment
+Content shown next on the same slide
+:::
+```
 
 ## Appearance and Style
 
@@ -134,27 +186,28 @@ There are several options that control the appearance of revealjs
 presentations:
 
 -   `theme` specifies the theme to use for the presentation (available
-    themes are “default”, “simple”, “sky”, “beige”, “serif”,
-    “solarized”, “blood”, “moon”, “night”, “black”, “league” or
-    “white”).
+    themes are “dark”, “simple”, “sky”, “beige”, “serif”, “solarized”,
+    “blood”, “moon”, “night”, “black”, “league”, or “white”
 
 -   `highlight` specifies the syntax highlighting style. Supported
     styles include “default”, “tango”, “pygments”, “kate”, “monochrome”,
-    “espresso”, “zenburn”, and “haddock”. Pass null to prevent syntax
-    highlighting.
+    “espresso”, “zenburn”, “haddock”, or “breezedark”. Pass null to
+    prevent syntax highlighting.
 
 -   `center` specifies whether you want to vertically center content on
     slides (this defaults to false).
 
 For example:
 
-    ---
-    output:
-      revealjs::revealjs_presentation:
-        theme: sky
-        highlight: pygments
-        center: true
-    ---
+``` yaml
+output:
+  revealjs::revealjs_presentation:
+    theme: sky
+    highlight: pygments
+    center: true
+```
+
+[Revealjs documentation about themes](https://revealjs.com/themes/)
 
 ## Slide Transitions
 
@@ -162,34 +215,48 @@ You can use the `transition` and `background_transition` options to
 specify the global default slide transition style:
 
 -   `transition` specifies the visual effect when moving between slides.
-    Available transitions are “default”, “fade”, “slide”, “convex”,
-    “concave”, “zoom” or “none”.
+    Available transitions are “none”, “fade”, “slide”, “convex”,
+    “concave”, or “zoom”.
 
 -   `background_transition` specifies the background transition effect
     when moving between full page slides. Available transitions are
-    “default”, “fade”, “slide”, “convex”, “concave”, “zoom” or “none”.
+    “none”, “fade”, “slide”, “convex”, “concave”, or “zoom”
 
 For example:
 
-    ---
-    output:
-      revealjs::revealjs_presentation:
-        transition: fade
-    ---
+``` yaml
+output:
+  revealjs::revealjs_presentation:
+    transition: fade
+    background_transition: slide
+```
 
 You can override the global transition for a specific slide by using the
 data-transition attribute, for example:
 
-    ## Use a zoom transition {data-transition="zoom"}
+``` markdown
+## Use a zoom transition {data-transition="zoom"}
 
-    ## Use a faster speed {data-transition-speed="fast"}
+## Use a faster speed {data-transition-speed="fast"}
+```
 
 You can also use different in and out transitions for the same slide,
 for example:
 
-    ## Fade in, Slide out {data-transition="slide-in fade-out"}
+``` markdown
+## Fade in, Slide out {data-transition="slide-in fade-out"}
 
-    ## Slide in, Fade out {data-transition="fade-in slide-out"}
+## Slide in, Fade out {data-transition="fade-in slide-out"}
+```
+
+This works also for background transition
+
+``` markdown
+## Use a zoomed background transition {data-background-transition="zoom"}
+```
+
+[Revealjs documentation about
+transitions](https://revealjs.com/transitions/)
 
 ## Slide Backgrounds
 
@@ -200,19 +267,24 @@ attribute to your slide header element. Four different types of
 backgrounds are supported: color, image, video and iframe. Below are a
 few examples.
 
-    ## CSS color background {data-background=#ff0000}
+``` markdown
+## CSS color background {data-background-color=#ff0000}
 
-    ## Full size image background {data-background="background.jpeg"}
+## Full size image background {data-background-image="background.jpeg"}
 
-    ## Video background {data-background-video="background.mp4"}
+## Video background {data-background-video="background.mp4"}
 
-    ## Embed a web page as a background {data-background-iframe="https://example.com"}
+## Embed a web page as a background {data-background-iframe="https://example.com"}
+```
 
 Backgrounds transition using a fade animation by default. This can be
 changed to a linear sliding transition by specifying the
 `background-transition: slide`. Alternatively you can set
-data-background-transition on any slide with a background to override
+`data-background-transition` on any slide with a background to override
 that specific transition.
+
+[Revealjs documentation about
+backgrounds](https://revealjs.com/backgrounds/)
 
 ## 2-D Presentations
 
@@ -222,33 +294,39 @@ default), a two-dimensional layout will be produced, with level 1
 headers building horizontally and level 2 headers building vertically.
 For example:
 
-    # Horizontal Slide 1
+``` markdown
+# Horizontal Slide 1
 
-    ## Vertical Slide 1
+## Vertical Slide 1
 
-    ## Vertical Slide 2
+## Vertical Slide 2
 
-    # Horizontal Slide 2
+# Horizontal Slide 2
+```
 
 With this layout horizontal navigation will proceed directly from
 “Horizontal Slide 1” to “Horizontal Slide 2”, with vertical navigation
 to “Vertical Slide 1”, etc. presented as an option on “Horizontal Slide
-1”.
+1”. Global reveal option
+[`navigationMode`](https://revealjs.com/vertical-slides/#navigation-mode)
+can be tweaked to change this behavior.
 
 ## Reveal Options
 
 Reveal.js has many additional options to configure it’s behavior. You
 can specify any of these options using `reveal_options`, for example:
 
-    ---
-    title: "Habits"
-    output:
-      revealjs::revealjs_presentation:
-        self_contained: false
-        reveal_options:
-          slideNumber: true
-          previewLinks: true
-    ---
+``` yaml
+---
+title: "Habits"
+output:
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_options:
+      slideNumber: true
+      previewLinks: true
+---
+```
 
 You can find documentation on the various available Reveal.js options
 here: <https://github.com/hakimel/reveal.js#configuration>.
@@ -270,14 +348,16 @@ reveal.js presentations:
 
 For example:
 
-    ---
-    title: "Habits"
-    output:
-      revealjs::revealjs_presentation:
-        fig_width: 7
-        fig_height: 6
-        fig_caption: true
-    ---
+``` yaml
+---
+title: "Habits"
+output:
+  revealjs::revealjs_presentation:
+    fig_width: 7
+    fig_height: 6
+    fig_caption: true
+---
+```
 
 ## MathJax Equations
 
@@ -297,31 +377,37 @@ can use the `mathjax` option to control how MathJax is included:
 
 For example, to use a local copy of MathJax:
 
-    ---
-    title: "Habits"
-    output:
-      revealjs::revealjs_presentation:
-        mathjax: local
-        self_contained: false
-    ---
+``` yaml
+---
+title: "Habits"
+output:
+  revealjs::revealjs_presentation:
+    mathjax: local
+    self_contained: false
+---
+```
 
 To use a self-hosted copy of MathJax:
 
-    ---
-    title: "Habits"
-    output:
-      revealjs::revealjs_presentation:
-        mathjax: "http://example.com/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-    ---
+``` yaml
+---
+title: "Habits"
+output:
+  revealjs::revealjs_presentation:
+    mathjax: "http://example.com/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+---
+```
 
 To exclude MathJax entirely:
 
-    ---
-    title: "Habits"
-    output:
-      revealjs::revealjs_presentation:
-        mathjax: null
-    ---
+``` yaml
+---
+title: "Habits"
+output:
+  revealjs::revealjs_presentation:
+    mathjax: null
+---
+```
 
 ## Document Dependencies
 
@@ -332,12 +418,14 @@ publish the file just like you share Office documents or PDFs. If you’d
 rather keep dependencies in external files you can specify
 `self_contained: false`. For example:
 
-    ---
-    title: "Habits"
-    output:
-      revealjs::revealjs_presentation:
-        self_contained: false
-    ---
+``` yaml
+---
+title: "Habits"
+output:
+  revealjs::revealjs_presentation:
+    self_contained: false
+---
+```
 
 Note that even for self contained documents MathJax is still loaded
 externally (this is necessary because of it’s size). If you want to
@@ -352,55 +440,65 @@ library files (e.g. Bootstrap, MathJax, etc.) into a single directory
 shared by multiple documents. You can use the `lib_dir` option to do
 this, for example:
 
-    ---
-    title: "Habits"
-    output:
-      revealjs::revealjs_presentation:
-        self_contained: false
-        lib_dir: libs
-    ---
+``` yaml
+---
+title: "Habits"
+output:
+  revealjs::revealjs_presentation:
+    self_contained: false
+    lib_dir: libs
+---
+```
 
 ## Reveal Plugins
 
 You can enable various reveal.js plugins using the `reveal_plugins`
 option. Plugins currently supported include:
 
-| Plugin                                                                             | Description                                                                         |
-|------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-| [notes](https://revealjs.com/speaker-view/)                                        | Present per-slide notes in a separate browser window.                               |
-| [zoom](http://lab.hakim.se/zoom-js/)                                               | Zoom in and out of selected content with Alt+Click.                                 |
-| [search](https://github.com/hakimel/reveal.js/blob/master/plugin/search/search.js) | Find a text string anywhere in the slides and show the next occurrence to the user. |
-| [chalkboard](https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard)  | Include handwritten notes within a presentation.                                    |
-| [menu](https://github.com/denehyg/reveal.js-menu)                                  | Include a navigation menu within a presentation.                                    |
+| Plugin                                                                             | Description                                                                                                                           |
+|------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| [notes](https://revealjs.com/speaker-view/)                                        | Present per-slide notes in a separate browser window. Open Note view pressing `S`.                                                    |
+| [zoom](http://lab.hakim.se/zoom-js/)                                               | Zoom in and out of selected content with `Alt+Click.`                                                                                 |
+| [search](https://github.com/hakimel/reveal.js/blob/master/plugin/search/search.js) | Find a text string anywhere in the slides and show the next occurrence to the user. Open search box using `CTRL + SHIFT + F`.         |
+| [chalkboard](https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard)  | Include handwritten notes within a presentation. Press `c` to write on slides, Press `b` to open a whiteboard or chalkboard to write. |
+| [menu](https://github.com/denehyg/reveal.js-menu)                                  | Include a navigation menu within a presentation. Press `m` to open the menu.                                                          |
 
 Note that the use of plugins requires that the `self_contained` option
 be set to false. For example, this presentation includes both the
 “notes” and “search” plugins:
 
-    ---
-    title: "Habits"
-    output:
-      revealjs::revealjs_presentation:
-        self_contained: false
-        reveal_plugins: ["notes", "search"]
-    ---
+``` yaml
+---
+title: "Habits"
+output:
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["notes", "search"]
+---
+```
 
 You can specify additional options for the `chalkboard` and `menu`
 plugins using `reveal_options`, for example:
 
-    ---
-    title: "Habits"
-    output:
-      revealjs::revealjs_presentation:
-        self_contained: false
-        reveal_plugins: ["chalkboard", "menu"]
-        reveal_options:
-          chalkboard:
-            theme: whiteboard
-            toggleNotesButton: false
-          menu:
-            side: right
-    ---
+``` yaml
+---
+title: "Habits"
+output:
+  revealjs::revealjs_presentation:
+    self_contained: false
+    reveal_plugins: ["chalkboard", "menu"]
+    reveal_options:
+      chalkboard:
+        theme: whiteboard
+        toggleNotesButton: false
+      menu:
+        side: right
+---
+```
+
+No other plugins can be added in `revealjs_presentation()`. You can open
+feature request for new plugins or you would need to use a custom
+template to write your own HTML format including custom plugins.
 
 ## Advanced Customization
 
@@ -411,15 +509,17 @@ HTML content or by replacing the core pandoc template entirely. To
 include content in the document header or before/after the document body
 you use the `includes` option as follows:
 
-    ---
-    title: "Habits"
-    output:
-      revealjs::revealjs_presentation:
-        includes:
-          in_header: header.html
-          before_body: doc_prefix.html
-          after_body: doc_suffix.html
-    ---
+``` yaml
+---
+title: "Habits"
+output:
+  revealjs::revealjs_presentation:
+    includes:
+      in_header: header.html
+      before_body: doc_prefix.html
+      after_body: doc_suffix.html
+---
+```
 
 ### Pandoc Arguments
 
@@ -427,15 +527,17 @@ If there are pandoc features you want to use that lack equivalents in
 the YAML options described above you can still use them by passing
 custom `pandoc_args`. For example:
 
-    ---
-    title: "Habits"
-    output:
-      revealjs::revealjs_presentation:
-        pandoc_args: [
-          "--title-prefix", "Foo",
-          "--id-prefix", "Bar"
-        ]
-    ---
+``` yaml
+---
+title: "Habits"
+output:
+  revealjs::revealjs_presentation:
+    pandoc_args: [
+      "--title-prefix", "Foo",
+      "--id-prefix", "Bar"
+    ]
+---
+```
 
 Documentation on all available pandoc arguments can be found in the
 [pandoc user guide](https://pandoc.org/MANUAL.html#options).
