@@ -34,3 +34,11 @@ test_that("reveal options for autoAnimateStyles handling", {
   expect_equal(process_reveal_option("autoAnimateStyles", c("color", "padding")), pandoc_variable_arg("autoAnimateStyles", "['color', 'padding']"))
 })
 
+test_that("revealjs lib path is found in package", {
+  expect_match(revealjs_lib_path(), "revealjs/inst/reveal\\.js-")
+  expect_true(dir.exists(revealjs_lib_path()))
+})
+
+test_that("Version of revealjs can be retrieved", {
+  expect_s3_class(revealjs_version(), "numeric_version")
+})

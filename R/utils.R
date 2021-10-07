@@ -5,9 +5,17 @@ reveal_resources <- function(...) {
               package = "revealjs")
 }
 
+
 revealjs_lib_path <- function(...) {
-  system.file("reveal.js-4.1.2", ..., package = "revealjs")
+  pkg <- system.file(package = "revealjs")
+  lib_folder <- list.files(pkg, pattern = "reveal.js-")[1]
+  system.file(lib_folder, ..., package = "revealjs")
 }
+
+revealjs_version <- function() {
+  as.numeric_version(gsub(".*reveal\\.js-(.*)$", "\\1", revealjs_lib_path()))
+}
+
 # Convert boolean from R to JS boolean
 jsbool <- function(value) ifelse(value, "true", "false")
 
