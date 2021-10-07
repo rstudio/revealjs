@@ -90,13 +90,15 @@
 #'   section levels with reveal.js.
 #' @param theme Visual theme (`r knitr::combine_words(setdiff(revealjs_themes(), "default"), before = '"', and = " or ")`)
 #' @param transition Slide transition (
-#' `r knitr::combine_words(setdiff(revealjs_transitions(), "default"), before = '"', and = " or ")`
+#' `r (trans <- knitr::combine_words(setdiff(revealjs_transitions(), "default"), before = '"', and = " or "))`
 #' )
-#' @param background_transition Slide background-transition ("default", "none",
-#'   "fade", "slide", "convex", "concave" or "zoom")
+#' @param background_transition Slide background-transition (
+#' `r trans`
+#' )
 #' @param reveal_options Additional options to specify for reveal.js (see
-#'   <https://revealjs.com/config/>
-#'    for details).
+#'   <https://revealjs.com/config/> for details). Options for plugins can also
+#'   be passed, using plugin name as first level key (e.g `list(slideNumber =
+#'   FALSE, menu = list(number = TRUE))`).
 #' @param reveal_plugins Reveal plugins to include. Available plugins include
 #'   "notes", "search", "zoom", "chalkboard", and "menu". Note that
 #'   `self_contained` must be set to `FALSE` in order to use Reveal
@@ -139,7 +141,7 @@ revealjs_presentation <- function(incremental = FALSE,
                                   self_contained = TRUE,
                                   theme = "simple",
                                   transition = "convex",
-                                  background_transition = "default",
+                                  background_transition = "fade",
                                   reveal_options = NULL,
                                   reveal_plugins = NULL,
                                   highlight = "default",
@@ -193,12 +195,17 @@ revealjs_presentation <- function(incremental = FALSE,
   # transition
   transition <- match.arg(transition, revealjs_transitions())
   if (identical(transition, "default")) {
+    # revealjs default is convex
     transition <- "convex"
   }
   args <- c(args, pandoc_variable_arg("transition", transition))
 
   # background_transition
   background_transition <- match.arg(background_transition, revealjs_transitions())
+  if (identical(background_transition, "default")) {
+    # revealjs default is fade
+    background_transition <- "fade"
+  }
   args <- c(args, pandoc_variable_arg("backgroundTransition", background_transition))
 
   # use history
@@ -344,7 +351,6 @@ revealjs_themes <- function() {
     "white"
   )
 }
-
 
 revealjs_transitions <- function() {
   c(

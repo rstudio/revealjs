@@ -17,7 +17,7 @@ revealjs_presentation(
   self_contained = TRUE,
   theme = "simple",
   transition = "convex",
-  background_transition = "default",
+  background_transition = "fade",
   reveal_options = NULL,
   reveal_plugins = NULL,
   highlight = "default",
@@ -74,12 +74,13 @@ document is an intermediate file unless \code{keep_tex = TRUE}.}
 "convex", "fade", "slide", "concave", "zoom", or "none"
 )}
 
-\item{background_transition}{Slide background-transition ("default", "none",
-"fade", "slide", "convex", "concave" or "zoom")}
+\item{background_transition}{Slide background-transition (
+"convex", "fade", "slide", "concave", "zoom", or "none"
+)}
 
 \item{reveal_options}{Additional options to specify for reveal.js (see
-\url{https://revealjs.com/config/}
-for details).}
+\url{https://revealjs.com/config/} for details). Options for plugins can also
+be passed, using plugin name as first level key (e.g \code{list(slideNumber = FALSE, menu = list(number = TRUE))}).}
 
 \item{reveal_plugins}{Reveal plugins to include. Available plugins include
 "notes", "search", "zoom", "chalkboard", and "menu". Note that
