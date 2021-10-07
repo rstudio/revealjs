@@ -86,26 +86,23 @@ get_fonts <- purrr::map(fonts, ~ {
     font_url <- .x
     if (!grepl("https://fonts.googleapis.com", font_url, fixed = TRUE)) stop("Not a good font. Handle manuallly.")
     # from sass:::font_dep_google_local
-    font_dep_google_local <- function(href) {
-      tmpdir <- tempfile()
-      dir.create(tmpdir, recursive = TRUE)
-      css_file <- file.path(tmpdir, "font.css")
-      css <- sass:::read_gfont_url(href, css_file)
-      urls <- sass:::extract_group(css, "url\\(([^)]+)")
-      basenames <- basename(urls)
-      family <- stringr::str_match_all(href, "(?<=family=)([^:]+)")[[1]][2]
-      Map(function(url, nm) {
-        f <- file.path(tmpdir, nm)
-        if (!grepl("^\\s*http", url)) {
-          return(font_dep_google_local(x))
-        }
-        xfun::download_file(url, f, mode = "wb")
-        css <<- sub(url, nm, css, fixed = TRUE)
-      }, urls, basenames)
-      xfun::write_utf8(css, css_file)
-      list(name = sub("\\s+", "_", sass:::trim_ws(family)), dir = dirname(css_file), css = basename(css_file))
-    }
-    font <- font_dep_google_local(font_url)
+    tmpdir <- tempfile()
+    dir.create(tmpdir, recursive = TRUE)
+    css_file <- file.path(tmpdir, "font.css")
+    css <- sass:::read_gfont_url(font_url, css_file)
+    urls <- sass:::extract_group(css, "url\\(([^)]+)")
+    family <- stringr::str_match_all(font_url, "(?<=family=)([^:]+)")[[1]][2]
+    family <- sub("\\s+", "_", sass:::trim_ws(family))
+    family <- sub("\\+", "-", family)
+    basenames <- paste(family, seq_along(urls), sep = "-")
+    basenames <- fs::path_ext_set(basenames, fs::path_ext(fs::path_file(urls)))
+    Map(function(url, nm) {
+      f <- file.path(tmpdir, nm)
+      xfun::download_file(url, f, mode = "wb")
+      css <<- sub(url, nm, css, fixed = TRUE)
+    }, urls, basenames)
+    xfun::write_utf8(css, css_file)
+    font <- list(name = family, dir = dirname(css_file), css = basename(css_file))
     fs::dir_create(font_folder <- fs::path(current, "dist", "theme", "fonts", font$name))
     fs::file_copy(fs::dir_ls(font$dir), font_folder, overwrite = TRUE)
     unlink(font$dir, recursive = TRUE)
