@@ -35,7 +35,7 @@ test_that("reveal options for autoAnimateStyles handling", {
 })
 
 test_that("revealjs lib path is found in package", {
-  expect_match(revealjs_lib_path(), "revealjs/inst/reveal\\.js-")
+  expect_match(revealjs_lib_path(), "revealjs/(inst/)?reveal\\.js-")
   expect_true(dir.exists(revealjs_lib_path()))
 })
 
