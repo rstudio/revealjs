@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'News Cycle';
+  font-style: normal;
+  font-weight: 400;
+  src: url(News-Cycle-1.woff) format('woff');
+}
+@font-face {
+  font-family: 'News Cycle';
+  font-style: normal;
+  font-weight: 700;
+  src: url(News-Cycle-2.woff) format('woff');
+}

@@ -1,13 +1,13 @@
 Type: Package
 Package: revealjs
 Title: R Markdown Format for 'reveal.js' Presentations
-Version: 0.9.1.9005
+Version: 0.9.1.9006
 Date: 2017-03-13
 Authors@R: 
     c(person(given = "Hakim",
              family = "El Hattab",
              role = c("aut", "cph"),
-             comment = "reveal.js-3.2.0, https://github.com/hakimel/reveal.js"),
+             comment = "reveal.js, https://github.com/hakimel/reveal.js"),
       person(given = "Asvin",
              family = "Goel",
              role = c("ctb", "cph"),

@@ -16,8 +16,8 @@ revealjs_presentation(
   fig_caption = FALSE,
   self_contained = TRUE,
   theme = "simple",
-  transition = "default",
-  background_transition = "default",
+  transition = "convex",
+  background_transition = "fade",
   reveal_options = NULL,
   reveal_plugins = NULL,
   highlight = "default",
@@ -68,18 +68,19 @@ outputting HTML directly into the markdown document).}
 or just the body of a LaTeX document (\code{FALSE}). Note the LaTeX
 document is an intermediate file unless \code{keep_tex = TRUE}.}
 
-\item{theme}{Visual theme ("simple", "sky", "beige", "serif", "solarized",
-"blood", "moon", "night", "black", "league" or "white").}
+\item{theme}{Visual theme ("simple", "dark", "black", "sky", "beige", "serif", "solarized", "blood", "moon", "night", "league", or "white")}
 
-\item{transition}{Slide transition ("default", "none", "fade", "slide",
-"convex", "concave" or "zoom")}
+\item{transition}{Slide transition (
+"convex", "fade", "slide", "concave", "zoom", or "none"
+)}
 
-\item{background_transition}{Slide background-transition ("default", "none",
-"fade", "slide", "convex", "concave" or "zoom")}
+\item{background_transition}{Slide background-transition (
+"convex", "fade", "slide", "concave", "zoom", or "none"
+)}
 
 \item{reveal_options}{Additional options to specify for reveal.js (see
-\url{https://revealjs.com/config/}
-for details).}
+\url{https://revealjs.com/config/} for details). Options for plugins can also
+be passed, using plugin name as first level key (e.g \code{list(slideNumber = FALSE, menu = list(number = TRUE))}).}
 
 \item{reveal_plugins}{Reveal plugins to include. Available plugins include
 "notes", "search", "zoom", "chalkboard", and "menu". Note that
@@ -142,6 +143,78 @@ headers building vertically.
 For additional documentation on using revealjs presentations see
 \url{https://github.com/rstudio/revealjs}
 }
+\section{About plugins}{
+\subsection{Built-in plugins with reveal.js}{
+\subsection{Zoom}{
+
+When activated, ALT + Click can be used to zoom on a slide.
+}
+
+\subsection{Notes}{
+
+Show a \href{https://revealjs.com/speaker-view/}{speaker view} in a separated
+window. This speaker view contains a timer, current slide, next slide, and
+speaker notes. It also duplicate the window to have presentation mode
+synchronized with main presentation.
+
+Use\if{html}{\out{<div class="sourceCode markdown">}}\preformatted{::: notes
+Content of speaker notes
+:::
+}\if{html}{\out{</div>}}
+
+to create notes only viewable in presentation mode.
+}
+
+\subsection{Search}{
+
+When opt-in, it is possible to show a search box when pressing \code{CTRL + SHIFT + F}. It will seach in the whole presentation, and highlight matched words. The
+matches will also be highlighted in overview mode (pressing ESC to see all
+slides in one scrollable view)
+}
+
+}
+
+\subsection{Menu}{
+
+A slideout menu plugin for Reveal.js to quickly jump to any slide by title.
+
+Version 2.1.0 is
+currently used and documentation for configurations can be found at
+\href{https://github.com/denehyg/reveal.js-menu/blob/2.1.0/README.md}{denehyg/reveal.js-menu}
+\subsection{Known limitations}{
+
+Some configurations cannot be modified in the current template:
+\itemize{
+\item \code{loadIcons: false}  the fontawesome icons are loaded by \pkg{rmarkdown}
+when this plugin is used
+\item \code{custom: false}
+\item \code{themes: false}
+\item \code{transitions: false}
+}
+}
+
+}
+
+\subsection{Chalkboard}{
+
+A plugin adding a chalkboard and slide annotation
+
+Version 4.1.5 is
+currently used and documentation for configurations can be found at
+\href{https://github.com/rajgoel/reveal.js-plugins/tree/4.1.5/4.1.5/chalkboard}{rajgoel/reveal.js-plugins}
+
+By default, chalkboard and annotations modes will be accessible using keyboard
+shortcuts, respectively, pressing B, or pressing C.
+In addition, buttons on the bottom left can be added by using the following\if{html}{\out{<div class="sourceCode yaml">}}\preformatted{reveal_plugins: 
+  - chalkboard
+reveal_options:
+  chalkboard:
+    toggleNotesButton: true
+    toggleChalkboardButton: true
+}\if{html}{\out{</div>}}
+}
+}
+
 \examples{
 \dontrun{
 

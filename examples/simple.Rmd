@@ -3,9 +3,14 @@ title: "Untitled"
 output: 
   revealjs::revealjs_presentation:
     self_contained: false
-    reveal_plugins: ["search", "zoom", "notes", "chalkboard", "menu"]
+    reveal_plugins: 
+      - search
+      - zoom
+      - notes
+      - chalkboard
+      - menu
     reveal_options:
-      chalkboard: 
+      chalkboard:
         theme: chalkboard
         toggleNotesButton: true
       menu:

@@ -2,3 +2,4 @@
 .Rhistory
 .RData
 reference
+inst/**/skeleton/skeleton.html
