@@ -6,7 +6,7 @@ R Markdown Format for reveal.js Presentations
 [![CRAN
 status](https://www.r-pkg.org/badges/version/revealjs)](https://CRAN.R-project.org/package=revealjs)
 [![R-CMD-check](https://github.com/rstudio/revealjs/workflows/R-CMD-check/badge.svg)](https://github.com/rstudio/revealjs/actions)
-[![revealjs](https://img.shields.io/badge/revealjs-4.1.2-yellow)](https://github.com/rstudio/revealjs/tree/main/inst/reveal.js-4.1.2)
+[![reveal.js](https://img.shields.io/badge/reveal.js-4.1.2-yellow)](https://github.com/rstudio/revealjs/tree/main/inst/reveal.js-4.1.2)
 
 <!-- badges: end -->
 
