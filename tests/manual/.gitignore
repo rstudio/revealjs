@@ -1,2 +1,6 @@
 *_files
+*.md
 *.html
+
+# ignore quarto test files
+*.qmd
