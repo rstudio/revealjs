@@ -15,7 +15,6 @@ vignettes/
 inst/reveal.js-[^/]+/.github
 inst/reveal.js-[^/]+/.gitignore
 inst/reveal.js-[^/]+/.npmignore
-inst/reveal.js-[^/]+/CONTRIBUTING.md
 inst/reveal.js-[^/]+/css
 inst/reveal.js-[^/]+/demo.html
 inst/reveal.js-[^/]+/examples
