@@ -6,7 +6,7 @@ R Markdown Format for reveal.js Presentations
 [![CRAN
 status](https://www.r-pkg.org/badges/version/revealjs)](https://CRAN.R-project.org/package=revealjs)
 [![R-CMD-check](https://github.com/rstudio/revealjs/workflows/R-CMD-check/badge.svg)](https://github.com/rstudio/revealjs/actions)
-[![reveal.js](https://img.shields.io/badge/reveal.js-4.1.2-yellow)](https://github.com/rstudio/revealjs/tree/main/inst/reveal.js-4.1.2)
+[![reveal.js](https://img.shields.io/badge/reveal.js-4.2.1-yellow)](https://github.com/rstudio/revealjs/tree/main/inst/reveal.js-4.2.1)
 
 <!-- badges: end -->
 
@@ -14,7 +14,7 @@ status](https://www.r-pkg.org/badges/version/revealjs)](https://CRAN.R-project.o
 
 This repository provides an [R Markdown](http://rmarkdown.rstudio.com)
 custom format for [reveal.js](https://revealjs.com/) HTML presentations.
-The packages includes *reveal.js* library in version 4.1.2
+The packages includes *reveal.js* library in version 4.2.1
 
 You can use this format in R Markdown documents by installing this
 package as follows:
@@ -331,7 +331,7 @@ output:
 ```
 
 You can find documentation on the various available Reveal.js options
-here: <https://github.com/hakimel/reveal.js#configuration>.
+here: <https://revealjs.com/config/>.
 
 ## Figure Options
 
