@@ -277,7 +277,7 @@ output:
 ---
 ```
 
-You can find documentation on the various available Reveal.js options here: <https://github.com/hakimel/reveal.js#configuration>.
+You can find documentation on the various available Reveal.js options here: <https://revealjs.com/config/>.
 
 ## Figure Options
 
