@@ -4,11 +4,9 @@ output: github_document
 ---
 
 <!-- badges: start -->
-
 [![CRAN status](https://www.r-pkg.org/badges/version/revealjs)](https://CRAN.R-project.org/package=revealjs)
-[![R-CMD-check](https://github.com/rstudio/revealjs/workflows/R-CMD-check/badge.svg)](https://github.com/rstudio/revealjs/actions)
+[![R-CMD-check](https://github.com/rstudio/revealjs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rstudio/revealjs/actions/workflows/R-CMD-check.yaml)
 [![reveal.js](https://img.shields.io/badge/reveal.js-`r revealjs:::revealjs_version()`-yellow)](https://github.com/rstudio/revealjs/tree/main/inst/reveal.js-`r revealjs:::revealjs_version()`)
-
 <!-- badges: end -->
 
 ## Overview

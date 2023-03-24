@@ -5,9 +5,8 @@ R Markdown Format for reveal.js Presentations
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/revealjs)](https://CRAN.R-project.org/package=revealjs)
-[![R-CMD-check](https://github.com/rstudio/revealjs/workflows/R-CMD-check/badge.svg)](https://github.com/rstudio/revealjs/actions)
+[![R-CMD-check](https://github.com/rstudio/revealjs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rstudio/revealjs/actions/workflows/R-CMD-check.yaml)
 [![reveal.js](https://img.shields.io/badge/reveal.js-4.2.1-yellow)](https://github.com/rstudio/revealjs/tree/main/inst/reveal.js-4.2.1)
-
 <!-- badges: end -->
 
 ## Overview
@@ -106,18 +105,18 @@ Rscript -e "rmarkdown::render('my_reveal_presentation.Rmd')"
 The following single character keyboard shortcuts enable alternate
 display modes:
 
--   `'f'` enable fullscreen mode
+- `'f'` enable fullscreen mode
 
--   `'o'` enable overview mode
+- `'o'` enable overview mode
 
--   `'b'` enable pause mode with a black screen hiding slide content
+- `'b'` enable pause mode with a black screen hiding slide content
 
--   `'?'` enable help mode to show keyboard shortcut cheatsheet
+- `'?'` enable help mode to show keyboard shortcut cheatsheet
 
--   `'s'` enable presentation mode with speaker notes when the Notes
-    plugin is activated
+- `'s'` enable presentation mode with speaker notes when the Notes
+  plugin is activated
 
--   `'m'` enable menu mode when the ‘menu’ plugin is activated
+- `'m'` enable menu mode when the ‘menu’ plugin is activated
 
 Pressing `Esc` exits all of these modes.
 
@@ -187,17 +186,17 @@ Content shown next on the same slide
 There are several options that control the appearance of revealjs
 presentations:
 
--   `theme` specifies the theme to use for the presentation (available
-    themes are “simple”, “dark”, “black”, “sky”, “beige”, “serif”,
-    “solarized”, “blood”, “moon”, “night”, “league”, or “white”
+- `theme` specifies the theme to use for the presentation (available
+  themes are “simple”, “dark”, “black”, “sky”, “beige”, “serif”,
+  “solarized”, “blood”, “moon”, “night”, “league”, or “white”
 
--   `highlight` specifies the syntax highlighting style. Supported
-    styles include “default”, “tango”, “pygments”, “kate”, “monochrome”,
-    “espresso”, “zenburn”, “haddock”, or “breezedark”. Pass null to
-    prevent syntax highlighting.
+- `highlight` specifies the syntax highlighting style. Supported styles
+  include “default”, “tango”, “pygments”, “kate”, “monochrome”,
+  “espresso”, “zenburn”, “haddock”, or “breezedark”. Pass null to
+  prevent syntax highlighting.
 
--   `center` specifies whether you want to vertically center content on
-    slides (this defaults to false).
+- `center` specifies whether you want to vertically center content on
+  slides (this defaults to false).
 
 For example:
 
@@ -216,13 +215,13 @@ output:
 You can use the `transition` and `background_transition` options to
 specify the global default slide transition style:
 
--   `transition` specifies the visual effect when moving between slides.
-    Available transitions are “convex”, “fade”, “slide”, “concave”,
-    “zoom”, or “none”.
+- `transition` specifies the visual effect when moving between slides.
+  Available transitions are “convex”, “fade”, “slide”, “concave”,
+  “zoom”, or “none”.
 
--   `background_transition` specifies the background transition effect
-    when moving between full page slides. Available transitions are
-    “convex”, “fade”, “slide”, “concave”, “zoom”, or “none”
+- `background_transition` specifies the background transition effect
+  when moving between full page slides. Available transitions are
+  “convex”, “fade”, “slide”, “concave”, “zoom”, or “none”
 
 For example:
 
@@ -338,15 +337,15 @@ here: <https://revealjs.com/config/>.
 There are a number of options that affect the output of figures within
 reveal.js presentations:
 
--   `fig_width` and `fig_height` can be used to control the default
-    figure width and height (7x5 is used by default)
+- `fig_width` and `fig_height` can be used to control the default figure
+  width and height (7x5 is used by default)
 
--   `fig_retina` Specifies the scaling to perform for retina displays
-    (defaults to 2, which currently works for all widely used retina
-    displays). Note that this only takes effect if you are using
-    knitr >= 1.5.21. Set to `null` to prevent retina scaling.
+- `fig_retina` Specifies the scaling to perform for retina displays
+  (defaults to 2, which currently works for all widely used retina
+  displays). Note that this only takes effect if you are using knitr \>=
+  1.5.21. Set to `null` to prevent retina scaling.
 
--   `fig_caption` controls whether figures are rendered with captions
+- `fig_caption` controls whether figures are rendered with captions
 
 For example:
 
@@ -367,15 +366,15 @@ By default [MathJax](http://www.mathjax.org/) scripts are included in
 reveal.js presentations for rendering LaTeX and MathML equations. You
 can use the `mathjax` option to control how MathJax is included:
 
--   Specify “default” to use an https URL from the official MathJax CDN.
+- Specify “default” to use an https URL from the official MathJax CDN.
 
--   Specify “local” to use a local version of MathJax (which is copied
-    into the output directory). Note that when using “local” you also
-    need to set the `self_contained` option to false.
+- Specify “local” to use a local version of MathJax (which is copied
+  into the output directory). Note that when using “local” you also need
+  to set the `self_contained` option to false.
 
--   Specify an alternate URL to load MathJax from another location.
+- Specify an alternate URL to load MathJax from another location.
 
--   Specify null to exclude MathJax entirely.
+- Specify null to exclude MathJax entirely.
 
 For example, to use a local copy of MathJax:
 
