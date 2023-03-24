@@ -37,7 +37,8 @@ revealjs_presentation(
 \item{incremental}{\code{TRUE} to render slide bullets incrementally. Note
 that if you want to reverse the default incremental behavior for an
 individual bullet you can precede it with \code{>}. For example:
-\emph{\code{> - Bullet Text}}}
+\emph{\verb{> - Bullet Text}}. See more in
+\href{https://pandoc.org/MANUAL.html#incremental-lists}{Pandoc's Manual}}
 
 \item{center}{\code{TRUE} to vertically center content on slides}
 
@@ -87,9 +88,18 @@ be passed, using plugin name as first level key (e.g \code{list(slideNumber = FA
 \code{self_contained} must be set to \code{FALSE} in order to use Reveal
 plugins.}
 
-\item{highlight}{Syntax highlighting style. Supported styles include
-"default", "tango", "pygments", "kate", "monochrome", "espresso",
-"zenburn", and "haddock". Pass \code{NULL} to prevent syntax highlighting.}
+\item{highlight}{Syntax highlighting style passed to Pandoc.
+
+ Supported built-in styles include "default", "tango", "pygments", "kate",
+ "monochrome", "espresso", "zenburn", "haddock", and "breezedark".
+
+  Two custom styles are also included, "arrow", an accessible color scheme,
+  and "rstudio", which mimics the default IDE theme. Alternatively, supply a
+  path to a \samp{.theme} file to use
+  \href{https://pandoc.org/MANUAL.html#syntax-highlighting}{a custom Pandoc
+  style}. Note that custom theme requires Pandoc 2.0+.
+
+  Pass \code{NULL} to prevent syntax highlighting.}
 
 \item{mathjax}{Include mathjax. The "default" option uses an https URL from a
 MathJax CDN. The "local" option uses a local version of MathJax (which is
@@ -123,7 +133,7 @@ bootstrap, etc.) into. By default this will be the name of the document with
 Markdown HTML output formatter \code{\link[rmarkdown:html_document_base]{rmarkdown::html_document_base()}}.}
 
 \item{md_extensions}{Markdown extensions to be added or removed from the
-default definition or R Markdown. See the \code{\link[rmarkdown]{rmarkdown_format}} for
+default definition of R Markdown. See the \code{\link[rmarkdown]{rmarkdown_format}} for
 additional details.}
 
 \item{...}{Ignored}
@@ -157,7 +167,9 @@ window. This speaker view contains a timer, current slide, next slide, and
 speaker notes. It also duplicate the window to have presentation mode
 synchronized with main presentation.
 
-Use\if{html}{\out{<div class="sourceCode markdown">}}\preformatted{::: notes
+Use
+
+\if{html}{\out{<div class="sourceCode markdown">}}\preformatted{::: notes
 Content of speaker notes
 :::
 }\if{html}{\out{</div>}}
@@ -178,7 +190,7 @@ slides in one scrollable view)
 
 A slideout menu plugin for Reveal.js to quickly jump to any slide by title.
 
-Version 2.1.0 is
+Version  is
 currently used and documentation for configurations can be found at
 \href{https://github.com/denehyg/reveal.js-menu/blob/2.1.0/README.md}{denehyg/reveal.js-menu}
 \subsection{Known limitations}{
@@ -199,13 +211,15 @@ when this plugin is used
 
 A plugin adding a chalkboard and slide annotation
 
-Version 4.1.5 is
+Version  is
 currently used and documentation for configurations can be found at
 \href{https://github.com/rajgoel/reveal.js-plugins/tree/4.1.5/4.1.5/chalkboard}{rajgoel/reveal.js-plugins}
 
 By default, chalkboard and annotations modes will be accessible using keyboard
 shortcuts, respectively, pressing B, or pressing C.
-In addition, buttons on the bottom left can be added by using the following\if{html}{\out{<div class="sourceCode yaml">}}\preformatted{reveal_plugins: 
+In addition, buttons on the bottom left can be added by using the following
+
+\if{html}{\out{<div class="sourceCode yaml">}}\preformatted{reveal_plugins: 
   - chalkboard
 reveal_options:
   chalkboard:
