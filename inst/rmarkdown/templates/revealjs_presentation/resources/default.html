@@ -122,6 +122,16 @@ $endif$
       border-color: gray;
     }
   </style>
+  
+  <!-- for leaflet -->
+  <style type="text/css">
+    .reveal .leaflet-container img {
+    max-height: none !important;
+    border: none;
+    box-shadow: none;
+    }
+  </style>
+
 
 $for(css)$
     <link rel="stylesheet" href="$css$"/>
