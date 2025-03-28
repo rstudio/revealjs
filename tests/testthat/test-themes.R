@@ -1,6 +1,7 @@
 test_theme <- function(theme) {
   test_that(paste(theme, "theme"), {
-    # don't run on cran because pandoc is required
+    skip_if_not_pandoc()
+    # don't run on cran because this is just to test after updates
     skip_on_cran()
 
     # work in a temp directory
