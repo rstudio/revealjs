@@ -11,7 +11,7 @@ output: github_document
 
 ## Overview
 
-This repository provides an [R Markdown](http://rmarkdown.rstudio.com) custom format for [reveal.js](https://revealjs.com/) HTML presentations. The packages includes _reveal.js_ library in version `r revealjs:::revealjs_version()`
+This repository provides an [R Markdown](https://rmarkdown.rstudio.com) custom format for [reveal.js](https://revealjs.com/) HTML presentations. The packages includes _reveal.js_ library in version `r revealjs:::revealjs_version()`
 
 You can use this format in R Markdown documents by installing this package as follows:
 
@@ -302,7 +302,7 @@ output:
 
 ## MathJax Equations
 
-By default [MathJax](http://www.mathjax.org/) scripts are included in reveal.js presentations for rendering LaTeX and MathML equations. You can use the `mathjax` option to control how MathJax is included:
+By default [MathJax](https://www.mathjax.org/) scripts are included in reveal.js presentations for rendering LaTeX and MathML equations. You can use the `mathjax` option to control how MathJax is included:
 
 -   Specify "default" to use an https URL from the official MathJax CDN.
 
@@ -331,7 +331,7 @@ To use a self-hosted copy of MathJax:
 title: "Habits"
 output:
   revealjs::revealjs_presentation:
-    mathjax: "http://example.com/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    mathjax: "https://example.com/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
 ---
 ```
 
@@ -380,7 +380,7 @@ You can enable various reveal.js plugins using the `reveal_plugins` option. Plug
 | Plugin                                                                             | Description                                                                                                                           |
 |------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
 | [notes](https://revealjs.com/speaker-view/)                                        | Present per-slide notes in a separate browser window. Open Note view pressing `S`.                                                    |
-| [zoom](http://lab.hakim.se/zoom-js/)                                               | Zoom in and out of selected content with `Alt+Click.`                                                                                 |
+| [zoom](https://lab.hakim.se/zoom-js/)                                              | Zoom in and out of selected content with `Alt+Click.`                                                                                 |
 | [search](https://github.com/hakimel/reveal.js/blob/master/plugin/search/search.js) | Find a text string anywhere in the slides and show the next occurrence to the user. Open search box using `CTRL + SHIFT + F`.         |
 | [chalkboard](https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard)  | Include handwritten notes within a presentation. Press `c` to write on slides, Press `b` to open a whiteboard or chalkboard to write. |
 | [menu](https://github.com/denehyg/reveal.js-menu)                                  | Include a navigation menu within a presentation. Press `m` to open the menu.                                                          |

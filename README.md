@@ -395,7 +395,7 @@ To use a self-hosted copy of MathJax:
 title: "Habits"
 output:
   revealjs::revealjs_presentation:
-    mathjax: "http://example.com/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    mathjax: "https://example.com/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
 ---
 ```
 
@@ -456,13 +456,13 @@ output:
 You can enable various reveal.js plugins using the `reveal_plugins`
 option. Plugins currently supported include:
 
-| Plugin                                                                             | Description                                                                                                                           |
-|------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| [notes](https://revealjs.com/speaker-view/)                                        | Present per-slide notes in a separate browser window. Open Note view pressing `S`.                                                    |
-| [zoom](https://lab.hakim.se/zoom-js/)                                               | Zoom in and out of selected content with `Alt+Click.`                                                                                 |
-| [search](https://github.com/hakimel/reveal.js/blob/master/plugin/search/search.js) | Find a text string anywhere in the slides and show the next occurrence to the user. Open search box using `CTRL + SHIFT + F`.         |
-| [chalkboard](https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard)  | Include handwritten notes within a presentation. Press `c` to write on slides, Press `b` to open a whiteboard or chalkboard to write. |
-| [menu](https://github.com/denehyg/reveal.js-menu)                                  | Include a navigation menu within a presentation. Press `m` to open the menu.                                                          |
+| Plugin | Description |
+|----|----|
+| [notes](https://revealjs.com/speaker-view/) | Present per-slide notes in a separate browser window. Open Note view pressing `S`. |
+| [zoom](https://lab.hakim.se/zoom-js/) | Zoom in and out of selected content with `Alt+Click.` |
+| [search](https://github.com/hakimel/reveal.js/blob/master/plugin/search/search.js) | Find a text string anywhere in the slides and show the next occurrence to the user. Open search box using `CTRL + SHIFT + F`. |
+| [chalkboard](https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard) | Include handwritten notes within a presentation. Press `c` to write on slides, Press `b` to open a whiteboard or chalkboard to write. |
+| [menu](https://github.com/denehyg/reveal.js-menu) | Include a navigation menu within a presentation. Press `m` to open the menu. |
 
 Note that the use of plugins requires that the `self_contained` option
 be set to false. For example, this presentation includes both the
