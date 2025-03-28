@@ -6,6 +6,8 @@ This version of the package comes with reveal.js v4 which is a major update from
 
 You can see _reveal.js_ releases notes since 3.3 (which was the previous version used in this package) inside their repo: https://github.com/hakimel/reveal.js/tags
 
+Also, fonts have been removed from the package due to CRAN limit policy. All the Revealjs' themes will now use online fonts as they are doing in Revealjs own distribution.
+
 ### Known breaking / visible changes
 
 - Order of menu icons have been changed.
