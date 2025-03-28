@@ -1,8 +1,8 @@
 ---
-title: "Learn revealjs"
+title: "Learn revealjs "
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Learn 
+  %\VignetteIndexEntry{Learn revealjs }
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -14,18 +14,18 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Overview
+## Overview
 
 If you are new to using revealjs, we encourage you to ...
 
-# User Guide
+## User Guide
 
 Written by ...
 
-# Going further with examples
+## Going further with examples
 
 Learn from examples at ...
 
-# Cheatsheets
+## Cheatsheets
 
 You can access it at... 

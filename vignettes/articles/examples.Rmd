@@ -16,4 +16,4 @@ The examples below illustrate the use of revealjs with various packages and layo
 examples(yml = "examples.yml")
 ```
 
-**blogdown** repo contains an example on how to dynamically generate the `example.yml` taking screenshot of the featured examples. See [`example.Rmd`](https://github.com/rstudio/blogdown/blob/main/vignettes/articles/examples.Rmd) in the repository.
+**blogdown** repo contains an example on how to dynamically generate the `example.yml` taking screenshot of the featured examples. See [`example.Rmd`](https://github.com/rstudio/blogdown/blob/master/vignettes/articles/examples.Rmd) in the repository.

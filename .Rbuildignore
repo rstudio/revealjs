@@ -8,7 +8,7 @@ examples/
 ^_pkgdown\.yml$
 ^reference$
 ^pkgdown$
-vignettes/
+^vignettes/
 ^tests/manual$
 ^tools$
 
@@ -25,3 +25,4 @@ inst/reveal.js-[^/]+/js
 inst/reveal.js-[^/]+/package-lock.json
 inst/reveal.js-[^/]+/package.json
 inst/reveal.js-[^/]+/test
+^vignettes/articles$
