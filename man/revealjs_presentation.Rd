@@ -213,7 +213,7 @@ A plugin adding a chalkboard and slide annotation
 
 Version  is
 currently used and documentation for configurations can be found at
-\href{https://github.com/rajgoel/reveal.js-plugins/tree/4.1.5/4.1.5/chalkboard}{rajgoel/reveal.js-plugins}
+\href{https://github.com/rajgoel/reveal.js-plugins/tree/4.1.5/chalkboard}{rajgoel/reveal.js-plugins}
 
 By default, chalkboard and annotations modes will be accessible using keyboard
 shortcuts, respectively, pressing B, or pressing C.

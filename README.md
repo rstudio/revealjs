@@ -11,7 +11,7 @@ status](https://www.r-pkg.org/badges/version/revealjs)](https://CRAN.R-project.o
 
 ## Overview
 
-This repository provides an [R Markdown](http://rmarkdown.rstudio.com)
+This repository provides an [R Markdown](https://rmarkdown.rstudio.com)
 custom format for [reveal.js](https://revealjs.com/) HTML presentations.
 The packages includes *reveal.js* library in version 4.2.1
 
@@ -362,7 +362,7 @@ output:
 
 ## MathJax Equations
 
-By default [MathJax](http://www.mathjax.org/) scripts are included in
+By default [MathJax](https://www.mathjax.org/) scripts are included in
 reveal.js presentations for rendering LaTeX and MathML equations. You
 can use the `mathjax` option to control how MathJax is included:
 
@@ -459,7 +459,7 @@ option. Plugins currently supported include:
 | Plugin                                                                             | Description                                                                                                                           |
 |------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
 | [notes](https://revealjs.com/speaker-view/)                                        | Present per-slide notes in a separate browser window. Open Note view pressing `S`.                                                    |
-| [zoom](http://lab.hakim.se/zoom-js/)                                               | Zoom in and out of selected content with `Alt+Click.`                                                                                 |
+| [zoom](https://lab.hakim.se/zoom-js/)                                               | Zoom in and out of selected content with `Alt+Click.`                                                                                 |
 | [search](https://github.com/hakimel/reveal.js/blob/master/plugin/search/search.js) | Find a text string anywhere in the slides and show the next occurrence to the user. Open search box using `CTRL + SHIFT + F`.         |
 | [chalkboard](https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard)  | Include handwritten notes within a presentation. Press `c` to write on slides, Press `b` to open a whiteboard or chalkboard to write. |
 | [menu](https://github.com/denehyg/reveal.js-menu)                                  | Include a navigation menu within a presentation. Press `m` to open the menu.                                                          |

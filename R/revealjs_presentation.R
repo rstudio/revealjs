@@ -64,7 +64,7 @@
 #' 
 #' Version `r version <- readLines(revealjs_lib_path("plugin", "chalkboard", "VERSION"))` is
 #' currently used and documentation for configurations can be found at
-#' [rajgoel/reveal.js-plugins](https://github.com/rajgoel/reveal.js-plugins/tree/`r version`/4.1.5/chalkboard)
+#' [rajgoel/reveal.js-plugins](https://github.com/rajgoel/reveal.js-plugins/tree/`r version`/chalkboard)
 #' 
 #' By default, chalkboard and annotations modes will be accessible using keyboard
 #' shortcuts, respectively, pressing B, or pressing C.  
