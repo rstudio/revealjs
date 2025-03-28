@@ -14,6 +14,9 @@
 ## 
 ## Notes from updates
 ##
+## 4.1.2 -> 4.2.1 (06/12/2021): 
+##  * https://github.com/rstudio/revealjs/pull/148
+##
 ## 3.3 -> 4.1.2 (27/09/2021): 
 ##  * Upgrade notes: https://revealjs.com/upgrading/
 ##  * note-server and multiplex plugins where removed, but they weren't use in the package
@@ -25,11 +28,13 @@
 ##  * html5shiv deleted
 
 
+
 # download latest source
 dir.create(tmp_dir <- tempfile())
 owd <- setwd(tmp_dir)
-latest <- xfun::github_releases("hakimel/reveal.js", pattern = "([0-9.]+)")[1]
-url <- sprintf("https://github.com/hakimel/reveal.js/archive/refs/tags/%s.zip", latest)
+Sys.setenv(REVEALJS_VERSION = "4.2.1")
+version <- Sys.getenv("REVEALJS_VERSION", xfun::github_releases("hakimel/reveal.js", pattern = "([0-9.]+)")[1])
+url <- sprintf("https://github.com/hakimel/reveal.js/archive/refs/tags/%s.zip", version)
 xfun::download_file(url)
 fs::dir_ls()
 unzip(basename(url))
@@ -39,16 +44,21 @@ setwd(owd)
 # Replace the library in the package 
 current <- fs::dir_ls("inst", glob = "*/reveal.js-*")
 new <- fs::path("inst", fs::path_file(reveal_folder), "/")
+# rename old version
+old <- sprintf("%s.old", current)
+fs::dir_copy(current, old)
+fs::dir_delete(current)
+# move new version
 fs::dir_copy(reveal_folder, fs::path("inst", fs::path_file(reveal_folder)), overwrite = TRUE)
 
 # move non-core plugins to new library folder
 plugins <- c("chalkboard", "menu")
 purrr::walk(plugins, ~{
-  fs::dir_copy(fs::path(current, "plugin", .x), fs::path(new, "plugin", .x))
+  fs::dir_copy(fs::path(old, "plugin", .x), fs::path(new, "plugin", .x))
 })
 
 # Delete old version
-fs::dir_delete(current)
+fs::dir_delete(old)
 
 # Stage file to look at differences
 gert::git_add("inst/")
@@ -129,9 +139,16 @@ stopifnot(length(revealjs_lib) == 1)
 
 ## MENU PLUGGINS
 ## https://github.com/denehyg/reveal.js-menu
+plugin_folder <- fs::path(revealjs_lib, "plugin", "menu")
+version_file <- fs::path(plugin_folder, "VERSION")
 dir.create(tmp_dir <- tempfile())
 owd <- setwd(tmp_dir)
-latest <- xfun::github_releases("denehyg/reveal.js-menu", pattern = "([0-9.]+)")[1]
+# Sys.setenv(REVEALJS_MENU_VERSION = "latest")
+latest <- if (Sys.getenv("REVEALJS_MENU_VERSION") == "latest") {
+  xfun::github_releases("denehyg/reveal.js-menu", pattern = "([0-9.]+)")[1]
+} else {
+  xfun::read_utf8(version_file)
+}
 url <- sprintf("https://github.com/denehyg/reveal.js-menu/archive/refs/tags/%s.zip", latest)
 xfun::download_file(url)
 fs::dir_ls()
@@ -140,7 +157,6 @@ new_plugin <- fs::path_abs(fs::dir_ls(glob = "reveal.js-*"))
 setwd(owd)
 
 ### keep only necessary resources
-plugin_folder <- fs::path(revealjs_lib, "plugin", "menu")
 fs::dir_delete(plugin_folder)
 to_keep <- c("menu.css", "menu.js", "LICENSE")
 fs::dir_create(plugin_folder)
@@ -153,10 +169,18 @@ gert::git_add(plugin_folder)
 
 ## reveal.js-plugins repo
 ## https://github.com/rajgoel/reveal.js-plugins/
-
+plugins_to_keep <- c("chalkboard", "customcontrols")
+plugin_folders <- fs::path(revealjs_lib, "plugin", plugins_to_keep)
 dir.create(tmp_dir <- tempfile())
 owd <- setwd(tmp_dir)
-latest <- xfun::github_releases("rajgoel/reveal.js-plugins", pattern = "([0-9.]+)")[1]
+# Sys.setenv(REVEALJS_PLUGINS_VERSION = "latest")
+latest <- 
+  if(Sys.getenv("REVEALJS_PLUGINS_VERSION") == "latest" ) {
+    xfun::github_releases("rajgoel/reveal.js-plugins", pattern = "([0-9.]+)")[1]
+  } else {
+    # to change at each update
+    "4.1.5"
+  }
 url <- sprintf("https://github.com/rajgoel/reveal.js-plugins/archive/refs/tags/%s.zip", latest)
 xfun::download_file(url)
 fs::dir_ls()
