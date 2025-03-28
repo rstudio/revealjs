@@ -28,3 +28,4 @@ inst/reveal.js-[^/]+/package.json
 inst/reveal.js-[^/]+/test
 ^[\.]?air\.toml$
 ^\.vscode$
+^revdep$
