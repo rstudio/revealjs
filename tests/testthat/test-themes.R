@@ -12,20 +12,28 @@ test_theme <- function(theme) {
 
     # create a draft of a presentation
     testdoc <- "testdoc.Rmd"
-    rmarkdown::draft(testdoc,
-                     system.file("rmarkdown", "templates", "revealjs_presentation",
-                                 package = "revealjs"),
-                     create_dir = FALSE,
-                     edit = FALSE)
+    rmarkdown::draft(
+      testdoc,
+      system.file(
+        "rmarkdown",
+        "templates",
+        "revealjs_presentation",
+        package = "revealjs"
+      ),
+      create_dir = FALSE,
+      edit = FALSE
+    )
 
     # render it with the specified theme
     capture.output({
       output_file <- tempfile(fileext = ".html")
       output_format <- revealjs_presentation(theme = theme)
-      rmarkdown::render(testdoc, 
-                        output_format = output_format,
-                        output_file = output_file, 
-                        quiet = TRUE)
+      rmarkdown::render(
+        testdoc,
+        output_format = output_format,
+        output_file = output_file,
+        quiet = TRUE
+      )
       expect_true(file.exists(output_file))
     })
   })

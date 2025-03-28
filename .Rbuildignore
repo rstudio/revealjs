@@ -26,3 +26,5 @@ inst/reveal.js-[^/]+/js
 inst/reveal.js-[^/]+/package-lock.json
 inst/reveal.js-[^/]+/package.json
 inst/reveal.js-[^/]+/test
+^[\.]?air\.toml$
+^\.vscode$

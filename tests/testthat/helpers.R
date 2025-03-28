@@ -6,10 +6,14 @@ local_temp_rmd_file <- function(..., .env = parent.frame()) {
 
 local_temp_draft <- function(.env = parent.frame()) {
   path <- withr::local_tempfile(.local_envir = .env, fileext = ".Rmd")
-  # TODO: Use `rmarkdown::draft()` when rmarkdown 2.12 is out.  
+  # TODO: Use `rmarkdown::draft()` when rmarkdown 2.12 is out.
   pkg_file <- getFromNamespace("pkg_file", "rmarkdown")
-  template_path <- pkg_file("rmarkdown", "templates", "revealjs_presentation", 
-                            package = "revealjs")
+  template_path <- pkg_file(
+    "rmarkdown",
+    "templates",
+    "revealjs_presentation",
+    package = "revealjs"
+  )
   rmarkdown::draft(path, template_path, edit = FALSE)
 }
 

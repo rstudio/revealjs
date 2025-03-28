@@ -1,7 +1,7 @@
 #' Convert to a reveal.js presentation
 #'
 #' Format for converting from R Markdown to a reveal.js presentation.
-#' 
+#'
 #' In reveal.js presentations you can use level 1 or level 2 headers for slides.
 #' If you use a mix of level 1 and level 2 headers then a two-dimensional layout
 #' will be produced, with level 1 headers building horizontally and level 2
@@ -9,69 +9,69 @@
 #'
 #' For additional documentation on using revealjs presentations see
 #' <https://github.com/rstudio/revealjs>
-#' 
+#'
 #' # About plugins
-#' 
+#'
 #' ## Built-in plugins with reveal.js
-#' 
-#' ### Zoom 
-#' 
+#'
+#' ### Zoom
+#'
 #' When activated, ALT + Click can be used to zoom on a slide.
-#' 
-#' ### Notes 
-#'  
+#'
+#' ### Notes
+#'
 #' Show a [speaker view](https://revealjs.com/speaker-view/) in a separated
 #' window. This speaker view contains a timer, current slide, next slide, and
 #' speaker notes. It also duplicate the window to have presentation mode
 #' synchronized with main presentation.
-#' 
-#' Use 
+#'
+#' Use
 #' ```markdown
 #' ::: notes
 #' Content of speaker notes
 #' :::
 #' ```
 #' to create notes only viewable in presentation mode.
-#' 
+#'
 #' ### Search
-#' 
+#'
 #' When opt-in, it is possible to show a search box when pressing `CTRL + SHIFT +
 #' F`. It will seach in the whole presentation, and highlight matched words. The
 #' matches will also be highlighted in overview mode (pressing ESC to see all
 #' slides in one scrollable view)
-#' 
-#' ## Menu 
-#' 
+#'
+#' ## Menu
+#'
 #' A slideout menu plugin for Reveal.js to quickly jump to any slide by title.
-#' 
+#'
 #' Version `r version <- readLines(revealjs_lib_path("plugin", "menu", "VERSION"))` is
 #' currently used and documentation for configurations can be found at
 #' [denehyg/reveal.js-menu](https://github.com/denehyg/reveal.js-menu/blob/`r version`/README.md)
-#' 
+#'
 #' ### Known limitations
-#' 
-#' Some configurations cannot be modified in the current template: 
-#' 
+#'
+#' Some configurations cannot be modified in the current template:
+#'
 #' * `loadIcons: false`  the fontawesome icons are loaded by \pkg{rmarkdown}
 #' when this plugin is used
 #' * `custom: false`
 #' * `themes: false`
 #' * `transitions: false`
 
-#' ## Chalkboard 
-#' 
+#' ## Chalkboard
+#'
 #' A plugin adding a chalkboard and slide annotation
-#' 
+#'
 #' Version `r version <- readLines(revealjs_lib_path("plugin", "chalkboard", "VERSION"))` is
 #' currently used and documentation for configurations can be found at
 #' [rajgoel/reveal.js-plugins](https://github.com/rajgoel/reveal.js-plugins/tree/`r version`/chalkboard)
-#' 
+#'
 #' By default, chalkboard and annotations modes will be accessible using keyboard
-#' shortcuts, respectively, pressing B, or pressing C.  
-#' In addition, buttons on the bottom left can be added by using the following 
-#' 
+#' shortcuts, respectively, pressing B, or pressing C.
+#' In addition, buttons on the bottom left can be added by using the following
+#'
 #' ```yaml
-#' reveal_plugins: 
+#' reveal_plugins:
 #'   - chalkboard
 #' reveal_options:
 #'   chalkboard:
@@ -129,36 +129,37 @@
 #' }
 #'
 #' @export
-revealjs_presentation <- function(incremental = FALSE,
-                                  center = FALSE,
-                                  slide_level = 2,
-                                  toc = FALSE,
-                                  toc_depth = 3,
-                                  fig_width = 8,
-                                  fig_height = 6,
-                                  fig_retina = if (!fig_caption) 2,
-                                  fig_caption = FALSE,
-                                  self_contained = TRUE,
-                                  theme = "simple",
-                                  transition = "convex",
-                                  background_transition = "fade",
-                                  reveal_options = NULL,
-                                  reveal_plugins = NULL,
-                                  highlight = "default",
-                                  mathjax = "default",
-                                  template = "default",
-                                  css = NULL,
-                                  includes = NULL,
-                                  keep_md = FALSE,
-                                  lib_dir = NULL,
-                                  pandoc_args = NULL,
-                                  extra_dependencies = NULL,
-                                  md_extensions = NULL,
-                                  ...) {
-
+revealjs_presentation <- function(
+  incremental = FALSE,
+  center = FALSE,
+  slide_level = 2,
+  toc = FALSE,
+  toc_depth = 3,
+  fig_width = 8,
+  fig_height = 6,
+  fig_retina = if (!fig_caption) 2,
+  fig_caption = FALSE,
+  self_contained = TRUE,
+  theme = "simple",
+  transition = "convex",
+  background_transition = "fade",
+  reveal_options = NULL,
+  reveal_plugins = NULL,
+  highlight = "default",
+  mathjax = "default",
+  template = "default",
+  css = NULL,
+  includes = NULL,
+  keep_md = FALSE,
+  lib_dir = NULL,
+  pandoc_args = NULL,
+  extra_dependencies = NULL,
+  md_extensions = NULL,
+  ...
+) {
   # base pandoc options for all reveal.js output
   args <- c()
-  
+
   # table of contents
   args <- c(args, pandoc_toc_args(toc, toc_depth))
 
@@ -191,7 +192,6 @@ revealjs_presentation <- function(incremental = FALSE,
   }
   args <- c(args, pandoc_variable_arg("theme", theme))
 
-
   # transition
   transition <- match.arg(transition, revealjs_transitions())
   if (identical(transition, "default")) {
@@ -201,12 +201,18 @@ revealjs_presentation <- function(incremental = FALSE,
   args <- c(args, pandoc_variable_arg("transition", transition))
 
   # background_transition
-  background_transition <- match.arg(background_transition, revealjs_transitions())
+  background_transition <- match.arg(
+    background_transition,
+    revealjs_transitions()
+  )
   if (identical(background_transition, "default")) {
     # revealjs default is fade
     background_transition <- "fade"
   }
-  args <- c(args, pandoc_variable_arg("backgroundTransition", background_transition))
+  args <- c(
+    args,
+    pandoc_variable_arg("backgroundTransition", background_transition)
+  )
 
   # use history
   args <- c(args, pandoc_variable_arg("history", "true"))
@@ -218,14 +224,15 @@ revealjs_presentation <- function(incremental = FALSE,
       if (option %in% c("chalkboard", "menu")) {
         nested_options <- reveal_options[[option]]
         for (nested_option in names(nested_options)) {
-          args <- c(args, 
-                    process_reveal_option(
-                      paste0(option, "-", nested_option),
-                      nested_options[[nested_option]]
-                    )
+          args <- c(
+            args,
+            process_reveal_option(
+              paste0(option, "-", nested_option),
+              nested_options[[nested_option]]
+            )
           )
         }
-      } else { 
+      } else {
         # standard top-level options
         args <- c(args, process_reveal_option(option, reveal_options[[option]]))
       }
@@ -234,7 +241,6 @@ revealjs_presentation <- function(incremental = FALSE,
 
   # reveal plugins
   if (is.character(reveal_plugins)) {
-
     # validate that we need to use self_contained for plugins
     if (self_contained) {
       stop("Using reveal_plugins requires self_contained: false")
@@ -244,7 +250,8 @@ revealjs_presentation <- function(incremental = FALSE,
     supported_plugins <- c("notes", "search", "zoom", "chalkboard", "menu")
     invalid_plugins <- setdiff(reveal_plugins, supported_plugins)
     if (length(invalid_plugins) > 0) {
-      stop("The following plugin(s) are not supported: ",
+      stop(
+        "The following plugin(s) are not supported: ",
         paste(invalid_plugins, collapse = ", "),
         call. = FALSE
       )
@@ -276,12 +283,18 @@ revealjs_presentation <- function(incremental = FALSE,
 
   # pre-processor for arguments that may depend on the name of the
   # the input file (e.g. ones that need to copy supporting files)
-  pre_processor <- function(metadata, input_file, runtime, knit_meta, files_dir,
-                            output_dir) {
-
+  pre_processor <- function(
+    metadata,
+    input_file,
+    runtime,
+    knit_meta,
+    files_dir,
+    output_dir
+  ) {
     # we don't work with runtime shiny
     if (identical(runtime, "shiny")) {
-      stop("revealjs_presentation is not compatible with runtime 'shiny'",
+      stop(
+        "revealjs_presentation is not compatible with runtime 'shiny'",
         call. = FALSE
       )
     }
@@ -298,7 +311,8 @@ revealjs_presentation <- function(incremental = FALSE,
     revealjs_path <- revealjs_lib_path()
     if (!self_contained || identical(.Platform$OS.type, "windows")) {
       revealjs_path <- relative_to(
-        output_dir, render_supporting_files(revealjs_path, lib_dir)
+        output_dir,
+        render_supporting_files(revealjs_path, lib_dir)
       )
     } else {
       revealjs_path <- pandoc_path_arg(revealjs_path)
