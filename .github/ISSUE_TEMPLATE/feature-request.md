@@ -1,20 +1,20 @@
 ---
 name: "Feature request"
 about: Suggest an idea for this package
-title: ''
+title: '[FR]'
 labels: ''
 assignees: ''
 ---
 
 <!--
 
-Welcome to the revealjs GitHub repo 👋
+Welcome to the revealjs GitHub repo !
 
 Thanks for taking the time to file a feature request! Please start by searching for an existing feature request to avoid creating duplicate requests. If you find an existing feature request, please give it a thumbs-up reaction, as we'll use these reactions to help prioritize the implementation of these features in the future.
 
 If the feature has not yet been filed, follow these advice to write good feature request: 
 
-- Provide a clear and concise description of the problem this proposed feature would address? For example, I struggle to do `[...]` with .
+- Provide a clear and concise description of the problem this proposed feature would address? For example, I struggle to do `[...]` with revealjs.
 
 - Try to detail what you want to happen.
 
