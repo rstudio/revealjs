@@ -4,24 +4,26 @@ on:
   push:
     branches: [main, master]
   pull_request:
-    branches: [main, master]
   release:
     types: [published]
   workflow_dispatch:
 
-name: pkgdown
+name: pkgdown.yaml
+
+permissions: read-all
 
 jobs:
   pkgdown:
-    if: ${{ github.event_name == 'push' || startsWith(github.head_ref, 'pkgdown/') }}
     runs-on: ubuntu-latest
     # Only restrict concurrency for non-PR jobs
     concurrency:
       group: pkgdown-${{ github.event_name != 'pull_request' || github.run_id }}
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: r-lib/actions/setup-pandoc@v2
 
@@ -34,32 +36,14 @@ jobs:
           extra-packages: any::pkgdown, local::.
           needs: website
 
-      - name: Cache some pkgdown assets
-        uses: actions/cache@v2
-        with:
-          path: |
-            vignettes/articles/images/*.png
-          key: 1-${{ hashFiles('vignettes/articles/examples.yml') }}
-
-      - name: Build pkgdown site
-        run: pkgdown::build_site(new_process = FALSE, install = FALSE)
+      - name: Build site
+        run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
         shell: Rscript {0}
 
-      - name: Deploy to Netlify
-        if: ${{ false }} # TODO: setup netlify
-        id: netlify-deploy
-        uses: nwtgck/actions-netlify@v2
+      - name: Deploy to GitHub pages 🚀
+        if: github.event_name != 'pull_request'
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
-          publish-dir: 'reference'
-          # change back to master if branch is not correct
-          production-branch: main
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message:
-            'Deploy from GHA: ${{ github.event.head_commit.message }} (${{ github.sha }})'
-          enable-pull-request-comment: false
-          enable-commit-comment: false
-          enable-commit-status: true
-          alias: deploy-preview-${{ github.event.number }}
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          clean: false
+          branch: gh-pages
+          folder: docs
