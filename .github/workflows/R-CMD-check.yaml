@@ -16,14 +16,15 @@ on:
       - 'pkgdown/**'
       - '.github/workflows/pkgdown.yaml'
 
+name: R-CMD-check.yaml
 
-name: R-CMD-check
+permissions: read-all
 
 jobs:
   R-CMD-check:
     runs-on: ${{ matrix.config.os }}
 
-    name: ${{ matrix.config.os }} (${{ matrix.config.r }}) [Pandoc ${{ matrix.config.pandoc }}]
+    name: ${{ matrix.config.os }} (${{ matrix.config.r }})
 
     strategy:
       fail-fast: false
@@ -47,12 +48,13 @@ jobs:
           - {os: ubuntu-latest,  pandoc: '2.11.4',   r: 'oldrel-1'}
           - {os: ubuntu-latest,  pandoc: '2.11.4',   r: 'oldrel-2'}
           - {os: ubuntu-latest,  pandoc: '2.11.4',   r: 'oldrel-3'}
+          - {os: ubuntu-latest,  pandoc: '2.11.4',   r: 'oldrel-4'}
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: r-lib/actions/setup-pandoc@v2
 
@@ -82,3 +84,4 @@ jobs:
       - uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
+          build_args: 'c("--no-manual","--compact-vignettes=gs+qpdf")'
